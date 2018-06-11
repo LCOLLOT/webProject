@@ -1,11 +1,13 @@
 <?php
     include ('affichage/header.php');
-    var_dump($_SESSION['user']);
     ?>
 
-<p>kjhefkzhef</p>
+    <h2>Bienvenu monsieur <strong><?php echo $_SESSION['user']; ?></strong></h2>
+
+
+
+
 
 <?php
 include ('affichage/footer.php');
-var_dump($_SESSION['user']);
 ?>
