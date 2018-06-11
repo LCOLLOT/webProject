@@ -23,7 +23,8 @@ include ('affichage/header.php');
             <br>Les logos et autres représentations graphiques de ce site sont protégés au titre des droits d'auteur et
             des articles L.511.1 et suivants du Code de la Propriété Intellectuelle relatifs à la protection des modèles
             déposés.
-            Sauf autorisation, toute utilisation des oeuvres autres que la reproduction et la consultation individuelles et privées sont interdites.
+            Sauf autorisation, toute utilisation des oeuvres autres que la reproduction et la consultation individuelles
+            et privées sont interdites.
             <br>Toute utilisation, reproduction ou représentation,
             par quelque procédé que ce soit, et sur quelque support que ce soit, de tout ou partie du site et/ou des éléments qui le composent n'est pas autorisée sans le consentement expresse de WEB-TROTTEUR.
         </p>
