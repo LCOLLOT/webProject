@@ -1,5 +1,9 @@
 <?php
     session_start();
+session_cache_limiter('private_no_expire, must-revalidate');
+    require 'object/article.php';
+    require 'object/Profil.php';
+    require 'object/distCalculator.php';
 ?>
 <!doctype html>
 <html lang="fr">
@@ -27,7 +31,7 @@
                 <button class="btn btn-info">Compte</button>
                 <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Profil</a></li>
+                    <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span>Mon profil</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Mes Contributions</a></li>
                     <li class="divider"></li>
                     <li><a href="index.php?disconnect=true"><span class="glyphicon glyphicon-list-alt"></span>Se Déconnecter</a></li> </ul>
