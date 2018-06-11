@@ -11,6 +11,7 @@ include ('affichage/header.php');
                             <tr><td>Nom <input type="text" name="nom" class="form-control" required/></td></tr>
                             <tr><td>Adresse <input type="text" name="adresse" class="form-control"/></td></tr>
                             <tr><td>Coordonnées <input type="text" name="coordonnees" class="form-control"/></td></tr>
+                           <input type="text" name="auteur_id" value="<?php echo $_SESSION['user_id'];?>" class="form-control hidden"/>
                             <tr><td>Photo  <input type="file" name="photo" class="form-control"/></td></tr>
                             <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Valider</button></td></tr>
                         </form>

@@ -35,7 +35,28 @@ class loginManager
 
         $user = $req->fetch();
         if( $user['password'] == $this->mdp){
+            $_SESSION['user_id'] = $user['id'];
             return $user['name'];
+        }
+        else{
+            return 'badLog';
+        }
+    }
+    public function getUserId($login,$mdp){
+        if(is_string($login) && !empty($login)){
+            $this->login = $login;
+        }
+        if(is_string($mdp) && !empty($mdp)){
+            $this->mdp = $mdp;
+        }
+
+        $req = $this->bdd->prepare('SELECT * FROM users WHERE mail =:mail');
+        $req->execute(array('mail'=> $this->login));
+
+        $user = $req->fetch();
+        if( $user['password'] == $this->mdp){
+            $_SESSION['user_id'] = $user['id'];
+            return $user['id'];
         }
         else{
             return 'badLog';

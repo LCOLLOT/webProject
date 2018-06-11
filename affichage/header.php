@@ -1,5 +1,7 @@
 <?php
     session_start();
+    require 'object/article.php';
+    require 'object/Profil.php';
 ?>
 <!doctype html>
 <html lang="fr">
@@ -20,13 +22,13 @@
                     <li> <a href="acceuil.php">Accueil</a></li>
                     <li> <a href="newArticle.php">Ajouter un article</a> </li>
                     <li> <a href="#">Patrimoine</a> </li>
-                    <li> <a href="#">Messagerie</a> </li>
+                    <li> <a href="messagerie.php">Messagerie</a> </li>
             </ul>
             <div class="pull-right">
                 <button class="btn btn-info">Compte</button>
                 <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Profil</a></li>
+                    <li><button data-toggle="modal" href="#modalProfil" class="btn btn- primary"><span class="glyphicon glyphicon-user"></span>Mon profil</button></li>
                     <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Mes Contributions</a></li>
                     <li class="divider"></li>
                     <li><a href="index.php?disconnect=true"><span class="glyphicon glyphicon-list-alt"></span>Se Déconnecter</a></li> </ul>

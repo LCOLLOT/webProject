@@ -13,3 +13,13 @@ footer{
 .logo{
     height: 50px;
 }
+.wrapper
+{
+    width : 70%;
+    display : grid;
+    grid-template-columns :repeat(auto-fit, minmax(220px, 1fr));
+    grid-column-gap : 2%;
+    grid-row-gap : 15px;
+    position : relative;
+    top : 10%;
+}
