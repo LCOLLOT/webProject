@@ -7,7 +7,7 @@ include ('affichage/header.php');
         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-lg-5 col-md-5 col-sm-5">
             <table class="table">
                 <tr class="warning"><td>Veillez remplir les champs ci-dessous : </td></tr>
-                <form class="well" method="post" action="traitement/Contact.php" enctype="multipart/form-data">
+                <form class="well" method="post" action="traitement/insertContact.php" enctype="multipart/form-data">
                     <tr><td>Nom <input type="text" name="nom" class="form-control" required/></td></tr>
                     <tr><td>Prénom <input type="text" name="prenom" class="form-control"/></td></tr>
                     <tr><td>Adresse mail <input type="email" name="email" class="form-control"/></td></tr>
