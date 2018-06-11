@@ -16,8 +16,9 @@
 <div class="container">
         <nav class="navbar navbar-default">
             <ul class="nav navbar-nav">
-                    <li><img src="images/web-trotter.png" alt="web-trotter" class="logo"></li>
-                    <li> <a href="#">Accueil</a></li>
+                <li><a href="acceuil.php"><img src="images/web-trotter.png" alt="web-trotter" class="logo"></a></li>
+                    <li> <a href="acceuil.php">Accueil</a></li>
+                    <li> <a href="newArticle.php">Ajouter un article</a> </li>
                     <li> <a href="#">Patrimoine</a> </li>
                     <li> <a href="#">Messagerie</a> </li>
             </ul>
@@ -28,7 +29,7 @@
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Profil</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Mes Contributions</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Se Déconnecter</a></li> </ul>
+                    <li><a href="index.php?disconnect=true"><span class="glyphicon glyphicon-list-alt"></span>Se Déconnecter</a></li> </ul>
             </div>
         </nav>
     <script src="bootstrap/js/jquery.js"></script>

@@ -8,7 +8,12 @@
     $LoginManager = new loginManager();
     $user = $LoginManager->getUser($login,$mdp);
 
-    if(isset($user) && $user != "badLog"){
+if (isset($_GET['disconnect']))
+{
+    $user="disconnect";
+}
+
+    if(isset($user) && $user != "badLog" && $user != "disconnect"){
         $_SESSION['user'] = $user;
         header("Location: acceuil.php");
         exit();
@@ -32,12 +37,24 @@
         <div id="ok">
             <div class="panel panel-danger">
                 <div class="panel-heading" align="center">
-                    <h3 class="panel-title"><strong>Combinaison identifiant / mot de passe incorrect !
+                    <h3 class="panel-title"><strong>Combinaison identifiant / mot de passe incorrect !</strong>
                             <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"><script>addEventListener('click', function(e) { document.getElementById('ok').style.display = 'none';}, false); </script></span></button> </strong></h3> </div>
             </div>
         </div>
 
     </div>
+</div>
+<div class="row">
+    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!$user == 'disconnect') echo "hidden";?>>
+        <div>
+            <div class="panel panel-warning">
+                <div class="panel-heading" align="center">
+                    <h3 class="panel-title"><strong>Vous avez bien été déconnecté !</strong>
+            </div>
+        </div>
+
+    </div>
+</div>
 </div>
 
 <?php
