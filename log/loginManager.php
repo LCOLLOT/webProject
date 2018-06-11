@@ -9,18 +9,19 @@ include ('pdo.php');
 class loginManager
 {
     private $login, $mdp;
+    private $bdd;
 
     public function __construct()
     {
-    }
-
-    public function getUser($login, $mdp){
         try{
-            $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
+            $this->bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
         }
         catch(Exception $e){
             die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
         }
+    }
+
+    public function getUser($login, $mdp){
 
         if(is_string($login) && !empty($login)){
             $this->login = $login;
@@ -29,7 +30,7 @@ class loginManager
             $this->mdp = $mdp;
         }
 
-        $req = $bdd->prepare('SELECT * FROM users WHERE mail =:mail');
+        $req = $this->bdd->prepare('SELECT * FROM users WHERE mail =:mail');
         $req->execute(array('mail'=> $this->login));
 
         $user = $req->fetch();
