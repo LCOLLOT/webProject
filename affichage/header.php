@@ -3,6 +3,7 @@
 session_cache_limiter('private_no_expire, must-revalidate');
     require 'object/article.php';
     require 'object/Profil.php';
+    require 'object/distCalculator.php';
 ?>
 <!doctype html>
 <html lang="fr">
