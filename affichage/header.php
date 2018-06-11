@@ -11,16 +11,22 @@
 <body>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
 <div class="container">
-<header>
-
-    <div class="navbar navbar-default" id="barre">
-        <ul class="nav navbar-nav">
-            <li><img src="images/web-trotter.jpg" alt="web-trotter" class="logo"></li>
-            <li class="active"> <a href="#">Accueil</a> </li>
-            <li> <a href="#">Liens</a></li>
-            <li> <a href="#">Témoignages</a> </li>
-            <li> <a href="#">Références</a> </li>
-        </ul>
-    </div>
-
-</header>
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                    <li><img src="images/web-trotter.png" alt="web-trotter" class="logo"></li>
+                    <li> <a href="#">Accueil</a></li>
+                    <li> <a href="#">Patrimoine</a> </li>
+                    <li> <a href="#">Messagerie</a> </li>
+            </ul>
+            <div class="pull-right">
+                <button class="btn btn-info">Compte</button>
+                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Profil</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Mes Contributions</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Se Déconnecter</a></li> </ul>
+            </div>
+        </nav>
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
