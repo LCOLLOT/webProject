@@ -11,6 +11,7 @@
 if (isset($_GET['disconnect']))
 {
     $user="disconnect";
+
 }
 
     if(isset($user) && $user != "badLog" && $user != "disconnect"){
@@ -33,7 +34,7 @@ if (isset($_GET['disconnect']))
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!$user == 'badLog') echo "hidden";?>>
+    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!($user == 'badLog')) echo "hidden";?>>
         <div id="ok">
             <div class="panel panel-danger">
                 <div class="panel-heading" align="center">
@@ -45,7 +46,7 @@ if (isset($_GET['disconnect']))
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!$user == 'disconnect') echo "hidden";?>>
+    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!($user == 'disconnect')) echo "hidden";?>>
         <div>
             <div class="panel panel-warning">
                 <div class="panel-heading" align="center">

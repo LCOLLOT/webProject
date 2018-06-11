@@ -15,7 +15,12 @@
     <div class="col-lg-9 col-md-9 col-sm-9">
         <h2>Bienvenu monsieur <strong><?php echo $_SESSION['user']; ?></strong></h2>
     </div>
+</div>
+
+<div class="row">
     <div class="col-lg-3 col-md-3 col-sm-3">
+    <!-- Menu à insérer -->
+
         <form class="well" method="post" action="acceuil.php">
 
             <table align="center">
@@ -27,29 +32,31 @@
             </table>
         </form>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-2 col-md-2 col-sm-2">
-
-    </div>
-    <div class="col-lg-10 col-md-10 col-sm-10">
+    <div class="col-lg-9 col-md-9 col-sm-9">
             <!-- Affichage des articles correspondant à la requete dans la barre de recherche-->
             <?php
-            while($id = $req->fetch()){
-                $article = new article($id['id']);
-                ?>
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <table class="table table-bordered">
-                        <tr><td><strong><?php echo $article->getTitre();?></strong></td></tr>
-                        <tr><td><img src="images/articles/<?php  echo $article->getPhoto();?>" alt="<?php echo $article->getTitre();?>" class="img-responsive"></td></tr>
-                        <tr><td><?php echo $article->getContenu()?></td></tr>
-                    </table>
-                </div>
-                <?php
-            }
+            if(isset($_POST['recherche']) && !empty($_POST['recherche'])) {
+                while ($id = $req->fetch()) {
+                    $article = new article($id['id']);
+                    ?>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td><strong><?php echo $article->getTitre(); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                         alt="<?php echo $article->getTitre(); ?>" class="img-responsive"></td>
+                            </tr>
+                            <tr>
+                                <td><?php echo $article->getCoordonnees() ?></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <?php
+                }}
             ?>
-        </section>
 
     </div>
 
