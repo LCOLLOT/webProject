@@ -35,6 +35,7 @@ class loginManager
 
         $user = $req->fetch();
         if( $user['password'] == $this->mdp){
+            $_SESSION['user_id'] = $user['id'];
             return $user['name'];
         }
         else{

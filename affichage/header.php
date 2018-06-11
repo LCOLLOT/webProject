@@ -20,7 +20,7 @@
                     <li> <a href="acceuil.php">Accueil</a></li>
                     <li> <a href="newArticle.php">Ajouter un article</a> </li>
                     <li> <a href="#">Patrimoine</a> </li>
-                    <li> <a href="#">Messagerie</a> </li>
+                    <li> <a href="messagerie.php">Messagerie</a> </li>
             </ul>
             <div class="pull-right">
                 <button class="btn btn-info">Compte</button>
