@@ -4,7 +4,7 @@
 
     <h2>Bienvenu monsieur <strong><?php echo $_SESSION['user']; ?></strong></h2>
 
-
+    <h1>Coucou</h1>
 
 
 
