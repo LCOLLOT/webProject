@@ -22,7 +22,7 @@ class article
         $this->contenu = $article['description'];
         $this->date = $article['date'];
         $this->photo = $article['photo'];
-        $this->coordonnees = $article['coordonnees'];
+        $this->coordonnees = "LATT : "+$article['lattitude']." LONG : ".$article['longitude'];
 
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id');
         $req->execute(array('article_id'=> $id));

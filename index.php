@@ -60,6 +60,21 @@ if (isset($_GET['disconnect']))
 </div>
 </div>
 
+<div>
+<div class="row">
+    <section class="col-sm-6">
+        <p>Vous qui êtes intéressés par le patrimoine, Web-Trotter est fait pour vous.</p>
+        <p>Nous vous permettons de vous renseigner sur les différents lieux touristiques à voir autour de vous, dans un rayon de distance que vous aurez choisi.</p>
+        <p>Vous pourrez également publier vos articles concernant les sites que vous aurez visité.</p>
+        <p>N'hésitez pas à aller lire les articles des autres utilisateurs et leurs laisser vos impressions, cela ne peut que les encourager à continuer, et qui sait, peut-être vous découvrirez-vous des intérêts communs.</p>
+        <p>N'oubliez pas de profiter des moments sur les lieux, et amusez-vous bien en utilisant Web-Trotter.</p>
+    </section>
+    <section class="col-sm-6">
+        <img src="images/web-trotter.png" alt="Monument">
+    </section>
+</div>
+</div>
+
 <?php
     include ('affichage/footer.php');
 ?>
