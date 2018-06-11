@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require 'object/article.php';
 ?>
 <!doctype html>
 <html lang="fr">
