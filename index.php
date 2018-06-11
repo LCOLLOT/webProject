@@ -2,12 +2,17 @@
     require 'log/loginManager.php';
     include ('affichage/header.php');
 
-    $login = htmlspecialchars($_POST['login']);
-    $mdp = htmlspecialchars($_POST['password']);
+    $login = "";
+    $mdp = "";
+    if (isset($_POST['login'])) {
+        $login = htmlspecialchars($_POST['login']);
+        $mdp = htmlspecialchars($_POST['password']);
+    }
 
     $LoginManager = new loginManager();
-    $user = $LoginManager->getUser($login,$mdp);
-    $user_id = $LoginManager->getUserId($login,$mdp);
+    $user = $LoginManager->getUser($login, $mdp);
+    $user_id = $LoginManager->getUserId($login, $mdp);
+
 
 if (isset($_GET['disconnect']))
 {
@@ -28,8 +33,8 @@ if (isset($_GET['disconnect']))
     <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" id="formLog">
         <form class="well" action="index.php" method="post">
             <table align="center">
-                <tr><td><span class="label label-default">Identifiant</span><input type="text" class="form-control" name="login"></td></tr>
-                <tr><td><span class="label label-default">Mot de passe</span><input type="password" class="form-control" name="password"></td></tr>
+                <tr><td><span class="label label-default">Identifiant</span><input type="text" class="form-control" name="login" title="Saisie d'un identifiant"></td></tr>
+                <tr><td><span class="label label-default">Mot de passe</span><input type="password" class="form-control" name="password" title="Saisie du mot de passe"></td></tr>
                 <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Valider</button></td></tr>
             </table>
         </form>

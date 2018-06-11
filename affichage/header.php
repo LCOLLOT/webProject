@@ -20,11 +20,12 @@ session_cache_limiter('private_no_expire, must-revalidate');
 <div class="container">
         <nav class="navbar navbar-default">
             <ul class="nav navbar-nav">
-                <li><a href="acceuil.php"><img src="images/web-trotter.png" alt="web-trotter" class="logo"></a></li>
+                <li><a href="acceuil.php"><img src="images/logo-projet.png" alt="web-trotter" class="logo"></a></li>
                     <li> <a href="acceuil.php">Accueil</a></li>
                     <li> <a href="newArticle.php">Ajouter un article</a> </li>
                     <li> <a href="#">Patrimoine</a> </li>
                     <li> <a href="messagerie.php">Messagerie</a> </li>
+                    <li> <a href="contact.php">Nous contacter</a> </li>
             </ul>
             <div class="pull-right">
                 <button class="btn btn-info">Compte</button>
