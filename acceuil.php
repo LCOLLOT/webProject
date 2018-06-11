@@ -62,8 +62,6 @@
 
 
 </div>
-
-
 <?php
 include ('affichage/footer.php');
 ?>

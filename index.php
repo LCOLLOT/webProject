@@ -7,6 +7,7 @@
 
     $LoginManager = new loginManager();
     $user = $LoginManager->getUser($login,$mdp);
+    $user_id = $LoginManager->getUserId($login,$mdp);
 
 if (isset($_GET['disconnect']))
 {
@@ -16,6 +17,7 @@ if (isset($_GET['disconnect']))
 
     if(isset($user) && $user != "badLog" && $user != "disconnect"){
         $_SESSION['user'] = $user;
+        $_SESSION['user_id'] = $user_id;
         header("Location: acceuil.php");
         exit();
     }
