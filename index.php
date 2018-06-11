@@ -1,5 +1,14 @@
 <?php
+    require 'log/loginManager.php';
     include ('affichage/header.php');
+
+    $login = htmlspecialchars($_POST['login']);
+    $mdp = htmlspecialchars($_POST['password']);
+
+    $LoginManager = new loginManager();
+    $user = $LoginManager->getUser($login,$mdp);
+    var_dump($user);
+
 ?>
 
 <div class="row">

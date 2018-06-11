@@ -5,17 +5,22 @@
  * Date: 11/06/2018
  * Time: 11:01
  */
-
+include ('pdo.php');
 class loginManager
 {
     private $login, $mdp;
 
-    private function __construct()
+    public function __construct()
     {
-        include ('pdo.php');
     }
 
-    private function getUser($login, $mdp){
+    public function getUser($login, $mdp){
+        try{
+            $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
+        }
+        catch(Exception $e){
+            die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
+        }
 
         if(is_string($login) && !empty($login)){
             $this->login = $login;
