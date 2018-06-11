@@ -507,14 +507,14 @@ fieldset[disabled] .btn-danger.active {
 .list-group-item.active,
 .list-group-item.active:hover,
 .list-group-item.active:focus {
-  text-shadow: 0 -1px 0 #321100;
-  background-image: -webkit-linear-gradient(top, #90390D 0%, #321100 100%);
-  background-image:      -o-linear-gradient(top, #90390D 0%, #321100 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#90390D), to(#321100));
-  background-image:         linear-gradient(to bottom, #90390D 0%, #321100 100%);
+  text-shadow: 0 -1px 0 #2b669a;
+  background-image: -webkit-linear-gradient(top, #337ab7 0%, #2b669a 100%);
+  background-image:      -o-linear-gradient(top, #337ab7 0%, #2b669a 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#337ab7), to(#2b669a));
+  background-image:         linear-gradient(to bottom, #337ab7 0%, #2b669a 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff2b669a', GradientType=0);
   background-repeat: repeat-x;
-  border-color: #321100 ;
+  border-color: #2b669a ;
 ;
 }
 .list-group-item.active .badge,
@@ -535,10 +535,10 @@ fieldset[disabled] .btn-danger.active {
   background-repeat: repeat-x;
 }
 .panel-primary > .panel-heading {
-  background-image: -webkit-linear-gradient(top, #90390D 0%, #321100 100%);
-  background-image:      -o-linear-gradient(top, #90390D 0%, #321100 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#90390D), to(#321100));
-  background-image:         linear-gradient(to bottom, #90390D 0%, #321100 100%);
+  background-image: -webkit-linear-gradient(top, #337ab7 0%, #2e6da4 100%);
+  background-image:      -o-linear-gradient(top, #337ab7 0%, #2e6da4 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#337ab7), to(#2e6da4));
+  background-image:         linear-gradient(to bottom, #337ab7 0%, #2e6da4 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff2e6da4', GradientType=0);
   background-repeat: repeat-x;
 }
