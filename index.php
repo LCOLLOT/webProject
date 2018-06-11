@@ -7,7 +7,12 @@
 
     $LoginManager = new loginManager();
     $user = $LoginManager->getUser($login,$mdp);
-    var_dump($user);
+
+    if(isset($user) && $user != "badLog"){
+        $_SESSION['user'] = $user;
+        header("Location: acceuil.php");
+        exit();
+    }
 
 ?>
 
