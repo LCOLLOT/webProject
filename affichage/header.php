@@ -12,12 +12,15 @@
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
 <div class="container">
 <header>
-    <h1>
-        <a href="index.php">
-            <?php
-            echo "Web-Trotter";
-            ?>
-        </a>
-    </h1>
+
+    <div class="navbar navbar-default" id="barre">
+        <ul class="nav navbar-nav">
+            <li><img src="images/web-trotter.jpg" alt="web-trotter" class="logo"></li>
+            <li class="active"> <a href="#">Accueil</a> </li>
+            <li> <a href="#">Liens</a></li>
+            <li> <a href="#">Témoignages</a> </li>
+            <li> <a href="#">Références</a> </li>
+        </ul>
+    </div>
 
 </header>
