@@ -36,47 +36,46 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12" id="searchBarre" align="center">
 
-            <div class="col-lg-3 col-md-3 col-sm-3">
+<div class="col-lg-4 col-md-4 col-sm-4">
+    <form method="post" action="acceuil.php">
+    <table class="table">
+        <tr class="tabLigne"><td>Lieu</td></tr>
+        <tr><td><input type="text" name="recherche" class="form-control"/></td></tr>
+        <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Rechercher</button></td></tr>
+    </table>
+    </form>
+</div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <form method="post" action="acceuil.php">
-                    <table align="center">
-                        <tbody>
-                        <tr><td>Recherche</td></tr>
-                        <tr><td><input type="text" name="recherche" class="form-control"/></td></tr>
-                        <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Rechercher</button></td></tr>
-                        </tbody>
+                    <table class="table">
+                        <tr class="tabLigne"><td>Autour de moi</td></tr>
+                        <tr><td id="lign1"></td></tr>
+                        <tr><td align="center"><button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-search"></span> Rechercher
+                                    <script> function loc() {
+
+                                            function maPosition(position) {
+                                                document.location="acceuil.php?long="+position.coords.longitude+"&latt="+position.coords.latitude;
+                                            }
+                                            if(navigator.geolocation) {
+                                                navigator.geolocation.getCurrentPosition(maPosition);
+                                            }
+
+                                        }
+
+
+                                    </script></button></td></tr>
                     </table>
                 </form>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <table align="center">
-                    <tbody>
-                    <tr><td>Autour de moi</td></tr>
-                    <tr><td><button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-search"></span> Rechercher
-                                <script> function loc() {
 
-                                        function maPosition(position) {
-                                            document.location="acceuil.php?long="+position.coords.longitude+"&latt="+position.coords.latitude;
-                                        }
-                                        if(navigator.geolocation) {
-                                            navigator.geolocation.getCurrentPosition(maPosition);
-                                        }
-
-                                    }
-
-
-                                </script></button></td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <form method="post" action="acceuil.php">
-                    <table>
+                    <table class="table">
                         <tbody>
-                        <tr>
-                            <td>Longitude <input type="text" name="longitude" class="form-control"/></td>
-                            <td>Latitude <input type="text" name="lattitude" class="form-control"/></td>
-                        </tr>
-                        <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Rechercher</button></td></tr>
+                        <tr><td><input type="text" name="longitude" class="form-control" placeholder="Longitude"/></td></tr>
+                        <tr><td><input type="text" name="lattitude" class="form-control" placeholder="Lattitude"/></td></tr>
+                        <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Rechercher</button></td></tr>
                         </tbody>
                     </table>
                 </form>
