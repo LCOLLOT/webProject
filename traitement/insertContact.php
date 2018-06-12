@@ -8,7 +8,7 @@ catch(Exception $e){
 }
 $nom = htmlspecialchars($_POST['nom']);
 $prenom = htmlspecialchars($_POST['prenom']);
-$mail = htmlspecialchars($_POST['mail']);
+$mail = htmlspecialchars($_POST['email']);
 $sujet = htmlspecialchars($_POST['sujet']);
 $message = htmlspecialchars($_POST['message']);
 
@@ -19,7 +19,5 @@ try {
 }catch(Exception $e){
     die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
 }
-?>
-
 header("Location: ../acceuil.php");
 exit();

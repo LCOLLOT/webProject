@@ -104,7 +104,7 @@
                 while ($id = $req->fetch()) {
                     $article = new article($id['id']);
                     ?>
-                    <div class="col-lg-5 col-md-5 col-sm-5">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
                         <table class="table table-bordered">
                             <tr>
                                 <td><strong><?php echo $article->getTitre(); ?></strong></td>
@@ -114,21 +114,8 @@
                                          alt="<?php echo $article->getTitre(); ?>" class="img-responsive"></td>
                             </tr>
                             <tr>
-                                <td>Lattitude <?php echo $article->getLattitude() ?></td>
+                                <td><?php echo $article->getCoordonnees() ?></td>
                             </tr>
-                            <tr>
-                                <td>Longitude<?php echo $article->getLongitude() ?></td>
-                            </tr>
-                            <tr>
-                                <td>Description <?php echo $article->getContenu() ?></td>
-                            </tr>
-                            <tr><td>
-                            <form method="post" action="traitement/insertCommentaire.php">
-                                <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
-                                <input type="text" name="text" class="form-control"/>
-                                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span> Commenter</button>
-                            </form>
-                                </td></tr>
                         </table>
                     </div>
 
@@ -148,7 +135,7 @@
                     if($dist < 10){
                         $article = new article($monument['id']);
                         ?>
-                        <div class="col-lg-5 col-md-5 col-sm-5">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
                             <table class="table table-bordered">
                                 <tr>
                                     <td><strong><?php echo $article->getTitre(); ?></strong></td>
@@ -158,13 +145,7 @@
                                              alt="<?php echo $article->getTitre(); ?>" class="img-responsive"></td>
                                 </tr>
                                 <tr>
-                                    <td>Lattitude <?php echo $article->getLattitude() ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Longitude<?php echo $article->getLongitude() ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Description <?php echo $article->getContenu() ?></td>
+                                    <td><?php echo $article->getCoordonnees() ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -185,7 +166,7 @@
                     if($dist < 10000){
                         $article = new article($monument['id']);
                         ?>
-                        <div class="col-lg-5 col-md-5 col-sm-5">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
                             <table class="table table-bordered">
                                 <tr>
                                     <td><strong><?php echo $article->getTitre(); ?></strong></td>
@@ -195,13 +176,7 @@
                                              alt="<?php echo $article->getTitre(); ?>" class="img-responsive"></td>
                                 </tr>
                                 <tr>
-                                    <td>Lattitude <?php echo $article->getLattitude() ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Longitude<?php echo $article->getLongitude() ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Description <?php echo $article->getContenu() ?></td>
+                                    <td><?php echo $article->getCoordonnees() ?></td>
                                 </tr>
                             </table>
                         </div>
