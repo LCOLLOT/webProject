@@ -122,6 +122,13 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             <tr>
                                 <td>Description <?php echo $article->getContenu() ?></td>
                             </tr>
+                            <tr>
+                                <td>Commentaires : <?php $commentaire = $article->getCommentaires();
+                                    foreach ($commentaire as $com){
+                                        echo "\n".$com;
+                                    }
+                                    ?></td>
+                            </tr>
                             <tr><td>
                                     <form method="post" action="traitement/insertCommentaire.php">
                                         <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
