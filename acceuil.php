@@ -104,8 +104,13 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     </div>
                     <?php
                 }
+                $tabNom = array();
+                $tabM = array();
                 while ($monument = $req->fetch()) {
                     $article = new article($monument['id']);
+                    $article = new article($monument['id']);
+                    $tabM[$monument['longitude']] = $monument['lattitude'];
+                    $tabNom[] = '"'.$monument['titre'].'"';
                     ?>
                     <div class="item">
                         <table class="table table-bordered">
@@ -127,14 +132,11 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             </tr>
                             <tr>
                                 <td>Commentaires :</td>
-                            </tr>
-                            <td>
                                     <?php $commentaire = $article->getCommentaires();
                                     foreach ($commentaire as $com){
                                         echo "<tr><td>".$com."</td></tr>";
                                     }
-                                    ?></td>
-                            </tr>
+                                    ?>
                             <tr><td>
                                     <form method="post" action="traitement/insertCommentaire.php">
                                         <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
@@ -145,7 +147,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             <tr><td>
                                     <form method="post" action="traitement/insertLike.php">
                                         <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
-                                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo $article->getLike()?>
+                                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo " : ".$article->getLike()?>
                                     </form>
                             </td></tr>
                         </table>
@@ -161,11 +163,15 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     <p>Monuments dans un rayon de 10km autour de votre position (LATT:<?php echo $_GET['latt'];?> LONG: <?php echo $_GET['long'];?>)</p>
                 </div>
                 <?php
+                $tabNom = array();
+                $tabM = array();
                 while($monument = $req2->fetch()){
                     $distCalc = new distCalculator($_GET['latt'],$monument['lattitude'],$_GET['long'],$monument['longitude']);
                     $dist = $distCalc->getDist();
                     if($dist < 10000){
                         $article = new article($monument['id']);
+                        $tabM[$monument['longitude']] = $monument['lattitude'];
+                        $tabNom[] = '"'.$monument['titre'].'"';
                         ?>
                         <div class="item">
                             <table class="table table-bordered">
@@ -186,12 +192,12 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <td><?php echo $article->getContenu() ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Commentaires : <?php $commentaire = $article->getCommentaires();
-                                        foreach ($commentaire as $com){
-                                            echo "\n".$com;
-                                        }
-                                        ?></td>
-                                </tr>
+                                    <td>Commentaires :</td>
+                                    <?php $commentaire = $article->getCommentaires();
+                                    foreach ($commentaire as $com){
+                                        echo "<tr><td>".$com."</td></tr>";
+                                    }
+                                    ?>
                                 <tr><td>
                                         <form method="post" action="traitement/insertCommentaire.php">
                                             <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
@@ -202,7 +208,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                 <tr><td>
                                         <form method="post" action="traitement/insertLike.php">
                                             <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
-                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo $article->getLike()?>
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo " : ".$article->getLike()?>
                                         </form>
                                 </td></tr>
                             </table>
@@ -218,11 +224,16 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     <p>Monuments dans un rayon de 10km autour de LATT:<?php echo $lat;?> LONG: <?php echo $long;?></p>
                 </div>
                 <?php
+                $tabNom = array();
+                $tabM = array();
                 while($monument = $req3->fetch()){
                     $distCalc = new distCalculator($lat,$monument['lattitude'],$long,$monument['longitude']);
                     $dist = $distCalc->getDist();
                     if($dist < 10000){
                         $article = new article($monument['id']);
+                        $article = new article($monument['id']);
+                        $tabM[$monument['longitude']] = $monument['lattitude'];
+                        $tabNom[] = '"'.$monument['titre'].'"';
                         ?>
                         <div class="item">
                             <table class="table table-bordered">
@@ -243,12 +254,12 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <td><?php echo $article->getContenu() ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Commentaires : <?php $commentaire = $article->getCommentaires();
-                                        foreach ($commentaire as $com){
-                                            echo "\n".$com;
-                                        }
-                                        ?></td>
-                                </tr>
+                                    <td>Commentaires :</td>
+                                    <?php $commentaire = $article->getCommentaires();
+                                    foreach ($commentaire as $com){
+                                        echo "<tr><td>".$com."</td></tr>";
+                                    }
+                                    ?>
                                 <tr><td>
                                         <form method="post" action="traitement/insertCommentaire.php">
                                             <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
@@ -259,7 +270,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                 <tr><td>
                                         <form method="post" action="traitement/insertLike.php">
                                             <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
-                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo $article->getLike()?>
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo " : ".$article->getLike()?>
                                         </form>
                                 </td></tr>
                             </table>
@@ -276,9 +287,18 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     <script>
         var map;
         function initMap() {
+
+
+                var lat = 47.7290842;
+                var long = 7.310896100000036;
+                <?php if(isset($_GET['latt'])){?>
+                lat = <?php echo $_GET['latt']?>;
+                long = <?php echo $_GET['long']?>;
+                <?php }?>
+
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 16,
-                center: new google.maps.LatLng(47.7290842, 7.310896100000036),
+                center: new google.maps.LatLng(lat, long),
                 mapTypeId: 'roadmap'
             });
 
@@ -297,9 +317,20 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
             var features = [
                 {
-                    position: new google.maps.LatLng(47.7290842, 7.310896100000036),
+                    position: new google.maps.LatLng(lat, long),
                     type: 'info'
                 }
+                <?php
+                    $i = 0;
+                    foreach ($tabM as $long => $latt){
+                        ?>,
+                            {
+                            position: new google.maps.LatLng(<?php echo $latt;?>, <?php echo $long;?>),type: 'info', nom: <?php echo $tabNom[$i];?>
+                            }
+                        <?php
+                    $i++;
+                    }
+                ?>
             ];
 
             // Create markers.
@@ -307,7 +338,8 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                 var marker = new google.maps.Marker({
                     position: feature.position,
                     icon: icons[feature.type].icon,
-                    map: map
+                    map: map,
+                    label: feature.nom
                 });
             });
         }
@@ -316,5 +348,6 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
 
 <?php
+var_dump($tabNom);
 include ('affichage/footer.php');
 ?>
