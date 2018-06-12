@@ -104,7 +104,7 @@
                 while ($id = $req->fetch()) {
                     $article = new article($id['id']);
                     ?>
-                    <div class="col-lg-5 col-md-5 col-sm-5">
+                    <div class="item">
                         <table class="table table-bordered">
                             <tr>
                                 <td><strong><?php echo $article->getTitre(); ?></strong></td>
@@ -145,10 +145,10 @@
                 while($monument = $req2->fetch()){
                     $distCalc = new distCalculator($_GET['latt'],$monument['lattitude'],$_GET['long'],$monument['longitude']);
                     $dist = $distCalc->getDist();
-                    if($dist < 10){
+                    if($dist < 10000){
                         $article = new article($monument['id']);
                         ?>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="item">
                             <table class="table table-bordered">
                                 <tr>
                                     <td><strong><?php echo $article->getTitre(); ?></strong></td>
@@ -199,7 +199,7 @@
                     if($dist < 10000){
                         $article = new article($monument['id']);
                         ?>
-                        <div class="col-lg-5 col-md-5 col-sm-5">
+                        <div class="item">
                             <table class="table table-bordered">
                                 <tr>
                                     <td><strong><?php echo $article->getTitre(); ?></strong></td>
