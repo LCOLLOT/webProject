@@ -19,7 +19,7 @@ catch(Exception $e){
         $article = new article($id['id']);
         ?>
         <div class="col-lg-3 col-md-3 col-sm-3">
-            <from method="post" action="traitement/modifArticle.php">
+            <from class="well" method="post" action="traitement/modifArticle.php">
             <table class="table table-bordered">
                 <tr>
                     <td><input type="text" name="titre" value="<?php echo $article->getTitre(); ?>"></td>
@@ -30,6 +30,12 @@ catch(Exception $e){
                 </tr>
                 <tr>
                     <td><input type="text" name="lattitude" value="<?php echo $article->getLattitude(); ?>"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="longitude" value="<?php echo $article->getLongitude(); ?>"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="longitude" value="<?php echo $article->getLongitude(); ?>"></td>
                 </tr>
             </table>
                 </from>
