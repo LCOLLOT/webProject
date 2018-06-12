@@ -25,6 +25,7 @@ class article
         $this->lattitude = $article['lattitude'];
         $this->longitude = $article['longitude'];
         $this->id = $id;
+        $this->like = $article['jaime'];
 
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id');
         $req->execute(array('id'=> $id));
@@ -56,7 +57,9 @@ class article
     public function getDate(){
         return $this->date;
     }
-
+    public function getLike() {
+        return $this->like;
+    }
     public function getId(){
         return $this->id;
     }
