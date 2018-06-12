@@ -42,7 +42,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                         <tbody>
                         <tr><td>Recherche</td></tr>
                         <tr><td><input type="text" name="recherche" class="form-control"/></td></tr>
-                        <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Rechercher</button></td></tr>
+                        <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Rechercher</button></td></tr>
                         </tbody>
                     </table>
                 </form>
@@ -51,7 +51,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                 <table align="center">
                     <tbody>
                     <tr><td>Autour de moi</td></tr>
-                    <tr><td><button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-ok-sign"></span> Rechercher
+                    <tr><td><button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-search"></span> Rechercher
                                 <script> function loc() {
 
                                         function maPosition(position) {
@@ -76,7 +76,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             <td>Longitude <input type="text" name="longitude" class="form-control"/></td>
                             <td>Latitude <input type="text" name="lattitude" class="form-control"/></td>
                         </tr>
-                        <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Rechercher</button></td></tr>
+                        <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Rechercher</button></td></tr>
                         </tbody>
                     </table>
                 </form>
