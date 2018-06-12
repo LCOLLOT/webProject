@@ -9,10 +9,10 @@ catch(Exception $e){
 
     $article_id = htmlspecialchars($_POST['idArticle']);
     $auteur_id = htmlspecialchars($_SESSION['user_id']);
-    $texte = htmlspecialchars($_POST['texte']);
+    $texte = htmlspecialchars($_POST['text']);
 
     try{
-        $req =$bdd->prepare('INSERT INTO commentaires(article_id,auteur_id,`date`,texte) VALUES (:article_id,:auteur_id,date("F j, Y, g:i a"),:texte)');
+        $req =$bdd->prepare('INSERT INTO commentaires(article_id,auteur_id,`date`,texte) VALUES (:article_id,:auteur_id, NOW(),:texte)');
         $req->execute(array("article_id"=>$article_id,"auteur_id"=>$auteur_id,"texte"=>$texte));
     }
     catch(Exception $e){

@@ -123,9 +123,12 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                 <td>Description <?php echo $article->getContenu() ?></td>
                             </tr>
                             <tr>
-                                <td>Commentaires : <?php $commentaire = $article->getCommentaires();
+                                <td>Commentaires :</td>
+                            </tr>
+                            <td>
+                                    <?php $commentaire = $article->getCommentaires();
                                     foreach ($commentaire as $com){
-                                        echo "\n".$com;
+                                        echo "<tr><td>".$com."</td></tr>";
                                     }
                                     ?></td>
                             </tr>
