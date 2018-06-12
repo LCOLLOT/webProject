@@ -40,7 +40,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     <form method="post" action="acceuil.php">
     <table class="table">
         <tr class="tabLigne"><td>Lieu</td></tr>
-        <tr><td><input type="text" name="recherche" class="form-control"/></td></tr>
+        <tr><td><input type="text" name="recherche" class="form-control" placeholder="Tapez une indication du lieu ici"/></td></tr>
         <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Rechercher</button></td></tr>
     </table>
     </form>
