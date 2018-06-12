@@ -1,7 +1,8 @@
 <?php
 include ('affichage/header.php');
 include('log/pdo.php');
-$reponse = $bdd->query('SELECT users.name, messages.contenu, messages.date FROM users, messages WHERE messages.auteur_id = users.id AND destinataire_id = "'.$_SESSION['user_id'].'" ORDER BY messages.id DESC');
+$reponse = $bdd->prepare('SELECT users.name, messages.contenu, messages.date FROM users, messages WHERE messages.auteur_id = users.id AND destinataire_id = :idUser ORDER BY messages.id DESC');
+$reponse->execute( array("idUser"=>$_SESSION['user_id']));
 ?>
 
     <h2>Messagerie de  monsieur <strong><?php echo $_SESSION['user']; ?></strong></h2>

@@ -2,7 +2,7 @@
 
 class article
 {
-    private $titre, $coordonnees,$photo,$commentaires,$contenu, $date;
+    private $titre, $lattitude,$longitude,$photo,$commentaires,$contenu, $date;
     private $bdd;
 
     public function __construct($id)
@@ -22,7 +22,8 @@ class article
         $this->contenu = $article['description'];
         $this->date = $article['date'];
         $this->photo = $article['photo'];
-        $this->coordonnees = "LATT : "+$article['lattitude']." LONG : ".$article['longitude'];
+        $this->lattitude = $article['lattitude'];
+        $this->longitude = $article['longitude'];
 
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id');
         $req->execute(array('article_id'=> $id));
@@ -36,8 +37,11 @@ class article
     public function getTitre(){
         return $this->titre;
     }
-    public function getCoordonnees(){
-        return $this->coordonnees;
+    public function getLattitude(){
+        return $this->lattitude;
+    }
+    public function getLongitude(){
+        return $this->longitude;
     }
     public function  getPhoto(){
         return $this->photo;

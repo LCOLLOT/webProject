@@ -11,7 +11,6 @@ $prenom = htmlspecialchars($_POST['prenom']);
 $mail = htmlspecialchars($_POST['mail']);
 $sujet = htmlspecialchars($_POST['sujet']);
 $message = htmlspecialchars($_POST['message']);
-$nb = rand(100,100000);
 
 try {
     $req = $bdd->prepare('INSERT INTO reclamations(nom,prenom,mail,sujet,message) VALUES (:nom,:prenom,:mail,:sujet,:message)');
@@ -21,3 +20,6 @@ try {
     die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
 }
 ?>
+
+header("Location: ../acceuil.php");
+exit();
