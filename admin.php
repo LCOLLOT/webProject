@@ -22,7 +22,7 @@ $result = $bdd->query('SELECT * FROM users ');
         <td><?php echo $data['name'];?></td>
         <td><?php echo $data['mail'];?></td>
         <td><form method=\"post\" action=deletemember.php>
-    <button type="submit" name="idToDelete" value="<?php echo $data[$id];?>">Supprimer</button>
+    <button type="submit" name="idToDelete" value="<?php echo $data['id'];?>">Supprimer</button>
             </form>
     </tr>
     <?php
