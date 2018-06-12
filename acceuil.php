@@ -29,7 +29,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9">
-            <h2>Bienvenu <strong><?php echo $_SESSION['user']; ?></strong></h2>
+            <h2>Bienvenue <strong><?php echo $_SESSION['user']; ?></strong></h2>
         </div>
     </div>
 
@@ -42,7 +42,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                         <tbody>
                         <tr><td>Recherche</td></tr>
                         <tr><td><input type="text" name="recherche" class="form-control"/></td></tr>
-                        <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Rechercher</button></td></tr>
+                        <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Rechercher</button></td></tr>
                         </tbody>
                     </table>
                 </form>
@@ -51,7 +51,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                 <table align="center">
                     <tbody>
                     <tr><td>Autour de moi</td></tr>
-                    <tr><td><button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-ok-sign"></span>Rechercher
+                    <tr><td><button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-ok-sign"></span> Rechercher
                                 <script> function loc() {
 
                                         function maPosition(position) {
@@ -76,7 +76,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             <td>Longitude <input type="text" name="longitude" class="form-control"/></td>
                             <td>Lattitude <input type="text" name="lattitude" class="form-control"/></td>
                         </tr>
-                        <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Rechercher</button></td></tr>
+                        <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Rechercher</button></td></tr>
                         </tbody>
                     </table>
                 </form>
@@ -117,10 +117,10 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                 <td>Lattitude <?php echo $article->getLattitude() ?></td>
                             </tr>
                             <tr>
-                                <td>Longitude<?php echo $article->getLongitude() ?></td>
+                                <td>Longitude <?php echo $article->getLongitude() ?></td>
                             </tr>
                             <tr>
-                                <td>Description <?php echo $article->getContenu() ?></td>
+                                <td><?php echo $article->getContenu() ?></td>
                             </tr>
                             <tr>
                                 <td>Commentaires : <?php $commentaire = $article->getCommentaires();
@@ -174,10 +174,10 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <td>Lattitude <?php echo $article->getLattitude() ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Longitude<?php echo $article->getLongitude() ?></td>
+                                    <td>Longitude <?php echo $article->getLongitude() ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Description <?php echo $article->getContenu() ?></td>
+                                    <td><?php echo $article->getContenu() ?></td>
                                 </tr>
                                 <tr>
                                     <td>Commentaires : <?php $commentaire = $article->getCommentaires();
@@ -231,10 +231,10 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <td>Lattitude <?php echo $article->getLattitude() ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Longitude<?php echo $article->getLongitude() ?></td>
+                                    <td>Longitude <?php echo $article->getLongitude() ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Description <?php echo $article->getContenu() ?></td>
+                                    <td><?php echo $article->getContenu() ?></td>
                                 </tr>
                                 <tr>
                                     <td>Commentaires : <?php $commentaire = $article->getCommentaires();
