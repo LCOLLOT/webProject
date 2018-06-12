@@ -28,8 +28,7 @@ require 'object/distCalculator.php';
             <li> <a href="admin.php">Pannel administrateur</a> </li>
         </ul>
         <div class="pull-right">
-            <button class="btn btn-info">Compte</button>
-            <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+            <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">Compte <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span>Mon profil</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Mes Contributions</a></li>
