@@ -2,9 +2,9 @@
     include ("affichage/header.php");
     $profil = new Profil($_SESSION['user_id']);
 ?>
-<h2>Votre profil</h2>
+<h2 id="titreProfil">Votre profil</h2>
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-mg-6 col-sm-offset-3 col-sm-6">
             <form class="well" method="post" action="traitement/modifProfil.php">
                     <table class="table table-bordered">
                             <tr><td>Nom  :<input type="text" name="nom" value="<?php echo $profil->getName();?>"class="form-control"/></td></tr>
