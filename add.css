@@ -37,6 +37,10 @@ margin: auto;
     width: 600px;
     height: 300px;
 }
+
+#titreProfil, #titreNewArticle{
+    text-align: center;
+}
 #lign1{
     height: 50px;
 }
