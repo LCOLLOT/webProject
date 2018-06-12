@@ -168,7 +168,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     </tr>
                                     <tr>
                                         <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                                 alt="<?php echo $article->getTitre(); ?>" class="img-responsive"></td>
+                                                 alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></td>
                                     </tr>
                                     <tr>
                                         <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>
@@ -330,7 +330,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     </tr>
                                     <tr>
                                         <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                                 alt="<?php echo $article->getTitre(); ?>" class="img-responsive"></td>
+                                                 alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></td>
                                     </tr>
                                     <tr>
                                         <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>

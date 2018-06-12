@@ -1,4 +1,5 @@
 <?php
+session_start();
     include ("affichage/header.php");
     $profil = new Profil($_SESSION['user_id']);
 ?>
