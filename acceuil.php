@@ -276,9 +276,18 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     <script>
         var map;
         function initMap() {
+
+
+                var lat = 47.7290842;
+                var long = 7.310896100000036;
+                <?php if(isset($_GET['latt'])){?>
+                lat = <?php echo $_GET['latt']?>;
+                long = <?php echo $_GET['long']?>;
+                <?php }?>
+
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 16,
-                center: new google.maps.LatLng(47.7290842, 7.310896100000036),
+                center: new google.maps.LatLng(lat, long),
                 mapTypeId: 'roadmap'
             });
 
@@ -297,7 +306,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
             var features = [
                 {
-                    position: new google.maps.LatLng(47.7290842, 7.310896100000036),
+                    position: new google.maps.LatLng(lat, long),
                     type: 'info'
                 }
             ];
