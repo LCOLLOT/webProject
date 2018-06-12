@@ -5,15 +5,19 @@ $reponse = $bdd->prepare('SELECT users.name, messages.contenu, messages.date FRO
 $reponse->execute( array("idUser"=>$_SESSION['user_id']));
 ?>
 
-    <h2>Messagerie de  monsieur <strong><?php echo $_SESSION['user']; ?></strong></h2>
+    <h2>Messagerie de <strong><?php echo $_SESSION['user']; ?></strong></h2>
     <a class="btn btn-default" href="newMessage.php" role="button"><span class="glyphicon glyphicon-pencil"></span> Nouveau Message</a>
     <!--$insertion = $bdd->prepare('INSERT INTO messages VALUES(NULL,"'.$contenu.'""'.$_SESSION['user_id'].'",);
     $insertion->execute(); -->
 <?php
     echo '<h3>Vos Messages :</h3>';
     while($donnees = $reponse->fetch()){
-        echo '<h4>'.'De : '.$donnees['name'].', '.$donnees['date'].' :'.'</h4>';
-        echo '<h4>'.$donnees['contenu'].'</h4>';
+        ?>
+        <div class="well well-sm">
+            <span class="glyphicon glyphicon-envelope"></span><?php echo ' De : '.$donnees['name'].', '.$donnees['date'].' :';?>
+            <?php echo '<h4>'.$donnees['contenu'].'</h4>'; ?>
+        </div>
+        <?php
     }
 ?>
 <?php
