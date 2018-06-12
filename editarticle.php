@@ -1,6 +1,5 @@
 <?php
 include ('affichage/headeradmin.php');
-include ('log/pdo.php');
 ?>
 
 <?php
@@ -26,23 +25,26 @@ include ('log/pdo.php');
             $article = new article($data['id']);
 
             ?>
-        <table>
-            <tr>
-                <td>ID <?php echo $article->getId(); ?>
-                <td>Titre <input type="text" name="titre" value="<?php echo $article->getTitre(); ?>"/></td>
-                <td>Photo  <input type="file" name="photo" class="form-control"/></td>
-                <td>Latitude <input type="text" name="latitude" value="<?php echo $article->getLattitude(); ?>"/></td>
-                <td>Longitude <input type="text" name="longitude" value="<?php echo $article->getLongitude(); ?>"/></td>
-                <td>Description <textarea name="description" rows="10" cols="50" class="form-control"><?php echo $article->getContenu(); ?></textarea></td>
-                <td>
-                    <form method=\"post\" action=deletearticle.php>
-                        <button type="submit" name="idToDelete" value="<?php echo $data['id']; ?>">Supprimer</button>
-                    </form>
-            </tr>
-        </table>
+            <form method="post" action="updateArticle.php">
+                <input type="hidden" name="id" value="<?php echo $article->getId();?>">
+                <table>
+                    <tr>
+                        <td>ID <?php echo $article->getId(); ?>
+                        <td>Titre <input type="text" name="titre" value="<?php echo $article->getTitre(); ?>"/></td>
+                        <td>Photo  <input type="file" name="photo" class="form-control"/></td>
+                        <td>Latitude <input type="text" name="latitude" value="<?php echo $article->getLattitude(); ?>"/></td>
+                        <td>Longitude <input type="text" name="longitude" value="<?php echo $article->getLongitude(); ?>"/></td>
+                        <td>Description <textarea name="description" rows="10" cols="50" class="form-control"><?php echo $article->getContenu(); ?></textarea></td>
+                        <td>
+                            <input type="submit" name="Delete" value="Supprimer"></input>
+                            <input type="submit" name="Update" value="Sauvegarder"></input>
+                        </td>
+                    </tr>
+                </table>
+            </form>
             <?php
         }
-        $result->closeCursor();
+        $req->closeCursor();
     }
 
 

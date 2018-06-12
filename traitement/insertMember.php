@@ -14,7 +14,7 @@ $photo = $pseudo;
 echo $pseudo;
 
 try {
-    $req = $bdd->prepare('INSERT INTO users(name, mail, password, pseudo, date, photo) VALUES (:name, :mail, :password, :pseudo, NOW(), :photo)');
+    $req = $bdd->prepare('INSERT INTO users(name, mail, password, pseudo, date, photo, groupe) VALUES (:name, :mail, :password, :pseudo, NOW(), :photo, \'\')');
     $req->execute(array("name" => $name, "mail" => $mail, "password" =>  $password, "pseudo" => $pseudo, "photo" =>$photo));
 
 }catch(Exception $e){

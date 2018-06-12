@@ -1,11 +1,7 @@
 <?php
 include ('affichage/headeradmin.php');
-include ('log/pdo.php');
-?>
 
-<?php
-
-$result = $bdd->query('SELECT * FROM users ');
+$users = $bdd->query('SELECT * FROM users ');
 ?>
 
     <a href="editarticle.php">Modifier des articles</a>
@@ -18,7 +14,7 @@ $result = $bdd->query('SELECT * FROM users ');
                     <th>Email</th>
                 </tr>
 <?php
-    while ($data = $result->fetch())
+    while ($data = $users->fetch())
 {
     ?>
     <tr>
@@ -31,7 +27,7 @@ $result = $bdd->query('SELECT * FROM users ');
     </tr>
     <?php
 }
-$result->closeCursor();
+$users->closeCursor();
 
 ?>
 </table>

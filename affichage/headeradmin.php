@@ -1,8 +1,24 @@
 <?php
-session_start();
 session_cache_limiter('private_no_expire, must-revalidate');
+include ('log/pdo.php');
+include ('object/Profil.php');
+
+if (!isset($_SESSION) || !isset($_SESSION["user_id"]))
+{
+    header("Location: index.php");
+    exit();
+}
+$userId = $_SESSION["user_id"];
+$profil = new Profil($userId);
+
+if ($profil->getGroupe() != "admin")
+{
+    http_response_code(403);
+    echo "Page interdite w4nn4-83-h4x0r";
+    exit();
+}
+
 require 'object/article.php';
-require 'object/Profil.php';
 require 'object/distCalculator.php';
 ?>
 <!doctype html>
@@ -16,8 +32,9 @@ require 'object/distCalculator.php';
 </head>
 
 <body>
-<!-- COMMENTAIRE : ici, je place le corps de mon site -->
+<!-- Ceci est mon corps -->
 <div class="container">
+    <!-- Ceci est mon sang -->
     <nav class="navbar navbar-default">
         <ul class="nav navbar-nav">
             <li><a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a></li>
