@@ -155,11 +155,13 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                         <?php
                         $tabNom = array();
                         $tabM = array();
+                        $tabDescriptif = array();
                         $first = true;
                         while ($monument = $req->fetch()) {
                             $article = new article($monument['id']);
                             $tabM[$article->getLongitude()] = $article->getLattitude();
                             $tabNom[] = '"' . $article->getTitre() . '"';
+                            $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
                             ?>
                             <div class="item <?php if ($first == true) echo "active"; ?>">
                                 <table class="table table-bordered">
@@ -167,8 +169,8 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                         <td><strong><?php echo $article->getTitre(); ?></strong></td>
                                     </tr>
                                     <tr>
-                                        <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                                 alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></td>
+                                        <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                                 alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
                                     </tr>
                                     <tr>
                                         <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>
@@ -232,6 +234,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                         <?php
                         $tabNom = array();
                         $tabM = array();
+                        $tabDescriptif = array();
                         $first = true;
                         while ($monument = $req2->fetch()) {
                             $distCalc = new distCalculator($_GET['latt'], $monument['lattitude'], $_GET['long'], $monument['longitude']);
@@ -240,6 +243,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                 $article = new article($monument['id']);
                                 $tabM[$monument['longitude']] = $monument['lattitude'];
                                 $tabNom[] = '"' . $monument['titre'] . '"';
+                                $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
                                 ?>
                                 <div class="item <?php if ($first == true) echo "active"; ?>">
                                     <table class="table table-bordered">
@@ -314,6 +318,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     <?php
                     $tabNom = array();
                     $tabM = array();
+                    $tabDescriptif = array();
                     $first = true;
                     while ($monument = $req3->fetch()) {
                         $distCalc = new distCalculator($lat, $monument['lattitude'], $long, $monument['longitude']);
@@ -322,6 +327,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             $article = new article($monument['id']);
                             $tabM[$monument['longitude']] = $monument['lattitude'];
                             $tabNom[] = '"' . $monument['titre'] . '"';
+                            $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
                             ?>
                             <div class="item <?php if ($first == true) echo "active"; ?>">
                                 <table class="table table-bordered">
@@ -421,10 +427,13 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                 }
             };
 
+
+
             var features = [
                 {
                     position: new google.maps.LatLng(lat, long),
-                    type: 'info'
+                    type: 'info',
+                    nom: 'Votre Localisation'
                 }
                 <?php
                 $i = 0;
@@ -433,7 +442,8 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                 {
                     position: new google.maps.LatLng(<?php echo $latt;?>, <?php echo $long;?>),
                     type: 'info',
-                    nom: <?php echo $tabNom[$i];?>
+                    nom: <?php echo $tabNom[$i];?>,
+                    text: <?php echo $tabDescriptif[$i];?>
                 }
                 <?php
                 $i++;
@@ -449,6 +459,14 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     map: map,
                     label: feature.nom
                 });
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: feature.text
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
             });
         }
     </script>
@@ -461,5 +479,6 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     </script>
 
 <?php
+var_dump($tabDescriptif);
 include('affichage/footer.php');
 ?>

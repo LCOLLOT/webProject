@@ -28,9 +28,6 @@ footer{
     border-color: #0f0f0f;
 }
 
-#buttonH{
-    margin-top: 10px;
-}
 #map{
 margin: auto;
     margin-top: 20px;
@@ -46,4 +43,10 @@ margin: auto;
 }
 .tabLigne{
     height: 50px;
+}
+#lignForm{
+    margin-top: 18%;
+}
+#textIntro{
+    color: dimgray;
 }

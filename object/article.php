@@ -63,4 +63,7 @@ class article
     public function getId(){
         return $this->id;
     }
+    public function getUniqueCommentaire(){
+        return $this->commentaires[sizeof($this->commentaires)-1];
+    }
 }

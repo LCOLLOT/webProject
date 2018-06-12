@@ -1,6 +1,11 @@
 <?php
-    //session_start();
+    session_start();
 session_cache_limiter('private_no_expire, must-revalidate');
+if (!isset($_SESSION['user']))
+{
+    header("Location: index.php");
+    exit();
+}
     require 'object/article.php';
     require 'object/Profil.php';
     require 'object/distCalculator.php';

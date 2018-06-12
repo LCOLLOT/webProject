@@ -1,6 +1,27 @@
 <?php
-include ('affichage/header.php');
+session_start();
+session_cache_limiter('private_no_expire, must-revalidate');
 ?>
+    <!doctype html>
+    <html lang="fr">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Web-Trotter</title>
+        <link rel="stylesheet" href="add.css" />
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <!-- COMMENTAIRE : ici, je place le corps de mon site -->
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li><a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a></li>
+            </ul>
+        </nav>
+        <script src="bootstrap/js/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <h2>Nous contacter</h2>
     <div class="row">

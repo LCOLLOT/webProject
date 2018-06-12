@@ -25,8 +25,8 @@ catch(Exception $e){
                     <td>Titre <input type="text" name="titre" value="<?php echo $article->getTitre(); ?>" class="form-control"></td>
                 </tr>
                 <tr>
-                    <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                             alt="<?php echo $article->getTitre(); ?>" class="img-responsive"></td>
+                    <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                             alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
                 </tr>
                 <tr>
                     <td>Lattitude<input type="text" name="lattitude" value="<?php echo $article->getLattitude(); ?>" class="form-control"></td>
@@ -37,6 +37,7 @@ catch(Exception $e){
                 <tr>
                     <td>Description<textarea name="description" class="form-control"><?php echo $article->getContenu()?></textarea></td>
                 </tr>
+                    <input type="text" name="id_article" value="<?php echo $id['id'];?>" hidden>
                 <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span> Modifier</button></td></tr>
                 </form>
 
