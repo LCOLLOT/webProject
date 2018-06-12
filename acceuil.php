@@ -104,8 +104,13 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     </div>
                     <?php
                 }
+                $tabNom = array();
+                $tabM = array();
                 while ($monument = $req->fetch()) {
                     $article = new article($monument['id']);
+                    $article = new article($monument['id']);
+                    $tabM[$monument['longitude']] = $monument['lattitude'];
+                    $tabNom[] = '"'.$monument['titre'].'"';
                     ?>
                     <div class="item">
                         <table class="table table-bordered">
@@ -158,6 +163,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     <p>Monuments dans un rayon de 10km autour de votre position (LATT:<?php echo $_GET['latt'];?> LONG: <?php echo $_GET['long'];?>)</p>
                 </div>
                 <?php
+                $tabNom = array();
                 $tabM = array();
                 while($monument = $req2->fetch()){
                     $distCalc = new distCalculator($_GET['latt'],$monument['lattitude'],$_GET['long'],$monument['longitude']);
@@ -165,6 +171,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     if($dist < 10000){
                         $article = new article($monument['id']);
                         $tabM[$monument['longitude']] = $monument['lattitude'];
+                        $tabNom[] = '"'.$monument['titre'].'"';
                         ?>
                         <div class="item">
                             <table class="table table-bordered">
@@ -217,11 +224,16 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     <p>Monuments dans un rayon de 10km autour de LATT:<?php echo $lat;?> LONG: <?php echo $long;?></p>
                 </div>
                 <?php
+                $tabNom = array();
+                $tabM = array();
                 while($monument = $req3->fetch()){
                     $distCalc = new distCalculator($lat,$monument['lattitude'],$long,$monument['longitude']);
                     $dist = $distCalc->getDist();
                     if($dist < 10000){
                         $article = new article($monument['id']);
+                        $article = new article($monument['id']);
+                        $tabM[$monument['longitude']] = $monument['lattitude'];
+                        $tabNom[] = '"'.$monument['titre'].'"';
                         ?>
                         <div class="item">
                             <table class="table table-bordered">
@@ -309,15 +321,15 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     type: 'info'
                 }
                 <?php
+                    $i = 0;
                     foreach ($tabM as $long => $latt){
                         ?>,
                             {
-                            position: new google.maps.LatLng(<?php echo $latt;?>, <?php echo $long;?>), type: 'info'
+                            position: new google.maps.LatLng(<?php echo $latt;?>, <?php echo $long;?>),type: 'info', nom: <?php echo $tabNom[$i];?>
                             }
                         <?php
+                    $i++;
                     }
-
-
                 ?>
             ];
 
@@ -326,7 +338,8 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                 var marker = new google.maps.Marker({
                     position: feature.position,
                     icon: icons[feature.type].icon,
-                    map: map
+                    map: map,
+                    label: feature.nom
                 });
             });
         }
@@ -335,6 +348,6 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
 
 <?php
-var_dump($tabM);
+var_dump($tabNom);
 include ('affichage/footer.php');
 ?>
