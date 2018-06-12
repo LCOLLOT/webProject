@@ -24,7 +24,6 @@ catch(Exception $e){
 
 if (isset($_FILES['photo']) and $_FILES['photo']['error'] == 0)
 {
-
         $infos_fichier = pathinfo($_FILES['photo']['name']);
         $extension_upload = $infos_fichier['extension'];
         $extensions_autorisees= array('jpg','jpeg','png');

@@ -2,7 +2,7 @@
     session_start();
     include "affichage/header.php";
 try{
-    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
 }
 catch(Exception $e){
     die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
@@ -18,7 +18,7 @@ catch(Exception $e){
     while($id = $req->fetch()){
         $article = new article($id['id']);
         ?>
-        <div class="col-lg-5 col-md-5 col-sm-5">
+        <div class="item">
             <table class="table table-bordered">
                 <form class="well" method="post" action="traitement/modifArticle.php">
                 <tr>
