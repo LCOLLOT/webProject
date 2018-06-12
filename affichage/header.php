@@ -21,7 +21,6 @@ session_cache_limiter('private_no_expire, must-revalidate');
     <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
         <nav class="navbar navbar-default">
             <ul class="nav navbar-nav">
-
                     <li> <a href="acceuil.php">Accueil</a></li>
                     <li> <a href="newArticle.php">Ajouter un article</a> </li>
                     <li> <a href="messagerie.php">Messagerie</a> </li>
