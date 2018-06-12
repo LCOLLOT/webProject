@@ -108,9 +108,8 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                 $tabM = array();
                 while ($monument = $req->fetch()) {
                     $article = new article($monument['id']);
-                    $article = new article($monument['id']);
-                    $tabM[$monument['longitude']] = $monument['lattitude'];
-                    $tabNom[] = '"'.$monument['titre'].'"';
+                    $tabM[$article->getLongitude()] = $article->getLattitude();
+                    $tabNom[] = '"'.$article->getTitre().'"';
                     ?>
                     <div class="item">
                         <table class="table table-bordered">
@@ -231,7 +230,6 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     $dist = $distCalc->getDist();
                     if($dist < 10000){
                         $article = new article($monument['id']);
-                        $article = new article($monument['id']);
                         $tabM[$monument['longitude']] = $monument['lattitude'];
                         $tabNom[] = '"'.$monument['titre'].'"';
                         ?>
@@ -348,6 +346,5 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
 
 <?php
-var_dump($tabNom);
 include ('affichage/footer.php');
 ?>
