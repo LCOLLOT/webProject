@@ -29,7 +29,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9">
-            <h2>Bienvenu monsieur <strong><?php echo $_SESSION['user']; ?></strong></h2>
+            <h2>Bienvenu <strong><?php echo $_SESSION['user']; ?></strong></h2>
         </div>
     </div>
 
@@ -122,6 +122,13 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             <tr>
                                 <td>Description <?php echo $article->getContenu() ?></td>
                             </tr>
+                            <tr><td>
+                                    <form method="post" action="traitement/insertCommentaire.php">
+                                        <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
+                                        <input type="text" name="text" class="form-control"/>
+                                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span> Commenter</button>
+                                    </form>
+                                </td></tr>
                         </table>
                     </div>
 
@@ -141,7 +148,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     if($dist < 10){
                         $article = new article($monument['id']);
                         ?>
-                        <div class="col-lg-5 col-md-5 col-sm-5">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
                             <table class="table table-bordered">
                                 <tr>
                                     <td><strong><?php echo $article->getTitre(); ?></strong></td>
@@ -151,7 +158,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                              alt="<?php echo $article->getTitre(); ?>" class="img-responsive"></td>
                                 </tr>
                                 <tr>
-                                    <td>Latitude <?php echo $article->getLattitude() ?></td>
+                                    <td>Lattitude <?php echo $article->getLattitude() ?></td>
                                 </tr>
                                 <tr>
                                     <td>Longitude<?php echo $article->getLongitude() ?></td>
@@ -159,6 +166,20 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                 <tr>
                                     <td>Description <?php echo $article->getContenu() ?></td>
                                 </tr>
+                                <tr>
+                                    <td>Commentaires : <?php $commentaire = $article->getCommentaires();
+                                        foreach ($commentaire as $com){
+                                            echo "\n".$com;
+                                        }
+                                        ?></td>
+                                </tr>
+                                <tr><td>
+                                        <form method="post" action="traitement/insertCommentaire.php">
+                                            <input type="text" name="idArticle" value="<?php echo $id['id']; ?>"hidden/>
+                                            <input type="text" name="texte" class="form-control"/>
+                                            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span> Commenter</button>
+                                        </form>
+                                    </td></tr>
                             </table>
                         </div>
                         <?php
@@ -188,7 +209,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                              alt="<?php echo $article->getTitre(); ?>" class="img-responsive"></td>
                                 </tr>
                                 <tr>
-                                    <td>Latitude <?php echo $article->getLattitude() ?></td>
+                                    <td>Lattitude <?php echo $article->getLattitude() ?></td>
                                 </tr>
                                 <tr>
                                     <td>Longitude<?php echo $article->getLongitude() ?></td>
