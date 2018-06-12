@@ -8,7 +8,7 @@ class article
     public function __construct($id)
     {
         try{
-            $this->bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
+            $this->bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
         }
         catch(Exception $e){
             die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
@@ -25,6 +25,7 @@ class article
         $this->lattitude = $article['lattitude'];
         $this->longitude = $article['longitude'];
         $this->id = $id;
+        $this->like = $article['jaime'];
 
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id');
         $req->execute(array('id'=> $id));
@@ -55,6 +56,9 @@ class article
     }
     public function getDate(){
         return $this->date;
+    }
+    public function getLike() {
+        return $this->like;
     }
 
     public function getId(){
