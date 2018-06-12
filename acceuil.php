@@ -127,14 +127,11 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             </tr>
                             <tr>
                                 <td>Commentaires :</td>
-                            </tr>
-                            <td>
                                     <?php $commentaire = $article->getCommentaires();
                                     foreach ($commentaire as $com){
                                         echo "<tr><td>".$com."</td></tr>";
                                     }
-                                    ?></td>
-                            </tr>
+                                    ?>
                             <tr><td>
                                     <form method="post" action="traitement/insertCommentaire.php">
                                         <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
@@ -161,11 +158,13 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     <p>Monuments dans un rayon de 10km autour de votre position (LATT:<?php echo $_GET['latt'];?> LONG: <?php echo $_GET['long'];?>)</p>
                 </div>
                 <?php
+                $tabM = array();
                 while($monument = $req2->fetch()){
                     $distCalc = new distCalculator($_GET['latt'],$monument['lattitude'],$_GET['long'],$monument['longitude']);
                     $dist = $distCalc->getDist();
                     if($dist < 10000){
                         $article = new article($monument['id']);
+                        $tabM[$monument['longitude']] = $monument['lattitude'];
                         ?>
                         <div class="item">
                             <table class="table table-bordered">
@@ -186,12 +185,12 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <td><?php echo $article->getContenu() ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Commentaires : <?php $commentaire = $article->getCommentaires();
-                                        foreach ($commentaire as $com){
-                                            echo "\n".$com;
-                                        }
-                                        ?></td>
-                                </tr>
+                                    <td>Commentaires :</td>
+                                    <?php $commentaire = $article->getCommentaires();
+                                    foreach ($commentaire as $com){
+                                        echo "<tr><td>".$com."</td></tr>";
+                                    }
+                                    ?>
                                 <tr><td>
                                         <form method="post" action="traitement/insertCommentaire.php">
                                             <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
@@ -243,12 +242,12 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <td><?php echo $article->getContenu() ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Commentaires : <?php $commentaire = $article->getCommentaires();
-                                        foreach ($commentaire as $com){
-                                            echo "\n".$com;
-                                        }
-                                        ?></td>
-                                </tr>
+                                    <td>Commentaires :</td>
+                                    <?php $commentaire = $article->getCommentaires();
+                                    foreach ($commentaire as $com){
+                                        echo "<tr><td>".$com."</td></tr>";
+                                    }
+                                    ?>
                                 <tr><td>
                                         <form method="post" action="traitement/insertCommentaire.php">
                                             <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
@@ -309,6 +308,17 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     position: new google.maps.LatLng(lat, long),
                     type: 'info'
                 }
+                <?php
+                    foreach ($tabM as $long => $latt){
+                        ?>,
+                            {
+                            position: new google.maps.LatLng(<?php echo $latt;?>, <?php echo $long;?>), type: 'info'
+                            }
+                        <?php
+                    }
+
+
+                ?>
             ];
 
             // Create markers.
@@ -325,5 +335,6 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
 
 <?php
+var_dump($tabM);
 include ('affichage/footer.php');
 ?>
