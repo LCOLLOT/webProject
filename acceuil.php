@@ -34,7 +34,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     </div>
 
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12" id="searchBarre" align="center">
+        <div class="col-lg-12 col-md-12 col-sm-12 well-sm well" align="center">
 
 <div class="col-lg-4 col-md-4 col-sm-4">
     <form method="post" action="acceuil.php">
@@ -47,25 +47,29 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4">
-                <form method="post" action="acceuil.php">
-                    <table class="table">
-                        <tr class="tabLigne"><td>Autour de moi</td></tr>
-                        <tr><td id="lign1"></td></tr>
-                        <tr><td align="center"><button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-search"></span> Rechercher
-                                    <script> function loc() {
+                <table align="center" class="table">
+                    <tbody>
+                    <tr class="tabLigne"><td>Autour de moi</td></tr>
+                    <tr><td><select name="rayon" class="form-control">
+                                <option value="10">10Km</option>
 
-                                            function maPosition(position) {
-                                                document.location="acceuil.php?long="+position.coords.longitude+"&latt="+position.coords.latitude;
-                                            }
-                                            if(navigator.geolocation) {
-                                                navigator.geolocation.getCurrentPosition(maPosition);
-                                            }
+                            </select> </td></tr>
+                    <tr><td align="center"><button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-search"></span> Rechercher
+                                <script> function loc() {
 
+                                        function maPosition(position) {
+                                            document.location="acceuil.php?long="+position.coords.longitude+"&latt="+position.coords.latitude;
+                                        }
+                                        if(navigator.geolocation) {
+                                            navigator.geolocation.getCurrentPosition(maPosition);
                                         }
 
+                                    }
 
-                                    </script></button></td></tr>
-                    </table>
+
+                                </script></button></td></tr>
+                    </tbody>
+                </table>
                 </form>
             </div>
 
@@ -73,8 +77,8 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                 <form method="post" action="acceuil.php">
                     <table class="table">
                         <tbody>
-                        <tr><td><input type="text" name="longitude" class="form-control" placeholder="Longitude"/></td></tr>
-                        <tr><td><input type="text" name="lattitude" class="form-control" placeholder="Lattitude"/></td></tr>
+                        <tr class="tabLigne"><td>Coordonnées GPS</td></tr>
+                        <tr><td><div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="longitude" class="form-control" placeholder="Long"/></div><div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="lattitude" class="form-control" placeholder="Latt"/></div></td></tr>
                         <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Rechercher</button></td></tr>
                         </tbody>
                     </table>
