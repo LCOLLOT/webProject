@@ -2,7 +2,7 @@
 
 class article
 {
-    private $titre, $lattitude,$longitude,$photo,$commentaires,$contenu, $date;
+    private $titre, $lattitude,$longitude,$photo,$commentaires,$contenu, $date, $id;
     private $bdd;
 
     public function __construct($id)
@@ -24,13 +24,14 @@ class article
         $this->photo = $article['photo'];
         $this->lattitude = $article['lattitude'];
         $this->longitude = $article['longitude'];
+        $this->id = $id;
 
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id');
-        $req->execute(array('article_id'=> $id));
+        $req->execute(array('id'=> $id));
 
         $this->commentaires = array();
         while($commentaire = $req->fetch()){
-            $this->commentaires[$commentaire['date']] = $commentaire['texte'];
+            $this->commentaires[] = $commentaire['date']." : ".$commentaire['texte'];
         }
     }
 
@@ -54,5 +55,9 @@ class article
     }
     public function getDate(){
         return $this->date;
+    }
+
+    public function getId(){
+        return $this->id;
     }
 }
