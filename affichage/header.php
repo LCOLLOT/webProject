@@ -27,8 +27,7 @@ session_cache_limiter('private_no_expire, must-revalidate');
                     <li> <a href="contact.php">Nous contacter</a> </li>
             </ul>
             <div class="pull-right" id="buttonH">
-                <button class="btn btn-info">Compte</button>
-                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">Compte <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span>Mon profil</a></li>
                     <li><a href="contributions.php"><span class="glyphicon glyphicon-picture"></span> Mes Contributions</a></li>
@@ -37,5 +36,5 @@ session_cache_limiter('private_no_expire, must-revalidate');
                 </ul>
             </div>
         </nav>
-    <script src="bootstrap/js/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
