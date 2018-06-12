@@ -182,7 +182,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                         <td>Commentaires :</td>
                                         <?php $commentaire = $article->getCommentaires();
                                         foreach ($commentaire as $com) {
-                                            echo "<tr><td>" . $com . "</td></tr>";
+                                            echo "<tr><td><span class=\"glyphicon glyphicon-chevron-right\"></span>" . $com . "</td></tr>";
                                         }
                                         ?>
                                     <tr>
@@ -266,7 +266,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                             <td>Commentaires :</td>
                                             <?php $commentaire = $article->getCommentaires();
                                             foreach ($commentaire as $com) {
-                                                echo "<tr><td>" . $com . "</td></tr>";
+                                                echo "<tr><td><span class=\"glyphicon glyphicon-chevron-right\"></span>" . $com . "</td></tr>";
                                             }
                                             ?>
                                         <tr>
@@ -348,7 +348,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                         <td>Commentaires :</td>
                                         <?php $commentaire = $article->getCommentaires();
                                         foreach ($commentaire as $com) {
-                                            echo "<tr><td>" . $com . "</td></tr>";
+                                            echo "<tr><td><span class=\"glyphicon glyphicon-chevron-right\"></span>" . $com . "</td></tr>";
                                         }
                                         ?>
                                     <tr>
@@ -479,6 +479,5 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     </script>
 
 <?php
-var_dump($tabDescriptif);
 include('affichage/footer.php');
 ?>
