@@ -145,7 +145,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             <tr><td>
                                     <form method="post" action="traitement/insertLike.php">
                                         <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
-                                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo $article->getLike()?>
+                                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo " : ".$article->getLike()?>
                                     </form>
                             </td></tr>
                         </table>
@@ -202,7 +202,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                 <tr><td>
                                         <form method="post" action="traitement/insertLike.php">
                                             <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
-                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo $article->getLike()?>
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo " : ".$article->getLike()?>
                                         </form>
                                 </td></tr>
                             </table>
@@ -259,7 +259,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                 <tr><td>
                                         <form method="post" action="traitement/insertLike.php">
                                             <input type="text" name="idArticle" value="<?php echo $monument['id']; ?>"hidden/>
-                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo $article->getLike()?>
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button> <?php echo " : ".$article->getLike()?>
                                         </form>
                                 </td></tr>
                             </table>
