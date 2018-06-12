@@ -74,7 +74,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                         <tbody>
                         <tr>
                             <td>Longitude <input type="text" name="longitude" class="form-control"/></td>
-                            <td>Lattitude <input type="text" name="lattitude" class="form-control"/></td>
+                            <td>Latitude <input type="text" name="lattitude" class="form-control"/></td>
                         </tr>
                         <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Rechercher</button></td></tr>
                         </tbody>
