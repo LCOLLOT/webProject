@@ -22,9 +22,9 @@ include ('affichage/header.php');
                             Pseudo<input type="text" class="form-control" name="login" required>
                             Email<input type="email" class="form-control" name="email" required>
                             Mot de passe<input type="password" class="form-control" name="password" required>
-                            Confirmez le mot de passe<input type="password" class="form-control" name="password" required>
+                            Confirmez le mot                             <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Valider</button></td></tr>
+                            de passe<input type="password" class="form-control" name="password" required>
 
-                            <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Valider</button></td></tr>
                         </table>
                     </form>
 

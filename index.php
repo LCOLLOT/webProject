@@ -33,13 +33,47 @@ if (isset($_GET['disconnect']))
     <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" id="formLog">
         <form class="well" action="index.php" method="post">
             <table align="center">
-                <tr><td><span class="label label-default">Identifiant</span><input type="text" class="form-control" name="login" title="Saisie d'un identifiant"></td></tr>
+                <tr><td><span class="label label-default">Mail d'identifiant</span><input type="text" class="form-control" name="login" title="Saisie d'un identifiant"></td></tr>
                 <tr><td><span class="label label-default">Mot de passe</span><input type="password" class="form-control" name="password" title="Saisie du mot de passe"></td></tr>
                 <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Valider</button></td></tr>
+
             </table>
         </form>
+
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <button data-toggle="modal" href="#infos" class="btn btnprimary">S'inscrire</button>
+        <div class="modal" id="infos">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" datadismiss="modal">x</button>
+                        <h4 class="modal-title" align="center">Inscription</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="well" method="post" action="traitement/insertMember.php" enctype="multipart/form-data">
+                            <table align="center">
+                                Pseudo<input type="text" class="form-control" name="pseudo" required>
+                                Nom<input type="text" class="form-control" name="name" required>
+                                Email<input type="email" class="form-control" name="mail" required>
+                                Mot de passe<input type="password" class="form-control" name="password" required>
+                                <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Valider</button></td></tr>
+
+                            </table>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+</div>
+
+
+
+
 <div class="row">
     <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!($user == 'badLog')) echo "hidden";?>>
         <div id="ok">

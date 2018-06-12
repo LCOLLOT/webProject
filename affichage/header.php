@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
 session_cache_limiter('private_no_expire, must-revalidate');
     require 'object/article.php';
     require 'object/Profil.php';
