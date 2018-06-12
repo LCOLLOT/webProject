@@ -60,7 +60,6 @@ class article
     public function getLike() {
         return $this->like;
     }
-
     public function getId(){
         return $this->id;
     }
