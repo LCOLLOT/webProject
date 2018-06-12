@@ -20,7 +20,7 @@ class article
         $article = $req->fetch();
         $this->titre = $article['titre'];
         $this->contenu = $article['description'];
-        $this->date = $article['date'];
+        $this->date = $article['dateA'];
         $this->photo = $article['photo'];
         $this->lattitude = $article['lattitude'];
         $this->longitude = $article['longitude'];

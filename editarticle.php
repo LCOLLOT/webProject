@@ -17,20 +17,9 @@ include ('log/pdo.php');
 <?php
     if(isset($_POST['recherche']) && !empty($_POST['recherche']))
     {
-        ?>
-         <table id="articles">
-                <tr>
-                    <th>ID</th>
-                    <th>Titre</th>
-                    <th>Photo</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
-                    <th>Description</th>
-                </tr>
-        <?php
-            $recherche = htmlspecialchars($_POST['recherche']);
-            $req = $bdd->prepare('SELECT id FROM articles WHERE titre LIKE :recherche ORDER BY id');
-            $req->execute(array('recherche'=> '%'.$recherche.'%'));
+        $recherche = htmlspecialchars($_POST['recherche']);
+        $req = $bdd->prepare('SELECT id FROM articles WHERE titre LIKE :recherche ORDER BY id');
+        $req->execute(array('recherche'=> '%'.$recherche.'%'));
 
         while ($data = $req->fetch())
         {
