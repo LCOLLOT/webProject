@@ -26,11 +26,11 @@ class article
         $this->longitude = $article['longitude'];
 
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id');
-        $req->execute(array('article_id'=> $id));
+        $req->execute(array('id'=> $id));
 
         $this->commentaires = array();
         while($commentaire = $req->fetch()){
-            $this->commentaires[$commentaire['date']] = $commentaire['texte'];
+            $this->commentaires[] = $commentaire['date']." : ".$commentaire['texte'];
         }
     }
 
