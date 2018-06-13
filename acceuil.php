@@ -116,7 +116,7 @@ if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && iss
                         <tr>
                             <td>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="longitude"
-                                                                               class="form-control" placeholder="Long"/> // #camarchepas {class="form-control" placeholder="Long"###/>} ----->  NET-enabling start-tag requires SHORTTAG YES
+                                                                               class="form-control" placeholder="Long"/>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="lattitude"
                                                                                class="form-control" placeholder="Latt"/>
