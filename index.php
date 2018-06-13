@@ -108,29 +108,23 @@ if (isset($_GET['disconnect']))
 
 
 
-<div class="row">
     <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!($user == 'badLog')) echo "hidden";?>>
         <div id="ok">
             <div class="panel panel-danger">
                 <div class="panel-heading" align="center">
-                    <h3 class="panel-title"><strong>Combinaison identifiant / mot de passe incorrect !</strong>
+                    <h3 class="panel-title"><strong>Combinaison identifiant / mot de passe incorrect !</strong></h3>
                             <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"><script>addEventListener('click', function(e) { document.getElementById('ok').style.display = 'none';}, false); </script></span></button> </strong></h3> </div>
             </div>
         </div>
 
     </div>
-</div>
-<div class="row">
+
     <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!($user == 'disconnect')) echo "hidden";?>>
-        <div>
             <div class="panel panel-warning">
                 <div class="panel-heading" align="center">
-                    <h3 class="panel-title"><strong>Vous avez bien été déconnecté !</strong>
+                    <h3 class="panel-title"><strong>Vous avez bien été déconnecté !</strong></h3>
             </div>
         </div>
-
-    </div>
-</div>
 </div>
 
 
