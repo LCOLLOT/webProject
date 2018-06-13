@@ -80,6 +80,11 @@ section {
 h1 {
     color: #321506;
 }
+.nav > li > a{
+    font-size: large;
+    text-align: center;
+    margin-bottom: 0;
+}
 .nav > li > a:hover, .nav > li > a:focus {
     background-color: #321506;
 }
@@ -112,7 +117,7 @@ div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fon
    /* height:100%;*/
     background-color:#FFFFFF;
     border:1px solid #D89B31;
-    filter:Alpha(opacity=80);-moz-opacity:0.80;opacity: 0.80;
+    filter:Alpha(opacity=85);-moz-opacity:0.85;opacity: 0.85;
     margin: auto;
 }
 .carousel-control {
