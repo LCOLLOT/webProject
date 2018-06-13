@@ -110,8 +110,7 @@ footer a:hover{
 }
 div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fond */
     width:70%;
-    height:100%;
-    margin:0% 0px;
+   /* height:100%;*/
     background-color:#FFFFFF;
     border:1px solid #D89B31;
     filter:Alpha(opacity=80);-moz-opacity:0.80;opacity: 0.80;
