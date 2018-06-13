@@ -22,10 +22,10 @@ if (!isset($_SESSION['user']))
 
 <body>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
+<div class="logodiv">
+    <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
+</div>
 <div class="container">
-    <div class="logodiv">
-        <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
-    </div>
         <nav class="navbar navbar-default">
             <ul class="nav navbar-nav">
                 <li></li>
