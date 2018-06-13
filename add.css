@@ -110,3 +110,7 @@ footer a{
 footer a:hover{
     color: #9A4C1E;
 }
+
+footer .fond{
+    opacity: 50%;
+}
