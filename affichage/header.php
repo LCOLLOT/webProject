@@ -37,6 +37,12 @@ $profil = new Profil($userId);
                     <li> <a href="messagerie.php">Messagerie</a> </li>
                     <li> <a href="contact.php">Nous contacter</a> </li>
                 <?php
+                if ($profil->getGroupe() == "moderateur" || $profil->getGroupe() == "admin" )
+                {
+                    echo "<li> <a href=\"editarticle.php\">Modération</a> </li>";
+                }
+                ?>
+                <?php
                 if ($profil->getGroupe() == "admin")
                 {
                     echo "<li> <a href=\"admin.php\">Pannel administrateur</a> </li>";
