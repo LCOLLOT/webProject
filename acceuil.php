@@ -403,9 +403,14 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
             var lat = 47.7290842;
             var long = 7.310896100000036;
+            var text ='Votre position';
             <?php if(isset($_GET['latt'])){?>
             lat = <?php echo $_GET['latt']?>;
             long = <?php echo $_GET['long']?>;
+            <?php } else if(isset($_POST['lattitude']) && isset($_POST['longitude'])){?>
+            lat = <?php echo htmlspecialchars($_POST['lattitude']);?>;
+            long = <?php echo htmlspecialchars($_POST['longitude'])?>;
+            text = 'Lieu recherché';
             <?php }?>
 
             map = new google.maps.Map(document.getElementById('map'), {
@@ -433,7 +438,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                 {
                     position: new google.maps.LatLng(lat, long),
                     type: 'info',
-                    nom: 'Votre Localisation'
+                    nom: text
                 }
                 <?php
                 $i = 0;
