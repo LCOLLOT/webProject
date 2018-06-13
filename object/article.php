@@ -78,7 +78,10 @@ class article
         return $this->id;
     }
     public function getUniqueCommentaire(){
-        return $this->commentaires[sizeof($this->commentaires)-1];
+        $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id ORDER BY id DESC');
+        $req->execute(array('id'=> $this->id));
+        $data = $req->fetch();
+        return $data['texte'];
     }
     public function getNbLikeCommentaire($id_commentaire){
         $req = $this->bdd->prepare('SELECT COUNT(*) as total FROM likecom WHERE commentaire_id = :commentaire_id');
