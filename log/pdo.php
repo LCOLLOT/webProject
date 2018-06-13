@@ -6,6 +6,5 @@
     catch(Exception $e){
         die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
     }
-    $req = $bdd->prepare('UPDATE users SET ')
 
 ?>

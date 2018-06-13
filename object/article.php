@@ -2,7 +2,7 @@
 
 class article
 {
-    private $titre, $lattitude,$longitude,$photo,$commentaires,$contenu, $date, $id;
+    private $titre, $lattitude,$longitude,$photo,$commentaires,$contenu, $date, $id, $categorie;
     private $bdd;
 
     public function __construct($id)
@@ -25,6 +25,7 @@ class article
         $this->lattitude = $article['lattitude'];
         $this->longitude = $article['longitude'];
         $this->id = $id;
+        $this->categorie = $article['categorie'];
         $this->like = $article['jaime'];
         $this->dislike=$article['jaimepas'];
 
@@ -58,6 +59,9 @@ class article
     public function getDate(){
         return $this->date;
     }
+    public function getCategorie(){
+       return $this->categorie;
+    }
     public function getLike() {
         $req = $this->bdd->prepare('SELECT COUNT(*) as total FROM likearticle WHERE article_id = :article_id');
         $req->execute(array('article_id'=>$this->id));
@@ -74,7 +78,10 @@ class article
         return $this->id;
     }
     public function getUniqueCommentaire(){
-        return $this->commentaires[sizeof($this->commentaires)-1];
+        $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id ORDER BY id DESC');
+        $req->execute(array('id'=> $this->id));
+        $data = $req->fetch();
+        return $data['texte'];
     }
     public function getNbLikeCommentaire($id_commentaire){
         $req = $this->bdd->prepare('SELECT COUNT(*) as total FROM likecom WHERE commentaire_id = :commentaire_id');

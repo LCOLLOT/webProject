@@ -1,5 +1,6 @@
 <?php
-include ('affichage/header.php');
+session_start();
+include('../log/pdo.php');
 ?>
 
     <h2 id="titreNewArticle">Ajouter un article</h2>
@@ -15,6 +16,15 @@ include ('affichage/header.php');
                             <tr><td>Description <textarea name="description" rows="10" cols="50" class="form-control"></textarea></td></tr>
                            <input type="text" name="auteur_id" value="<?php echo $_SESSION['user_id'];?>" class="form-control hidden"/>
                             <tr><td>Photo  <input type="file" name="photo" class="form-control"/></td></tr>
+                            <tr><td>Catégorie<br />
+                                    <select name="choix">
+                                        <option value="Musée">Musée</option>
+                                        <option value="Châteaux">Châteaux</option>
+                                        <option value="Grotte">Grotte</option>
+                                        <option value="Monument religieux">Monument religieux</option>
+                                        <option value="Autre monument historique">Autre monument historique</option>
+                                    </select>
+                            </td></tr>
                             <tr><td><button class="btn btn-primary acentrer" type="submit"><span class="glyphicon glyphicon-ok"></span> Valider</button></td></tr>
                         </form>
                     </table>
@@ -22,5 +32,6 @@ include ('affichage/header.php');
     </div>
 
 <?php
-include ('affichage/footer.php');
+header("Location: ../acceuil.php");
+exit();
 ?>
