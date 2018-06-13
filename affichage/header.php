@@ -29,6 +29,9 @@ $profil = new Profil($userId);
 <body>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
 <div class="container">
+    <div class="pull-left">
+        <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
+    </div>
         <nav class="navbar navbar-default">
             <ul class="nav navbar-nav">
                 <li></li>
@@ -58,8 +61,5 @@ $profil = new Profil($userId);
                 </ul>
             </div>
         </nav>
-    <div class="pull-left">
-        <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
-    </div>
 <script src="bootstrap/js/jquery.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
