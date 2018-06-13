@@ -98,8 +98,8 @@ body{
     background-image:url("images/background.jpg");
     background-attachment:scroll;
     background-repeat : no-repeat;
-    background-position: top;
-    background-size:  cover;
+    background-position: center;
+    background-size: auto;
 }
 footer a{
     color: #E19A31;
