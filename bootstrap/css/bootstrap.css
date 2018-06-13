@@ -5077,15 +5077,15 @@ a.thumbnail.active {
   color: #2b542c;
 }
 .alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  color: #9A4C1E;
+  background-color: #FEE7A9;
+  border-color: #D89B31;
 }
 .alert-info hr {
-  border-top-color: #a6e1ec;
+  border-top-color: #D89B31;
 }
 .alert-info .alert-link {
-  color: #245269;
+  color: #321506;
 }
 .alert-warning {
   color: #8a6d3b;
