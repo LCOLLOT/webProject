@@ -94,6 +94,6 @@ h1 {
     font-size: large;
     color: white;
 }
-.logodiv, .container {
+.logodiv, .nav {
     display: inline-block;
 }
