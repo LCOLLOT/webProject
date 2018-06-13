@@ -1,7 +1,7 @@
 <?php
 include ('affichage/header.php');
     try{
-        $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
+        $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
     }
     catch(Exception $e){
         die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
