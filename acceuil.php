@@ -279,7 +279,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                             <?php $commentaire = $article->getCommentaires();
                                             foreach ($commentaire as $id => $com) {
                                                 ?>
-                                        <tr><td align="center"><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
+                                        <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
                                         <form method="post" action="traitement/insertLikeCommentaire.php">
                                                     <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
                                                     <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo " ".$article->getNbLikeCommentaire($id);?></span></button>
