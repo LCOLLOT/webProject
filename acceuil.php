@@ -404,7 +404,7 @@ $req4->execute();
                                 </table>
                                 <table>
                                     <tr>
-                                        <td><form method="post" action="traitement/insertLike.php">
+                                        <td><form method="post" action="traitement/insertLike.php" >
                                                 <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
                                                 <button class="btn <?php if($article->isLiked($_SESSION['user_id'])){echo 'btn-success';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
                                                 </button></form></td>
@@ -603,6 +603,7 @@ $req4->execute();
                 });
             });
         }
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN2PTU4JQ2s_Ph8u4bo_pQpvVmlZt2s_Y&callback=initMap"
             async defer></script>
