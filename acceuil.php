@@ -138,7 +138,7 @@ $req4->execute();
     </div>
     <div class="row">
         <br>
-        <div class=" col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-lg-10 col-md-10 col-sm-10">
             <!-- Affichage des articles correspondant à la requete dans la barre de recherche-->
             <?php
             if (isset($_POST['recherche']) && !empty($_POST['recherche'])) {
