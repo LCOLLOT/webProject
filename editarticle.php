@@ -82,7 +82,7 @@
                     <textarea style="resize: vertical;" name="description" rows="4" cols="70" class="form-control"><?php echo $article->getContenu(); ?></textarea>
                     <div style="float: right;">
                          <button class="btn btn-primary" name="Update"><span class="glyphicon glyphicon-ok"></span></button>
-                         <button class="btn btn-danger" name="Delete"><span class="glyphicon glyphicon-remove" onclick="return confirm('Supprimer l\'article ?')"></span></button>
+                         <button class="btn btn-danger" name="Delete" onclick="return confirm('Supprimer l\'article <?php echo $article->getTitre(); ?> ?')"><span class="glyphicon glyphicon-remove"></span></button>
                     </div>
                     <br>
                     <br>

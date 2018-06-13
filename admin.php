@@ -33,10 +33,8 @@ $users = $bdd->query('SELECT * FROM users ');
                         </select>
                     </td>
                     <td>
-                        <input type="submit" class="btn btn-primary" name="Update" value="Sauvegarder">
-                    </td>
-                    <td>
-                        <input type="submit" class="btn btn-danger" name="Delete" value="Supprimer">
+                        <button class="btn btn-primary" name="Update"><span class="glyphicon glyphicon-ok"></span></button>
+                        <button class="btn btn-danger" name="Delete" onclick="return confirm('Supprimer définitvement le membre <?php echo $data['name']; ?> ?')"><span class="glyphicon glyphicon-remove"></span></button>
                     </td>
                 </tr>
             </table>
