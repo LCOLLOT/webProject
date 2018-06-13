@@ -2,7 +2,7 @@
 
 class Profil
 {
-    private $nom,$pseudo,$mail,$date,$password,$photo,$groupe,$badge;
+    private $nom,$pseudo,$mail,$date,$password,$photo,$groupe,$badge,$id;
     private $bdd;
 
     public function __construct($id)
@@ -18,6 +18,7 @@ class Profil
         $req->execute(array('id'=> $id));
 
         $profil = $req->fetch();
+        $this->id = $profil['id'];
         $this->nom = $profil['name'];
         $this->pseudo = $profil['pseudo'];
         $this->mail = $profil['mail'];
@@ -47,7 +48,11 @@ class Profil
         return $this->photo;
     }
     public function getGroupe(){
-        return $this->groupe;
+        $req = $this->bdd->prepare('SELECT * FROM users WHERE id =:id');
+        $req->execute(array('id'=> $this->id));
+        $data = $req->fetch();
+
+        return $data['groupe'];
     }
     public function getBadge(){
         return $this->badge;
