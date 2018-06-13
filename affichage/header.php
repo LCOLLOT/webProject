@@ -49,7 +49,7 @@ $profil = new Profil($userId);
             </ul>
             <div class="pull-right" id="buttonH">
                 <?php if (isset($_SESSION['user'])) { ?>
-                    <button class="alert-success" > Connecté <span class="glyphicon glyphicon-ok"></span></button>
+                    <div class="btn btn-default disabled" style="cursor:default;">Compte:  <?php echo $_SESSION['user']; ?>, connecté en tant que : <?php echo $profil->getGroupe(); ?> </div>
                 <?php } ?>
 
                 <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">Compte <span class="caret"></span></button>
