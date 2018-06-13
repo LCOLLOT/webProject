@@ -22,6 +22,6 @@ catch(Exception $e){
 }
 
 
-header("Location: ../acceuil.php");
+header("Location: ../acceuil.php?article=".$article_id);
 exit();
 ?>

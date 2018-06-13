@@ -21,6 +21,16 @@ catch(Exception $e){
     die('Erreur : '.$e->getMessage());
 }
 
-header("Location: ../acceuil.php");
+if(isset($_POST['idLike'])){
+    $article_id = $_POST['idLike'];
+}
+else if(isset($_POST['idDislike'])) {
+    $article_id = $_POST['idDislike'];
+}
+else {
+    $article_id = $_POST['idSignal'];
+}
+
+header("Location: ../acceuil.php?article=".$article_id);
 exit();
 ?>

@@ -2,7 +2,10 @@
 include ('affichage/header.php');
 include('log/pdo.php');
 
-
+if(isset($_GET['article'])){
+    $req5 = $bdd->prepare('SELECT id FROM articles WHERE id = :id');
+    $req5->execute(array('id'=> htmlspecialchars($_GET['article'])));
+}
 if(isset($_POST['recherche']) && !empty($_POST['recherche'])) {
         $_SESSION['recherche'] = htmlspecialchars($_POST['recherche']);
     //Création des articles correspondant à la recherche
@@ -139,9 +142,91 @@ $req4->execute();
     <div class="row">
         <br>
         <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-lg-10 col-md-10 col-sm-10">
-            <!-- Affichage des articles correspondant à la requete dans la barre de recherche-->
             <?php
-            if (isset($_POST['recherche']) && !empty($_POST['recherche'])) {
+            if(isset($_GET['article'])){
+            $tabNom = array();
+            $tabM = array();
+            $tabDescriptif = array();
+            $first = true;
+            while ($monument = $req5->fetch()) {
+                $article = new article($monument['id']);
+                $tabM[$article->getLongitude()] = $article->getLattitude();
+                $tabNom[] = '"' . $article->getTitre() . '"';
+                $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
+                ?>
+                <div class="item <?php if ($first == true) echo "active"; ?>">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                                    alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
+                        </tr>
+                        <tr>
+                            <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo $article->getContenu() ?></td>
+                        </tr>
+                        <tr>
+                            <td>Commentaires :</td>
+                            <?php $commentaire = $article->getCommentaires();
+                            foreach ($commentaire as $id => $com) {
+                            ?>
+                        <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
+                                <form method="post" action="traitement/insertLikeCommentaire.php">
+                                    <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
+                                    <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo " ".$article->getNbLikeCommentaire($id);?></span></button>
+                                    </button>
+                                </form></p>
+                            </td></tr>
+                        <?php
+                        }
+                        ?>
+                        <tr>
+                            <td align="center">
+                                <form method="post" action="traitement/insertCommentaire.php">
+                                    <input type="text" name="idArticle"
+                                           value="<?php echo $monument['id']; ?>" hidden/>
+                                    <input type="text" name="text" class="form-control"/>
+                                    <button class="btn btn-primary" type="submit"><span
+                                                class="glyphicon glyphicon-send"></span> Commenter
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td><form method="post" action="traitement/insertLike.php">
+                                    <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
+                                    <button class="btn <?php if($article->isLiked($_SESSION['user_id'])){echo 'btn-success';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
+                                    </button></form></td>
+                            <td><form method="post" action="traitement/insertLike.php">
+                                    <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
+                                    <button class="btn <?php if($article->isDisliked($_SESSION['user_id'])){echo 'btn-danger';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDisLike()?></span>
+                                    </button></form></td>
+                            <td><form method="post" action="traitement/insertLike.php">
+                                    <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
+                                    <button class="btn <?php if($article->isSignaled($_SESSION['user_id'])){echo 'btn-warning';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span>
+                                    </button></form></td>
+                        </tr>
+                    </table>
+                </div>
+                <?php
+                $first = false;
+            } ?>
+            <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                        class="icon-prev"></span></a>
+            <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                        class="icon-next"></span></a>
+        </div>
+    </div>
+
+<?php
+            }
+            else if (isset($_POST['recherche']) && !empty($_POST['recherche'])) {
                 ?>
                 <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
                     <p>Monuments correspondants à :
