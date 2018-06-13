@@ -24,13 +24,16 @@ if(isset($_GET['latt']) && isset($_GET['long'])){
 if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     $lat = htmlspecialchars($_POST['lattitude']);
     $long = htmlspecialchars($_POST['longitude']);
-    $req3 = $bdd->prepare('SELECT * FROM articles');
-    $req3->execute();
 }
-//Recherche des 5 lieux les plus likés
-$req4 = $bdd->prepare('SELECT id FROM articles ORDER BY id LIMIT 0,5');
-$req4->execute();
+$req3 = $bdd->prepare('SELECT * FROM articles');
+$req3->execute();
 
+//Recherche des 5 lieux les plus likés
+
+//if(!empty($_POST['recherche'] && !(isset($lat) && isset($long))) ) {
+    $req4 = $bdd->prepare('SELECT article_id AS id from likearticle GROUP BY article_id ORDER BY article_id LIMIT 0,5');
+    $req4->execute();
+//}
 
 ?>
 
@@ -88,7 +91,9 @@ $req4->execute();
                                 <script> function loc() {
 
                                         function maPosition(position) {
-                                            document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude+"&ray="+document.forms["rayonF"].elements["rayon"].value;
+                                            document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude+"&ray="+document.forms["rayonF"].elements["rayon"].value; /*#camarchepas {…ong=" + position.coords.longitude + "&l###att=" + position.coords.latitude+"&ray=…} ----> (cannot generate system identifier for general entity "latt" +++ general entity "latt" not defined and no default entity+++reference to entity "latt" for which no system identifier could be generated +++ les meme erreurs pour "&ray" dans {…"&latt=" + position.coords.latitude+"&###ray="+document.forms["rayonF"].elements[…*/
+                                        }
+
                                         }
 
                                         if (navigator.geolocation) {
@@ -116,7 +121,7 @@ $req4->execute();
                         <tr>
                             <td>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="longitude"
-                                                                               class="form-control" placeholder="Long"/>
+                                                                               class="form-control" placeholder="Long"/> <!-- #camarchepas {class="form-control" placeholder="Long"###/>} -----  NET-enabling start-tag requires SHORTTAG YES -->
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="lattitude"
                                                                                class="form-control" placeholder="Latt"/>
@@ -258,7 +263,7 @@ $req4->execute();
                             <div class="item <?php if ($first == true) echo "active"; ?>">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                        <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                     </tr>
                                     <tr>
                                         <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
@@ -286,7 +291,7 @@ $req4->execute();
                                         }
                                         ?>
                                     <tr>
-                                        <td align="center">
+                                        <td align="left">
                                             <form method="post" action="traitement/insertCommentaire.php">
                                                 <input type="text" name="idArticle"
                                                        value="<?php echo $monument['id']; ?>" hidden/>
@@ -308,7 +313,7 @@ $req4->execute();
                                                 <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
                                                 <button class="btn <?php if($article->isDisliked($_SESSION['user_id'])){echo 'btn-danger';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDisLike()?></span>
                                                 </button></form></td>
-                                        <td><form method="post" action="traitement/insertLike.php">
+                                        <td align=right"><form method="post" action="traitement/insertLike.php">
                                                 <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
                                                 <button class="btn <?php if($article->isSignaled($_SESSION['user_id'])){echo 'btn-warning';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span>
                                                 </button></form></td>
@@ -319,9 +324,9 @@ $req4->execute();
                             $first = false;
                         } ?>
                         <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                    class="icon-prev"></span></a>
+                                    class="glyphicon glyphicon-menu-left black"></span></a>
                         <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                    class="icon-next"></span></a>
+                                    class="glyphicon glyphicon-menu-right black"></span></a>
                     </div>
                 </div>
                 <?php
@@ -351,7 +356,7 @@ $req4->execute();
                                 <div class="item <?php if ($first == true) echo "active"; ?>">
                                     <table class="table table-bordered">
                                         <tr>
-                                            <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                            <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                         </tr>
                                         <tr>
                                             <td align="center"><img
@@ -380,7 +385,7 @@ $req4->execute();
                                             }
                                             ?>
                                         <tr>
-                                            <td align="center">
+                                            <td align="left">
                                                 <form method="post" action="traitement/insertCommentaire.php">
                                                     <input type="text" name="idArticle"
                                                            value="<?php echo $monument['id']; ?>" hidden/>
@@ -414,10 +419,10 @@ $req4->execute();
                             }
                         } ?>
                         <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
-                            <span class="icon-prev" aria-hidden="true" href="#carousel" data-slide="prev"></span>
+                            <span class="glyphicon glyphicon-menu-left black" aria-hidden="true" href="#carousel" data-slide="prev"></span>
                         </a>
                         <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
-                            <span class="icon-next" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-menu-right black" aria-hidden="true"></span>
                         </a>
                     </div>
                 </div>
@@ -447,7 +452,7 @@ $req4->execute();
                             <div class="item <?php if ($first == true) echo "active"; ?>">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                        <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                     </tr>
                                     <tr>
                                         <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
@@ -475,7 +480,7 @@ $req4->execute();
                                         }
                                         ?>
                                     <tr>
-                                        <td align="center">
+                                        <td align="left">
                                             <form method="post" action="traitement/insertCommentaire.php">
                                                 <input type="text" name="idArticle"
                                                        value="<?php echo $monument['id']; ?>" hidden/>
@@ -510,15 +515,15 @@ $req4->execute();
                     }
                 ?>
                     <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="icon-prev"></span></a>
+                                class="glyphicon glyphicon-menu-left black"></span></a>
                     <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="icon-next"></span></a>
+                                class="glyphicon glyphicon-menu-right black"></span></a>
                 </div>
             </div>
-
-            <?php }else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
+            <?php } //Affichega des 5 articles les plus convoités
+            else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
             <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
-                <strong><p align="center">Les 5 monuments les plus appréciés :</p></strong>
+                <p align="center">Les 5 monuments les plus appréciés :</p>
             </div>
             <div class="carousel slide" id="carousel" data-ride="carousel">
                 <div class="carousel-inner thumbnail">
@@ -536,7 +541,7 @@ $req4->execute();
                         <div class="item <?php if ($first == true) echo "active"; ?>">
                             <table class="table table-bordered">
                                 <tr>
-                                    <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                    <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                 </tr>
                                 <tr>
                                     <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
@@ -564,7 +569,7 @@ $req4->execute();
                                 }
                                 ?>
                                 <tr>
-                                    <td align="center">
+                                    <td align="left">
                                         <form method="post" action="traitement/insertCommentaire.php">
                                             <input type="text" name="idArticle"
                                                    value="<?php echo $monument['id']; ?>" hidden/>
@@ -597,17 +602,15 @@ $req4->execute();
                         $first = false;
                     } ?>
                     <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="icon-prev"></span></a>
+                                class="glyphicon glyphicon-menu-left black"></span></a>
                     <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="icon-next"></span></a>
+                                class="glyphicon glyphicon-menu-right black"></span></a>
                 </div>
 
             </div>
             <?php } ?>
         </div>
     </div>
-
-
 
     <script>
         var map;
