@@ -2,7 +2,7 @@
 
 class Profil
 {
-    private $nom,$pseudo,$mail,$date,$password,$photo,$groupe;
+    private $nom,$pseudo,$mail,$date,$password,$photo,$groupe,$badge;
     private $bdd;
 
     public function __construct($id)
@@ -25,6 +25,7 @@ class Profil
         $this->password = $profil['password'];
         $this->photo = $profil['photo'];
         $this->groupe = $profil['groupe'];
+        $this->badge = $profil['badge'];
     }
 
     public function getName(){
@@ -47,6 +48,9 @@ class Profil
     }
     public function getGroupe(){
         return $this->groupe;
+    }
+    public function getBadge(){
+        return $this->badge;
     }
 
 
