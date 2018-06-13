@@ -1,6 +1,6 @@
 <?php
 include ('affichage/header.php');
-include('log/pdo.php');
+//include('log/pdo.php');
 
 
 if(isset($_POST['recherche']) && !empty($_POST['recherche'])) {

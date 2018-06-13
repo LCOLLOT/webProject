@@ -131,7 +131,7 @@ if (isset($_GET['disconnect']))
         <p>N'oubliez pas de profiter des moments sur les lieux, et amusez-vous bien en utilisant Web-Trotter.</p>
     </section>
     <section class="col-sm-6">
-        <img src="images/web-trotter.png" alt="Monument">
+        <!-- <img src="images/web-trotter.png" alt="Monument"> -->
     </section>
 </div>
 </div>
