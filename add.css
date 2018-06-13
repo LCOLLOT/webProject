@@ -101,6 +101,15 @@ body{
     background-position: top;
     background-size:  cover;
 }
-.pull-left{
-    position: center;
+footer{
+    background-color: #D89B31;
+}
+footer p{
+    color: #9A4C1E;
+}
+footer a{
+    color: #D89B31;
+}
+footer a:hover{
+    color: #9A4C1E;
 }
