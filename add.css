@@ -9,6 +9,8 @@ footer{
     font-size: small;
     color: #321506;
     bottom: 0;
+    background-color: #D7B581;
+    opacity: 0.5;
 }
 
 .logo{
@@ -107,5 +109,10 @@ footer a:hover{
 }
 
 .container{
-    background-color: transparent;
+    background-color: #D7B581;
+    opacity: 0.5;
+}
+
+footer p, footer a, footer a:hover, .container p{
+    opacity: 1;
 }
