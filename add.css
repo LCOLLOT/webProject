@@ -99,7 +99,7 @@ body{
     background-attachment:scroll;
     background-repeat : no-repeat;
     background-position: center;
-    background-size: auto;
+    background-size: 100%;
 }
 footer a{
     color: #E19A31;
