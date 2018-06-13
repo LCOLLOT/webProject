@@ -12,6 +12,7 @@ footer{
 
 .logo{
     height: 150px;
+    position: center;
 }
 .wrapper
 {
@@ -93,4 +94,11 @@ h1 {
     background-color: #b9def0;
     font-size: large;
     color: white;
+}
+body{
+    background-image:url("images/background.jpg");
+    background-attachment:scroll;
+    background-repeat : no-repeat;
+    background-position: top;
+    background-size:  cover;
 }
