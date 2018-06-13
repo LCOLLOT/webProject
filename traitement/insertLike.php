@@ -2,7 +2,7 @@
 session_start();
 
 try{
-    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
+    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
 }
 catch(Exception $e) {
     die('Erreur : ' . $e->getMessage());
