@@ -24,6 +24,9 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     $req3 = $bdd->prepare('SELECT * FROM articles');
     $req3->execute();
 }
+//Recherche des 5 lieux les plus likés
+$req4 = $bdd->prepare('SELECT id FROM articles ORDER BY id LIMIT 0,5');
+$req4->execute();
 
 
 ?>
@@ -417,8 +420,8 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             $first = false;
                         }
                     }
-                    }
-                    ?>
+                }
+                ?>
                     <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -429,8 +432,101 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     </a>
                 </div>
             </div>
+
+
+            <?php if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
+            <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
+                <strong><p align="center">Les 5 monuments les plus appréciés :</p></strong>
+            </div>
+            <div class="carousel slide" id="carousel" data-ride="carousel">
+                <div class="carousel-inner thumbnail">
+                    <div class="item"></div>
+                    <?php
+                    $tabNom = array();
+                    $tabM = array();
+                    $tabDescriptif = array();
+                    $first = true;
+                    while ($monument = $req4->fetch()) {
+                        $article = new article($monument['id']);
+                        $tabM[$article->getLongitude()] = $article->getLattitude();
+                        $tabNom[] = '"' . $article->getTitre() . '"';
+                        $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
+                        ?>
+                        <div class="item <?php if ($first == true) echo "active"; ?>">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td><strong><?php echo $article->getTitre(); ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                                            alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
+                                </tr>
+                                <tr>
+                                    <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo $article->getContenu() ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Commentaires :</td>
+                                    <?php $commentaire = $article->getCommentaires();
+                                    foreach ($commentaire as $id => $com) {
+                                    ?>
+                                <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
+                                        <form method="post" action="traitement/insertLikeCommentaire.php">
+                                            <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
+                                            <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo " ".$article->getNbLikeCommentaire($id);?></span></button>
+                                            </button>
+                                        </form></p>
+                                    </td></tr>
+                                <?php
+                                }
+                                ?>
+                                <tr>
+                                    <td align="center">
+                                        <form method="post" action="traitement/insertCommentaire.php">
+                                            <input type="text" name="idArticle"
+                                                   value="<?php echo $monument['id']; ?>" hidden/>
+                                            <input type="text" name="text" class="form-control"/>
+                                            <button class="btn btn-primary" type="submit"><span
+                                                        class="glyphicon glyphicon-send"></span> Commenter
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td><form method="post" action="traitement/insertLike.php">
+                                            <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
+                                            </button></form></td>
+                                    <td><form method="post" action="traitement/insertLike.php">
+                                            <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span>
+                                            </button></form></td>
+                                    <td><form method="post" action="traitement/insertLike.php">
+                                            <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-warning-sign"></span>
+                                            </button></form></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <?php
+                        $first = false;
+                    } ?>
+                    <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                                class="icon-prev"></span></a>
+                    <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                                class="icon-next"></span></a>
+                </div>
+
+            </div>
+            <?php } ?>
         </div>
     </div>
+
+
 
     <script>
         var map;
@@ -439,7 +535,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
 
 
             var lat = 47.7290842;
-            var long = 7.310896100000036;
+            var long = 7.3108961;
             var text ='Votre position';
             <?php if(isset($_GET['latt'])){?>
             lat = <?php echo $_GET['latt']?>;
