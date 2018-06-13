@@ -8,12 +8,7 @@ footer{
     text-align: center;
     font-size: small;
     color: #321506;
-    /*background-color: #321506;*/
     bottom: 0;
-    /*width: 100%;
-    height: fit-content;
-    position: fixed;*/
-
 }
 
 .logo{
@@ -63,7 +58,7 @@ body {
     line-height: 16px;
 }
 a {
-    color: 	#915700;
+    color: #9A4C1E;
 }
 a:hover {
     color:	#321506;
@@ -72,6 +67,7 @@ nav {
     border-radius: 8px;
     padding: 0 !important;
     border: 1px solid #321506;
+    background-color: transparent;
 }
 section {
     padding-right: 0 !important;
