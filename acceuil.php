@@ -187,7 +187,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                             <form method="post" action="traitement/insertLikeCommentaire.php">
                                                 <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
                                                 <button class="btn btn-sm btn-default" type="submit">j'aime <?php echo " ".$article->getNbLikeCommentaire($id);?></button>
-                                                </button> <?php echo " : " . $article->getLike() ?>
+                                                </button>
                                             </form></p>
                                         </td></tr>
                                     <?php
@@ -379,7 +379,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                             <form method="post" action="traitement/insertLikeCommentaire.php">
                                                 <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
                                                 <button class="btn btn-sm btn-default" type="submit">j'aime <?php echo " ".$article->getNbLikeCommentaire($id);?></button>
-                                                </button> <?php echo " : " . $article->getLike() ?>
+                                                </button>
                                             </form></p>
                                         </td></tr>
                                     <?php
@@ -397,6 +397,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                             </form>
                                         </td>
                                     </tr>
+
                                     <tr>
                                         <td align="center">
                                             <form method="post" action="traitement/insertLike.php">
