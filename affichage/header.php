@@ -28,13 +28,10 @@ $profil = new Profil($userId);
 
 <body>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
-<div class="pull-left">
-    <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
-</div>
 <div class="container">
         <nav class="navbar navbar-default">
             <ul class="nav navbar-nav">
-                <li></li>
+                <li> <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a></li>
                     <li> <a href="acceuil.php">Accueil</a> </li>
                     <li> <a href="newArticle.php">Ajouter un article</a> </li>
                     <li> <a href="messagerie.php">Messagerie</a> </li>
