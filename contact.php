@@ -1,6 +1,8 @@
 <?php
+include ('affichage/header.php');
 session_start();
 session_cache_limiter('private_no_expire, must-revalidate');
+
 ?>
     <!doctype html>
     <html lang="fr">
