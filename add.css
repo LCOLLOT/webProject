@@ -113,6 +113,6 @@ footer a:hover{
     opacity: 0.3;*/
 }
 
-footer p, footer a, footer a:hover, .container div{
-    opacity: 100%;
+footer p, footer a, footer a:hover{
+    opacity: unset;
 }
