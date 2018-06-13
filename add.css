@@ -63,6 +63,7 @@ body {
     color: 	#321506;
     font-size: 12px;
     line-height: 16px;
+    font-family: Source Sans Pro;
 }
 a {
     color: #9A4C1E;
@@ -133,11 +134,9 @@ div.container{ /* Astuce de création d'un bloc à 60% opaque à l'image de fond
     margin-top: 1%;
 }
 .btn-danger {
-    margin-left: 5px;
     margin-right: 5px;
 }
 .btn-succes {
-    margin-left: 5px;
     margin-right: 5px;
 }
 .btn-default {
