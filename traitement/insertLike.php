@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 try{
     $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
 }
