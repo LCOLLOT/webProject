@@ -13,7 +13,7 @@ session_start();
                             <tr><td>Date de naissance :<input type="text" name="dateNaissance" value="<?php echo $profil->getDate();?>" class="form-control"/></td></tr>
                             <tr><td>Pseudonyme :<input type="text" name="pseudo" value="<?php echo $profil->getPseudo();?>" class="form-control"/></td></tr>
                             <tr><td>Adresse mail :<input type="text" name="mail" value="<?php echo $profil->getMail();?>" class="form-control"/></td></tr>
-                        <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span> Modifier</button></td></tr>
+                        <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok"></span> Modifier</button></td></tr>
                     </table>
             </form>
     </div>
