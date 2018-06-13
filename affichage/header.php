@@ -28,7 +28,7 @@ $profil = new Profil($userId);
 
 <body>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
-<div class="logodiv">
+<div class="pull-left">
     <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
 </div>
 <div class="container">
@@ -49,7 +49,7 @@ $profil = new Profil($userId);
             </ul>
             <div class="pull-right" id="buttonH">
                 <?php if (isset($_SESSION['user'])) { ?>
-                    <button class="alert-success" > Connecté <span class="glyphicon glyphicon-ok"></span></button>
+                    <div class="btn btn-default disabled" style="cursor:default;"><span class="glyphicon glyphicon-check"></span> <?php echo $_SESSION['user']; ?>, <?php echo $profil->getGroupe(); ?> </div>
                 <?php } ?>
 
                 <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">Compte <span class="caret"></span></button>

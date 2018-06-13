@@ -94,6 +94,7 @@ h1 {
     font-size: large;
     color: white;
 }
-.logodiv, .nav {
-    display: inline-block;
+
+.container{
+    height: 50%;
 }
