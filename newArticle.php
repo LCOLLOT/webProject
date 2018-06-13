@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../log/pdo.php');
+include('affichage/header.php');
 ?>
 
     <h2 id="titreNewArticle">Ajouter un article</h2>
@@ -30,8 +31,3 @@ include('../log/pdo.php');
                     </table>
         </div>
     </div>
-
-<?php
-header("Location: ../acceuil.php");
-exit();
-?>
