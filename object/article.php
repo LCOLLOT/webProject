@@ -32,7 +32,7 @@ class article
 
         $this->commentaires = array();
         while($commentaire = $req->fetch()){
-            $this->commentaires[] = $commentaire['date']." : ".$commentaire['texte'];
+            $this->commentaires[] = $commentaire['date']." ' ".$commentaire['texte']." ' ";
         }
     }
 
