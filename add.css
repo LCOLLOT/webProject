@@ -9,7 +9,7 @@ footer{
     font-size: small;
     color: #321506;
     bottom: 0;
-    background-color: #F9D049;
+    background-color: #ECCA7B;
     opacity: 0.5;
 }
 
@@ -109,8 +109,8 @@ footer a:hover{
 }
 
 .container{
-    background-color: #F9D049;
-    opacity: 0.5;
+    background-color:#ECCA7B;
+    opacity: 0.3;
 }
 
 footer p, footer a, footer a:hover, .container div{
