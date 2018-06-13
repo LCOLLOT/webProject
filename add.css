@@ -9,7 +9,7 @@ footer{
     font-size: small;
     color: #321506;
     bottom: 0;
-    background-color: #D7B581;
+    background-color: #F9D049;
     opacity: 0.5;
 }
 
@@ -108,11 +108,11 @@ footer a:hover{
     color: #321506;
 }
 
-.navbar navbar-default{
-    background-color: #D7B581;
+.container{
+    background-color: #F9D049;
     opacity: 0.5;
 }
 
-footer p, footer a, footer a:hover, .container p{
+footer p, footer a, footer a:hover, .container div{
     opacity: 100%;
 }
