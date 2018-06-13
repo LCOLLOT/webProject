@@ -1,6 +1,5 @@
 <?php
 include ('affichage/header.php');
-session_start();
 session_cache_limiter('private_no_expire, must-revalidate');
 ?>
     <h2>Nous contacter</h2>
