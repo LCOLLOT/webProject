@@ -25,9 +25,10 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     $req3->execute();
 }
 //Recherche des 5 lieux les plus likés
-$req4 = $bdd->prepare('SELECT id FROM articles ORDER BY id LIMIT 0,5');
-$req4->execute();
-
+if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {
+    $req4 = $bdd->prepare('SELECT article_id AS id from likearticle GROUP BY article_id ORDER BY article_id LIMIT 0,5');
+    $req4->execute();
+}
 
 ?>
 

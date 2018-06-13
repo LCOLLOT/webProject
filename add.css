@@ -134,20 +134,20 @@ div.container{ /* Astuce de création d'un bloc à 60% opaque à l'image de fond
 }
 .btn-danger {
     margin-left: 5px;
-    margin-left: 5px;
+    margin-right: 5px;
 }
 .btn-succes {
     margin-left: 5px;
-    margin-left: 5px;
+    margin-right: 5px;
 }
-.btn-warning {
-    margin-left: 5px;
-    margin-left: 5px;
+.btn-default {
+    margin-right: 5px;
 }
 
 .dropdown-toggle{
     background-color: #D89B31;
     border-color: #D89B31;
+    margin-right: 5px;
 }
 
 .dropdown-toggle:hover{
