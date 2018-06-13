@@ -1,4 +1,5 @@
 <?php
+session_start();
 include ('affichage/header.php');
 ?>
     <h2>Poster un commentaire</h2>

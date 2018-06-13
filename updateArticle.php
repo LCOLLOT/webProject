@@ -1,13 +1,8 @@
 <?php
 include ('affichage/header.php');
-    try{
-        $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
-    }
-    catch(Exception $e){
-        die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
-    }
+include ('log/pdo.php');
 
-    if (!isset($_POST["id"]))
+if (!isset($_POST["id"]))
     {
         http_response_code(400);
         echo "Bad request";

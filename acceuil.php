@@ -204,7 +204,7 @@ if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && iss
                                         }
                                         ?>
                                     <tr>
-                                        <td align="center">
+                                        <td align="left">
                                             <form method="post" action="traitement/insertCommentaire.php">
                                                 <input type="text" name="idArticle"
                                                        value="<?php echo $monument['id']; ?>" hidden/>
@@ -226,7 +226,7 @@ if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && iss
                                                 <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
                                                 <button class="btn <?php if($article->isDisliked($_SESSION['user_id'])){echo 'btn-danger';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDisLike()?></span>
                                                 </button></form></td>
-                                        <td><form method="post" action="traitement/insertLike.php">
+                                        <td align=right"><form method="post" action="traitement/insertLike.php">
                                                 <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
                                                 <button class="btn <?php if($article->isSignaled($_SESSION['user_id'])){echo 'btn-warning';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span>
                                                 </button></form></td>
@@ -298,7 +298,7 @@ if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && iss
                                             }
                                             ?>
                                         <tr>
-                                            <td align="center">
+                                            <td align="left">
                                                 <form method="post" action="traitement/insertCommentaire.php">
                                                     <input type="text" name="idArticle"
                                                            value="<?php echo $monument['id']; ?>" hidden/>
@@ -393,7 +393,7 @@ if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && iss
                                         }
                                         ?>
                                     <tr>
-                                        <td align="center">
+                                        <td align="left">
                                             <form method="post" action="traitement/insertCommentaire.php">
                                                 <input type="text" name="idArticle"
                                                        value="<?php echo $monument['id']; ?>" hidden/>
@@ -433,8 +433,8 @@ if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && iss
                                 class="glyphicon glyphicon-menu-right black"></span></a>
                 </div>
             </div>
-
-            <?php }else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
+            <?php } //Affichega des 5 articles les plus convoités
+            else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
             <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
                 <p align="center">Les 5 monuments les plus appréciés :</p>
             </div>
@@ -482,7 +482,7 @@ if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && iss
                                 }
                                 ?>
                                 <tr>
-                                    <td align="center">
+                                    <td align="left">
                                         <form method="post" action="traitement/insertCommentaire.php">
                                             <input type="text" name="idArticle"
                                                    value="<?php echo $monument['id']; ?>" hidden/>

@@ -1,6 +1,5 @@
 <?php
 session_start();
-include('../log/pdo.php');
 include('affichage/header.php');
 ?>
 

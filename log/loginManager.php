@@ -34,7 +34,8 @@ class loginManager
         $req->execute(array('mail'=> $this->login));
 
         $user = $req->fetch();
-        if( $user['password'] == $this->mdp){
+
+        if( $user['password'] == hash('sha256', $this->mdp)){
             $_SESSION['user_id'] = $user['id'];
             return $user['name'];
         }
@@ -54,7 +55,7 @@ class loginManager
         $req->execute(array('mail'=> $this->login));
 
         $user = $req->fetch();
-        if( $user['password'] == $this->mdp){
+        if( $user['password'] == hash('sha256', $this->mdp)){
             $_SESSION['user_id'] = $user['id'];
             return $user['id'];
         }
