@@ -60,7 +60,7 @@ include ('affichage/headeradmin.php');
                         <tbody>
                         <tr><td>Recherche</td></tr>
                         <tr><td><input type="text" name="recherche" class="form-control"/></td></tr>
-                        <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Rechercher</button></td></tr>
+                        <tr><td align="center"><button class="btn btn-primary acentrer" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Rechercher</button></td></tr>
                         </tbody>
                     </table>
                 </form>

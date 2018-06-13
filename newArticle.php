@@ -15,7 +15,7 @@ include ('affichage/header.php');
                             <tr><td>Description <textarea name="description" rows="10" cols="50" class="form-control"></textarea></td></tr>
                            <input type="text" name="auteur_id" value="<?php echo $_SESSION['user_id'];?>" class="form-control hidden"/>
                             <tr><td>Photo  <input type="file" name="photo" class="form-control"/></td></tr>
-                            <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok"></span> Valider</button></td></tr>
+                            <tr><td><button class="btn btn-primary acentrer" type="submit"><span class="glyphicon glyphicon-ok"></span> Valider</button></td></tr>
                         </form>
                     </table>
         </div>

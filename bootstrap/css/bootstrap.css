@@ -3117,9 +3117,14 @@ fieldset[disabled] .btn-default.focus {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
-  //width: 30%;
-  //margin-left: 35%;
+  <!--width: 30%; -->
+  <!--margin-left: 35%; -->
 }
+.btn.btn-primary.acentrer{
+    width: 30%;
+    margin-left: 35%;
+}
+
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;

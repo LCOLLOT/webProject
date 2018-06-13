@@ -14,7 +14,7 @@ session_cache_limiter('private_no_expire, must-revalidate');
                     <tr><td>Adresse mail <input type="email" name="email" class="form-control"/></td></tr>
                     <tr><td>Sujet <input type="text" name="sujet" class="form-control"/></td></tr>
                     <tr><td>Message  <textarea name="message" rows="15" cols="80"></textarea></td></tr>
-                    <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span> Envoyer</button></td></tr>
+                    <tr><td><button class="btn btn-primary acentrer" type="submit"><span class="glyphicon glyphicon-send"></span> Envoyer</button></td></tr>
                 </form>
             </table>
         </div>
