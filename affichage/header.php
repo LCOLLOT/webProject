@@ -58,7 +58,7 @@ $profil = new Profil($userId);
                 </ul>
             </div>
         </nav>
-    <div class="logodiv">
+    <div class="pull-left">
         <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
     </div>
 <script src="bootstrap/js/jquery.js"></script>
