@@ -8,7 +8,7 @@ include ('affichage/header.php');
     }
 
 if(isset($_POST['recherche']) && !empty($_POST['recherche'])) {
-
+        $_SESSION['recherche'] = htmlspecialchars($_POST['recherche']);
     //Création des articles correspondant à la recherche
     $recherche = htmlspecialchars($_POST['recherche']);
     $req = $bdd->prepare('SELECT id FROM articles WHERE titre LIKE :recherche');
