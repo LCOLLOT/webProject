@@ -102,14 +102,15 @@ body{
     background-size:  cover;
 }
 footer{
-    background-color: #E19A31;
+    background-color: #321506;
+    width: 100%;
 }
 footer p{
-    color: #321506;
-}
-footer a{
     color: #9A4C1E;
 }
+footer a{
+    color: #E19A31;
+}
 footer a:hover{
-    color: #321506;
+    color: #9A4C1E;
 }
