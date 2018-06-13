@@ -1,8 +1,10 @@
 <?php
     session_start();
+    $connect=false;
 session_cache_limiter('private_no_expire, must-revalidate');
 if (!isset($_SESSION['user']))
 {
+    $connect=true;
     header("Location: index.php");
     exit();
 }
@@ -32,6 +34,10 @@ if (!isset($_SESSION['user']))
                     <li> <a href="contact.php">Nous contacter</a> </li>
             </ul>
             <div class="pull-right" id="buttonH">
+                <?php if (isset($_SESSION['user'])) { ?>
+                    <button class="alert-success" > Connecté <span class="glyphicon glyphicon-ok"></span></button>
+                <?php } ?>
+
                 <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">Compte <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span> Mon profil</a></li>
