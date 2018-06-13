@@ -174,7 +174,7 @@ $req4->execute();
                             <div class="item <?php if ($first == true) echo "active"; ?>">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <td><strong><?php echo $article->getTitre(); ?></strong></td>
+                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                     </tr>
                                     <tr>
                                         <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
@@ -268,7 +268,7 @@ $req4->execute();
                                 <div class="item <?php if ($first == true) echo "active"; ?>">
                                     <table class="table table-bordered">
                                         <tr>
-                                            <td><strong><?php echo $article->getTitre(); ?></strong></td>
+                                            <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                         </tr>
                                         <tr>
                                             <td align="center"><img
@@ -364,7 +364,7 @@ $req4->execute();
                             <div class="item <?php if ($first == true) echo "active"; ?>">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <td><strong><?php echo $article->getTitre(); ?></strong></td>
+                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                     </tr>
                                     <tr>
                                         <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
@@ -459,7 +459,7 @@ $req4->execute();
                         <div class="item <?php if ($first == true) echo "active"; ?>">
                             <table class="table table-bordered">
                                 <tr>
-                                    <td><strong><?php echo $article->getTitre(); ?></strong></td>
+                                    <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                 </tr>
                                 <tr>
                                     <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"

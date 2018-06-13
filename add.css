@@ -38,7 +38,7 @@ margin: auto;
     height: 400px;
 }
 
-#titreProfil, #titreNewArticle{
+#titreProfil, #titreNewArticle #titreContact{
     text-align: center;
 }
 #lign1{
