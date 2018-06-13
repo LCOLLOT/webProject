@@ -1,7 +1,7 @@
 <?php
 include ('affichage/header.php');
     try{
-        $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
+        $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
     }
     catch(Exception $e){
         die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
@@ -215,12 +215,15 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                             <form method="post" action="traitement/insertLike.php">
                                                 <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
                                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span>
-                                                </button> <?php echo " : " . $article->getLike() ?>
+                                                </button> <?php echo " : " . $article->getLike() ?> </form>
+                                            <form method="post" action="traitement/insertLike.php">
                                                 <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
                                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-down"></span>
-                                                </button> <?php echo " : " . $article->getDislike() ?>
+                                                </button> <?php echo " : " . $article->getDislike() ?> </form>
+                                            <form method="post" action="traitement/insertLike.php">
                                                 <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
                                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-warning-sign"></span>
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>
@@ -408,7 +411,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-down"></span>
                                                 </button> <?php echo " : " . $article->getDislike() ?>
                                                 <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
-                                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-warning-sign"></span>
+                                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-warning-sign" title="Hover on me!"></span>
                                             </form>
                                         </td>
                                     </tr>
