@@ -42,14 +42,14 @@ if (isset($_GET['disconnect']))
 <body>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
 <div class="container">
-    <nav class="navbar navbar-default">
+
         <ul class="nav navbar-nav">
             <li><a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a></li>
         </ul>
         <div class="pull-right">
             <button class="btn btn-lg btn-info" data-toggle="modal" href="#infos">S'inscrire</button>
         </div>
-    </nav>
+
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 

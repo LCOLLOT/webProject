@@ -7,10 +7,11 @@
 footer{
     text-align: center;
     font-size: small;
-    color: #321506;
+    color: #9A4C1E;
     bottom: 0;
-    background-color: #E9DBBB;
-    opacity: 0.5;
+    background-color: #321506;
+    border-radius: 3%;
+    weight: 100%;
 }
 
 .logo{
@@ -102,17 +103,17 @@ body{
     background-size: cover;
 }
 footer a{
-    color: #9A4C1E;
+    color: #D89B31;
 }
 footer a:hover{
-    color: #321506;
+    color: #9A4C1E;
 }
-
-.container{
-   /* background-color: #E9DBBB;
-    opacity: 0.3;*/
-}
-
-footer p, footer a, footer a:hover{
-    opacity: unset;
+div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fond */
+    width:70%;
+    height:100%;
+    margin:0% 0px;
+    background-color:#FFFFFF;
+    border:1px solid #D89B31;
+    filter:Alpha(opacity=80);-moz-opacity:0.80;opacity: 0.80;
+    margin: auto;
 }

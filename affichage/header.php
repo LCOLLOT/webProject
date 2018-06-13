@@ -28,6 +28,7 @@ $profil = new Profil($userId);
 
 <body>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
+
 <div class="container">
         <nav class="navbar navbar-default">
             <ul class="nav navbar-nav">
@@ -64,5 +65,5 @@ $profil = new Profil($userId);
                 </ul>
             </div>
         </nav>
-<script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/jquery.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
