@@ -72,7 +72,7 @@
                                     <td>Titre</td>
                                     <td>Latitude</td>
                                     <td>Longitude</td>
-                                    <td>Description</td>
+
 
                                 </tr>
                                 <tr>
@@ -80,18 +80,21 @@
                                     <td><input type="text" name="titre" value="<?php echo $article->getTitre(); ?>"/></td>
                                     <td><input type="text" name="latitude" value="<?php echo $article->getLattitude(); ?>"/></td>
                                     <td> <input type="text" name="longitude" value="<?php echo $article->getLongitude(); ?>"/></td>
-                                    <td> <textarea name="description" rows="4" cols="70" class="form-control"><?php echo $article->getContenu(); ?></textarea></td>
+
+                                </tr>
+
+                            </table>
+                            <table>
+                                <tr>
+                                    <td>Description</td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <input type="submit" name="Delete" value="Supprimer"></input>
-                                        <input type="submit" name="Update" value="Sauvegarder"></input>
-                                    </td>
+                                    <td> <textarea name="description" rows="4" cols="70" class="form-control"><?php echo $article->getContenu(); ?></textarea></td>
                                 </tr>
+                                <td>
+                                    <input type="submit" name="Delete" value="Supprimer"></input>
+                                    <input type="submit" name="Update" value="Sauvegarder"></input>
+                                </td>
                             </table>
                         </td>
                     </tr>
