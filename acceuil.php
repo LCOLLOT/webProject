@@ -493,17 +493,17 @@ $req4->execute();
                             </table>
                             <table>
                                 <tr>
-                                    <td><form method="post" action="traitement/insertLike.php">
+                                    <td><form method="post" action="traitement/insertLike.php" >
                                             <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
-                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
+                                            <button class="btn <?php if($article->isLiked($_SESSION['user_id'])){echo 'btn-success';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
                                             </button></form></td>
                                     <td><form method="post" action="traitement/insertLike.php">
                                             <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
-                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span>
+                                            <button class="btn <?php if($article->isDisliked($_SESSION['user_id'])){echo 'btn-danger';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDisLike()?></span>
                                             </button></form></td>
                                     <td><form method="post" action="traitement/insertLike.php">
                                             <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
-                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-warning-sign"></span>
+                                            <button class="btn <?php if($article->isSignaled($_SESSION['user_id'])){echo 'btn-warning';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span>
                                             </button></form></td>
                                 </tr>
                             </table>
