@@ -17,14 +17,27 @@ $users = $bdd->query('SELECT * FROM users ');
     while ($data = $users->fetch())
 {
     ?>
-    <tr>
-        <td><?php echo $data['id'];?></td>
-        <td><?php echo $data['name'];?></td>
-        <td><?php echo $data['mail'];?></td>
-        <td><form method=\"post\" action=deletemember.php>
-    <button type="submit" name="idToDelete" value="<?php echo $data['id'];?>">Supprimer</button>
-            </form>
-    </tr>
+    <form method="post" action="updatemember.php">
+        <input type="hidden" name="id" value="<?php echo $data['id'];?>">
+        <table>
+        <tr>
+            <td><?php echo $data['id'];?></td>
+            <td><?php echo $data['name'];?></td>
+            <td><?php echo $data['mail'];?></td>
+            <td>
+                <input type="submit" name="Delete" value="Supprimer">
+                <select name="NewGroup">
+                    <option value="admin" <?php if ($data['groupe'] == "admin") echo "selected"; ?>>Admin</option>
+                    <option value="moderateur" <?php if ($data['groupe'] == "moderateur") echo "selected"; ?>>Modérateur</option>
+                    <option value="membre" <?php if ($data['groupe'] == "membre") echo "selected"; ?>>Membre</option>
+                </select>
+
+                <input type="submit" name="Update" value="Sauvegarder">
+            </td>
+        </tr>
+        </table>
+    </form>
+
     <?php
 }
 $users->closeCursor();
