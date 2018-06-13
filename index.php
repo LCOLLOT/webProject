@@ -47,7 +47,7 @@ if (isset($_GET['disconnect']))
             <li><a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a></li>
         </ul>
         <div class="pull-right">
-            <button class="btn btn-lg btn-info" data-toggle="modal" href="#infos"><span class="glyphicon glyphicon-usd"></span>'inscrire</button>
+            <button class="btn btn-lg btn-info" data-toggle="modal" href="#infos">S'inscrire</button>
         </div>
     </nav>
     <script src="bootstrap/js/jquery.js"></script>
@@ -59,7 +59,7 @@ if (isset($_GET['disconnect']))
             <table align="center" class="table">
                 <tr><td><span class="label label-default">Mail d'identifiant</span><input type="text" class="form-control" name="login" title="Saisie d'un identifiant"></td></tr>
                 <tr><td><span class="label label-default">Mot de passe</span><input type="password" class="form-control" name="password" title="Saisie du mot de passe"></td></tr>
-                <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Valider</button></td></tr>
+                <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok"></span> Valider</button></td></tr>
 
             </table>
         </form>
