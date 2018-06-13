@@ -232,9 +232,9 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                             <?php
                             $first = false;
                         } ?>
-                        <a class="left carousel-control" href="#carousel" data-slide="prev"><span
+                        <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);"><span
                                     class="icon-prev"></span></a>
-                        <a class="right carousel-control" href="#carousel" data-slide="next"><span
+                        <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);"><span
                                     class="icon-next"></span></a>
                     </div>
                 </div>
@@ -329,10 +329,10 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                 $first = false;
                             }
                         } ?>
-                        <a class="left carousel-control" href="#carousel" data-slide="prev">
+                        <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);">
                             <span class="icon-prev" aria-hidden="true"></span>
                         </a>
-                        <a class="right carousel-control" href="#carousel" data-slide="next">
+                        <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);">
                             <span class="icon-next" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -428,11 +428,11 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     }
                     }
                     ?>
-                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
