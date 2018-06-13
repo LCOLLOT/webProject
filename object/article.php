@@ -26,8 +26,7 @@ class article
         $this->longitude = $article['longitude'];
         $this->id = $id;
         $this->categorie = $article['categorie'];
-        $this->like = $article['jaime'];
-        $this->dislike=$article['jaimepas'];
+
 
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id');
         $req->execute(array('id'=> $id));
