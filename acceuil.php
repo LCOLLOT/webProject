@@ -64,15 +64,20 @@ $req4->execute();
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <table class="table">
                     <tbody>
+                    <form method="get" action="acceuil.php" name="rayonF">
                     <tr class="tabLigne">
                         <td>Autour de moi</td>
                     </tr>
                     <tr>
                         <td><select name="rayon" class="form-control">
-                                <option value="10">10Km</option>
+                                <option value="10000">10Km</option>
+                                <option value="20000">20Km</option>
+                                <option value="50000">50Km</option>
+                                <option value="100000">100Km</option>
 
                             </select></td>
-                    </tr>  
+                    </tr>
+                    </form>
                     <tr>
                         <td align="center">
                             <button class="btn btn-primary" onclick="loc()"><span
@@ -80,7 +85,7 @@ $req4->execute();
                                 <script> function loc() {
 
                                         function maPosition(position) {
-                                            document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude;
+                                            document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude+"&ray="+document.forms["rayonF"].elements["rayon"].value;
                                         }
 
                                         if (navigator.geolocation) {
@@ -240,7 +245,7 @@ $req4->execute();
             else if (isset($_GET['latt']) && isset($_GET['long'])){
                 ?>
                 <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
-                    <p>Monuments dans un rayon de 10km autour de votre position (LATT:<?php echo $_GET['latt']; ?>
+                    <p>Monuments dans un rayon de <?php echo $_GET['ray']/1000;?>km autour de votre position (LATT:<?php echo $_GET['latt']; ?>
                         LONG: <?php echo $_GET['long']; ?>)</p>
                 </div>
                 <div class="carousel slide" id="carousel" data-ride="carousel">
@@ -254,7 +259,7 @@ $req4->execute();
                         while ($monument = $req2->fetch()) {
                             $distCalc = new distCalculator($_GET['latt'], $monument['lattitude'], $_GET['long'], $monument['longitude']);
                             $dist = $distCalc->getDist();
-                            if ($dist < 10000) {
+                            if ($dist < $_GET['ray']) {
                                 $article = new article($monument['id']);
                                 $tabM[$monument['longitude']] = $monument['lattitude'];
                                 $tabNom[] = '"' . $monument['titre'] . '"';
@@ -350,7 +355,7 @@ $req4->execute();
                     while ($monument = $req3->fetch()) {
                         $distCalc = new distCalculator($lat, $monument['lattitude'], $long, $monument['longitude']);
                         $dist = $distCalc->getDist();
-                        if ($dist < 10000) {
+                        if ($dist < $_GET['ray']) {
                             $article = new article($monument['id']);
                             $tabM[$monument['longitude']] = $monument['lattitude'];
                             $tabNom[] = '"' . $monument['titre'] . '"';
@@ -420,7 +425,6 @@ $req4->execute();
                             $first = false;
                         }
                     }
-                }
                 ?>
                     <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -434,7 +438,7 @@ $req4->execute();
             </div>
 
 
-            <?php if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
+            <?php }else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
             <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
                 <strong><p align="center">Les 5 monuments les plus appréciés :</p></strong>
             </div>
