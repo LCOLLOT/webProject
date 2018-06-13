@@ -15,7 +15,7 @@ footer{
 }
 
 .logo{
-    height: 100px;
+    height: 50px;
     margin: 0px;
 }
 
@@ -124,4 +124,33 @@ div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fon
     border:1px solid #D89B31;
     filter:Alpha(opacity=90);-moz-opacity:0.90;opacity: 0.90;
     margin: auto;
+}
+.black {
+    color: #321506;
+}
+.carousel-control {
+    width: 4%;
+    margin-top: 1%;
+}
+.btn-danger {
+    margin-left: 5px;
+    margin-left: 5px;
+}
+.btn-succes {
+    margin-left: 5px;
+    margin-left: 5px;
+}
+.btn-warning {
+    margin-left: 5px;
+    margin-left: 5px;
+}
+
+.dropdown-toggle{
+    background-color: #D89B31;
+    border-color: #D89B31;
+}
+
+.dropdown-toggle:hover{
+    background-color: #9A4C1E;
+    border-color: #9A4C1E;
 }
