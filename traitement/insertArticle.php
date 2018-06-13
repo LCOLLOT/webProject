@@ -12,7 +12,7 @@ include('../log/pdo.php');
     $nb = rand(100,100000);
 
     try {
-        $req = $bdd->prepare('INSERT INTO articles(titre,description,auteur_id,dateA,lattitude,photo,longitude) VALUES (:titre,:description,:auteur_id,:dateN,:lattitude,:photo,:longitude, :choix)');
+        $req = $bdd->prepare('INSERT INTO articles(titre,description,auteur_id,dateA,lattitude,photo,longitude,categorie) VALUES (:titre,:description,:auteur_id,:dateN,:lattitude,:photo,:longitude, :choix)');
         $req->execute(array("titre" => $titre, "description" => $description, "auteur_id" => $auteur_id, "lattitude" => $lattitude,"dateN"=>"2018-05-05", "photo" => basename($_FILES['photo']['name']).$nb, "longitude" => $longitude, "choix"=>$choix));
 
     }catch(Exception $e){

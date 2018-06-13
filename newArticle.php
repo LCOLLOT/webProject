@@ -19,7 +19,7 @@ include ('affichage/header.php');
                                 <option value="Châteaux">Châteaux</option>
                                 <option value="Grotte">Grotte</option>
                                 <option value="Monument religieux">Monument religieux</option>
-                                <option value="Autre monument historique" selected="selected">Autre monument historique</option>
+                                <option value="Autre monument historique">Autre monument historique</option>
                             </select></td></tr>
                     <tr><td>Photo  <input type="file" name="photo" class="form-control"/></td></tr>
                     <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok"></span> Valider</button></td></tr>
