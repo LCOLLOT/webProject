@@ -85,7 +85,9 @@ $req4->execute();
                                 <script> function loc() {
 
                                         function maPosition(position) {
-                                            document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude+"&ray="+document.forms["rayonF"].elements["rayon"].value;
+                                            document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude+"&ray="+document.forms["rayonF"].elements["rayon"].value; //#camarchepas {…ong=" + position.coords.longitude + "&l###att=" + position.coords.latitude+"&ray=…} ----> (cannot generate system identifier for general entity "latt" +++ general entity "latt" not defined and no default entity+++reference to entity "latt" for which no system identifier could be generated +++ les meme erreurs pour "&ray" dans {…"&latt=" + position.coords.latitude+"&###ray="+document.forms["rayonF"].elements[…
+                                        }
+
                                         }
 
                                         if (navigator.geolocation) {
@@ -113,7 +115,7 @@ $req4->execute();
                         <tr>
                             <td>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="longitude"
-                                                                               class="form-control" placeholder="Long"/>
+                                                                               class="form-control" placeholder="Long"/> // #camarchepas {class="form-control" placeholder="Long"###/>} ----->  NET-enabling start-tag requires SHORTTAG YES
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="lattitude"
                                                                                class="form-control" placeholder="Latt"/>
