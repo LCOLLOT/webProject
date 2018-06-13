@@ -1,4 +1,5 @@
     <footer>
+        <div class="fond"></div>
     <hr>
         <!-- pied de page -->
         <p><a href="contact.php">Nous contacter</a></p>
