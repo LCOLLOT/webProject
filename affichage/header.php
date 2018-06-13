@@ -16,8 +16,8 @@ if (!isset($_SESSION['user']))
 <head>
     <meta charset="utf-8" />
     <title>Web-Trotter</title>
-    <link rel="stylesheet" href="add.css" />
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="add.css" />
 </head>
 
 <body>
