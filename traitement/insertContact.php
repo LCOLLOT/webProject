@@ -1,11 +1,7 @@
 <?php
 session_start();
-try{
-    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
-}
-catch(Exception $e){
-    die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
-}
+include('../log/pdo.php');
+
 $nom = htmlspecialchars($_POST['nom']);
 $prenom = htmlspecialchars($_POST['prenom']);
 $mail = htmlspecialchars($_POST['email']);
@@ -19,5 +15,8 @@ try {
 }catch(Exception $e){
     die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
 }
+
+
 header("Location: ../acceuil.php");
 exit();
+?>

@@ -1,12 +1,6 @@
 <?php
-    session_start();
-
-try{
-    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
-}
-catch(Exception $e){
-    die('Erreur : '.$e->getMessage());
-}
+session_start();
+include('../log/pdo.php');
 
     $nom = htmlspecialchars($_POST['nom']);
     $dateN = htmlspecialchars($_POST['dateNaissance']);

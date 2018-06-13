@@ -1,14 +1,10 @@
 <?php
-    session_start();
-    include "affichage/header.php";
-try{
-    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
-}
-catch(Exception $e){
-    die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
-}
+session_start();
+include "affichage/header.php";
+include('log/pdo.php');
 
-    $req = $bdd->prepare('SELECT id FROM articles WHERE auteur_id = :id');
+
+$req = $bdd->prepare('SELECT id FROM articles WHERE auteur_id = :id');
     $req->execute(array('id'=>$_SESSION['user_id']));
     ?>
 

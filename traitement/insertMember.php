@@ -1,10 +1,7 @@
 <?php
-try{
-    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
-}
-catch(Exception $e){
-    die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
-}
+
+include('../log/pdo.php');
+
 $pseudo = htmlspecialchars($_POST['pseudo']);
 $name = htmlspecialchars($_POST['name']);
 $mail = htmlspecialchars($_POST['mail']);

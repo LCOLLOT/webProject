@@ -1,11 +1,7 @@
 <?php
 session_start();
+include('../log/pdo.php');
 
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
 
     $titre = htmlspecialchars($_POST['titre']);
     $lattitude = htmlspecialchars($_POST['lattitude']);

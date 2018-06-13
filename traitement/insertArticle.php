@@ -1,11 +1,7 @@
 <?php
-    session_start();
-try{
-    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
-}
-catch(Exception $e){
-    die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
-}
+session_start();
+include('../log/pdo.php');
+
     $titre = htmlspecialchars($_POST['titre']);
     $description = htmlspecialchars($_POST['description']);
     $adresse = htmlspecialchars($_POST['adresse']);
@@ -15,7 +11,7 @@ catch(Exception $e){
     $nb = rand(100,100000);
 
     try {
-        $req = $bdd->prepare('INSERT INTO articles(titre,description,auteur_id,dateA,lattitude,photo,longitude) VALUES (:titre,:description,:auteur_id,:dateN,:lattitude,:photo,:longitude)');
+        $req = $bdd->prepare('INSERT INTO articles(titre,description,auteur_id,dateA,lattitude,photo,longitude) VALUES (:titre,:description,:auteur_id,:dateN,:lattitude,:photo,:longitude,0)');
         $req->execute(array("titre" => $titre, "description" => $description, "auteur_id" => $auteur_id, "lattitude" => $lattitude,"dateN"=>"2018-05-05", "photo" => basename($_FILES['photo']['name']).$nb, "longitude" => $longitude));
 
     }catch(Exception $e){

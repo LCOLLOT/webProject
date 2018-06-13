@@ -1,11 +1,7 @@
 <?php
 include ('affichage/header.php');
-    try{
-        $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
-    }
-    catch(Exception $e){
-        die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
-    }
+include('log/pdo.php');
+
 
 if(isset($_POST['recherche']) && !empty($_POST['recherche'])) {
         $_SESSION['recherche'] = htmlspecialchars($_POST['recherche']);
@@ -211,7 +207,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td align="center">
+                                        <td>
                                             <form method="post" action="traitement/insertLike.php">
                                                 <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
                                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span>
@@ -307,7 +303,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="center">
+                                            <td class="container" align="center">
                                                 <form method="post" action="traitement/insertLike.php">
                                                     <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
                                                     <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span>

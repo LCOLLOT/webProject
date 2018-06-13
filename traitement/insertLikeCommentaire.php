@@ -1,11 +1,7 @@
 <?php
 session_start();
-try{
-    $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
-}
-catch(Exception $e){
-    die('Erreur : '.$e->getMessage());
-}
+include('../log/pdo.php');
+
 $id_commentaire = htmlspecialchars($_POST['idCommentaire']);
 $auteur_id = htmlspecialchars($_SESSION['user_id']);
 
