@@ -15,7 +15,12 @@ footer{
 }
 
 .logo{
-    height: 50px;
+    height: 100px;
+    margin: 0px;
+}
+
+.logo-div{
+    display: inline-block;
 }
 .wrapper
 {
@@ -117,13 +122,6 @@ div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fon
    /* height:100%;*/
     background-color:#FFFFFF;
     border:1px solid #D89B31;
-    filter:Alpha(opacity=85);-moz-opacity:0.85;opacity: 0.85;
+    filter:Alpha(opacity=90);-moz-opacity:0.90;opacity: 0.90;
     margin: auto;
-}
-.carousel-control {
-    width: 5%;
-    margin-top: 1%;
-}
-.black {
-    color: black;
 }
