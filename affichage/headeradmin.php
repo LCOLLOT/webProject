@@ -40,7 +40,6 @@ require 'object/distCalculator.php';
             <li><a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a></li>
             <li> <a href="acceuil.php">Accueil</a></li>
             <li> <a href="newArticle.php">Ajouter un article</a> </li>
-            <li> <a href="messagerie.php">Messagerie</a> </li>
             <li> <a href="admin.php">Pannel administrateur</a> </li>
         </ul>
         <div class="pull-right">
@@ -48,6 +47,7 @@ require 'object/distCalculator.php';
             <ul class="dropdown-menu">
                 <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span>Mon profil</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Mes Contributions</a></li>
+                <li> <a href="messagerie.php"<span class="glyphicon glyphicon-comment"></span>>Messagerie</a> </li>
                 <li class="divider"></li>
                 <li><a href="index.php?disconnect=true"><span class="glyphicon glyphicon-list-alt"></span>Se Déconnecter</a></li> </ul>
         </div>

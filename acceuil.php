@@ -186,8 +186,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
                                             <form method="post" action="traitement/insertLikeCommentaire.php">
                                                 <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
-                                                <button class="btn btn-default" type="submit"><span
-                                                            class="glyphicon glyphicon-thumbs-up"></span>
+                                                <button class="btn btn-sm btn-default" type="submit">j'aime <?php echo " ".$article->getNbLikeCommentaire($id);?></button>
                                                 </button> <?php echo " : " . $article->getLike() ?>
                                             </form></p>
                                         </td></tr>
@@ -379,8 +378,7 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
                                             <form method="post" action="traitement/insertLikeCommentaire.php">
                                                 <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
-                                                <button class="btn btn-default" type="submit"><span
-                                                            class="glyphicon glyphicon-thumbs-up"></span>
+                                                <button class="btn btn-sm btn-default" type="submit">j'aime <?php echo " ".$article->getNbLikeCommentaire($id);?></button>
                                                 </button> <?php echo " : " . $article->getLike() ?>
                                             </form></p>
                                         </td></tr>
