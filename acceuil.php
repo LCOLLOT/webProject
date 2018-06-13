@@ -182,7 +182,9 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                         <td>Commentaires :</td>
                                         <?php $commentaire = $article->getCommentaires();
                                         foreach ($commentaire as $com) {
-                                            echo "<tr><td><span class=\"glyphicon glyphicon-chevron-right\"></span>" . $com . "</td></tr>";
+                                        ?>
+                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p></td></tr>
+                                    <?php
                                         }
                                         ?>
                                     <tr>
@@ -266,7 +268,9 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                             <td>Commentaires :</td>
                                             <?php $commentaire = $article->getCommentaires();
                                             foreach ($commentaire as $com) {
-                                                echo "<tr><td><span class=\"glyphicon glyphicon-chevron-right\"></span>" . $com . "</td></tr>";
+                                                ?>
+                                                <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p></td></tr>
+                                                        <?php
                                             }
                                             ?>
                                         <tr>
@@ -348,7 +352,9 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                         <td>Commentaires :</td>
                                         <?php $commentaire = $article->getCommentaires();
                                         foreach ($commentaire as $com) {
-                                            echo "<tr><td><span class=\"glyphicon glyphicon-chevron-right\"></span>" . $com . "</td></tr>";
+                                        ?>
+                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p></td></tr>
+                                    <?php
                                         }
                                         ?>
                                     <tr>
