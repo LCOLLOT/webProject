@@ -108,11 +108,11 @@ footer a:hover{
     color: #321506;
 }
 
-.container{
+.navbar navbar-default{
     background-color: #D7B581;
     opacity: 0.5;
 }
 
 footer p, footer a, footer a:hover, .container p{
-    opacity: 1;
+    opacity: 100%;
 }
