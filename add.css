@@ -7,7 +7,9 @@
 footer{
     text-align: center;
     font-size: small;
-    color: #D89B31;
+    color: #9A4C1E;
+    background-color: #321506;
+    width: 100%;
 }
 
 .logo{
@@ -24,8 +26,8 @@ footer{
     top : 10%;
 }
 #searchBarre{
-    background-color: #321506;
-    border-color: #D89B31;
+    background-color: #D89B31;
+    border-color: #321506;
 }
 
 #map{
@@ -48,49 +50,46 @@ margin: auto;
     margin-top: 18%;
 }
 #textIntro{
-    color: #D89B31;
+    color: #321506;
 }
 
 body {
-    background-color:#321506;
-    color: 	#D89B31;
+    color: 	#321506;
     font-size: 12px;
     line-height: 16px;
 }
 a {
-    color: 	#D89B31;
+    color: 	#915700;
 }
-footer {
-    text-align:center;
+a:hover {
+    color:	#321506;
 }
 nav {
-    background-color:#9A4C1E;
     border-radius: 8px;
     padding: 0 !important;
-    border: 1px solid #ddd;
+    border: 1px solid #321506;
 }
 section {
     padding-right: 0 !important;
 }
 .panel {
-    background-color: #9A4C1E;
     border-radius: 8px;
     padding-bottom: 5px;
 }
 h1 {
-    color: #D89B31;
+    color: #321506;
 }
 .nav > li > a:hover, .nav > li > a:focus {
     background-color: #321506;
 }
 .panel-default > .panel-heading, .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    color: #D89B31;
-    background-color: #321506;
+    color: #321506;
+    background-color: #D89B31;
     border-radius: 8px;
 }
 .comment{
     border-radius: 3px 3px 3px 3px;
-    background-color: #b9def0;
+    background-color: #D7B581;
     font-size: large;
     color: white;
 }
@@ -100,13 +99,6 @@ body{
     background-repeat : no-repeat;
     background-position: top;
     background-size:  cover;
-}
-footer{
-    background-color: #321506;
-    width: 100%;
-}
-footer p{
-    color: #9A4C1E;
 }
 footer a{
     color: #E19A31;
