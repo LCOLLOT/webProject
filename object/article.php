@@ -33,7 +33,7 @@ class article
 
         $this->commentaires = array();
         while($commentaire = $req->fetch()){
-            $this->commentaires[] = $commentaire['date']."  @".$commentaire['texte'];
+            $this->commentaires[$commentaire['id']] = $commentaire['date']."  @".$commentaire['texte'];
         }
     }
 
@@ -69,5 +69,11 @@ class article
     }
     public function getUniqueCommentaire(){
         return $this->commentaires[sizeof($this->commentaires)-1];
+    }
+    public function getNbLikeCommentaire($id_commentaire){
+        $req = $this->bdd->prepare('SELECT COUNT(*) as total FROM likeCom WHERE commentaire_id = :commentaire_id');
+        $req->execute(array('commentaire_id'=>$id_commentaire));
+        $nb = $req->fetch();
+        return $nb['total'];
     }
 }

@@ -185,9 +185,16 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <tr>
                                         <td>Commentaires :</td>
                                         <?php $commentaire = $article->getCommentaires();
-                                        foreach ($commentaire as $com) {
+                                        foreach ($commentaire as $id => $com) {
                                         ?>
-                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p></td></tr>
+                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
+                                            <form method="post" action="traitement/insertLikeCommentaire.php">
+                                                <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
+                                                <button class="btn btn-default" type="submit"><span
+                                                            class="glyphicon glyphicon-thumbs-up"></span>
+                                                </button> <?php echo " : " . $article->getLike() ?>
+                                            </form></p>
+                                        </td></tr>
                                     <?php
                                         }
                                         ?>
@@ -279,9 +286,14 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                         <tr>
                                             <td>Commentaires :</td>
                                             <?php $commentaire = $article->getCommentaires();
-                                            foreach ($commentaire as $com) {
+                                            foreach ($commentaire as $id => $com) {
                                                 ?>
-                                                <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p></td></tr>
+                                        <tr><td align="center"><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
+                                        <form method="post" action="traitement/insertLikeCommentaire.php">
+                                                    <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
+                                                    <button class="btn btn-sm btn-default" type="submit">j'aime <?php echo " ".$article->getNbLikeCommentaire($id);?></button>
+                                                </form></p></td>
+                                        </tr>
                                                         <?php
                                             }
                                             ?>
@@ -372,9 +384,16 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <tr>
                                         <td>Commentaires :</td>
                                         <?php $commentaire = $article->getCommentaires();
-                                        foreach ($commentaire as $com) {
+                                        foreach ($commentaire as $id => $com) {
                                         ?>
-                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p></td></tr>
+                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
+                                            <form method="post" action="traitement/insertLikeCommentaire.php">
+                                                <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
+                                                <button class="btn btn-default" type="submit"><span
+                                                            class="glyphicon glyphicon-thumbs-up"></span>
+                                                </button> <?php echo " : " . $article->getLike() ?>
+                                            </form></p>
+                                        </td></tr>
                                     <?php
                                         }
                                         ?>
