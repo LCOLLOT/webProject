@@ -26,6 +26,7 @@ class article
         $this->longitude = $article['longitude'];
         $this->id = $id;
         $this->like = $article['jaime'];
+        $this->dislike=$article['jaimepas'];
 
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id');
         $req->execute(array('id'=> $id));
@@ -59,6 +60,9 @@ class article
     }
     public function getLike() {
         return $this->like;
+    }
+    public function getDislike(){
+        return $this->dislike;
     }
     public function getId(){
         return $this->id;

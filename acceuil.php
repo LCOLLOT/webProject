@@ -97,7 +97,6 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                     </tr>
                     </tbody>
                 </table>
-                </form>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -214,6 +213,14 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                                 </button> <?php echo " : " . $article->getLike() ?>
                                             </form>
                                         </td>
+                                        <td align="center">
+                                            <form method="post" action="traitement/insertDislike.php">
+                                                <input type="text" name="idArticle" value="<?php echo $monument['id'];?>" hidden/>
+                                                <button class="btn btn-default" type="submit">
+                                                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                                                </button> <?php echo " : " . $article->getDislike() ?>
+                                            </form>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -300,6 +307,15 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                                     </button> <?php echo " : " . $article->getLike() ?>
                                                 </form>
                                             </td>
+                                            <td align="center">
+                                                <form method="post" action="traitement/insertLike.php">
+                                                    <input type="text" name="idArticle"
+                                                           value="<?php echo $monument['id']; ?>" hidden/>
+                                                    <button class="btn btn-default" type="submit"><span
+                                                                class="glyphicon glyphicon-thumbs-down"></span>
+                                                    </button> <?php echo " : " . $article->getDislike() ?>
+                                                </form>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>
@@ -382,6 +398,15 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                                 <button class="btn btn-default" type="submit"><span
                                                             class="glyphicon glyphicon-thumbs-up"></span>
                                                 </button> <?php echo " : " . $article->getLike() ?>
+                                            </form>
+                                        </td>
+                                        <td align="center">
+                                            <form method="post" action="traitement/insertLike.php">
+                                                <input type="text" name="idArticle"
+                                                       value="<?php echo $monument['id']; ?>" hidden/>
+                                                <button class="btn btn-default" type="submit"><span
+                                                            class="glyphicon glyphicon-thumbs-down"></span>
+                                                </button> <?php echo " : " . $article->getDislike() ?>
                                             </form>
                                         </td>
                                     </tr>
