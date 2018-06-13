@@ -4,14 +4,14 @@ include('../log/pdo.php');
 
 
 try{
-    $req =$bdd->prepare('UPDATE articles SET jaime = jaime+1 WHERE id = :likes');
-    $req->execute(array( 'likes' => $_POST['idLike']));
+    $req = $bdd->prepare('INSERT INTO likearticle(article_id, auteur_id) VALUES (:article_id,:auteur_id)');
+    $req->execute(array('article_id'=>$_POST['idLike'], 'auteur_id'=>$_SESSION['user_id']));
 
-    $req2 =$bdd->prepare('UPDATE articles SET signalement = signalement+1 WHERE id = :signal');
-    $req2->execute(array( 'signal' => $_POST['idSignal']));
+    $req2 = $bdd->prepare('INSERT INTO dislikearticle(article_id, auteur_id) VALUES (:article_id,:auteur_id)');
+    $req2->execute(array('article_id'=>$_POST['idDislike'], 'auteur_id'=>$_SESSION['user_id']));
 
-    $req3 =$bdd->prepare('UPDATE articles SET jaimepas = jaimepas+1 WHERE id = :dislike');
-    $req3->execute(array( 'dislike' => $_POST['idDislike']));
+    $req3 = $bdd->prepare('INSERT INTO signalement(article_id, auteur_id) VALUES (:article_id,:auteur_id)');
+    $req3->execute(array('article_id'=>$_POST['idSignal'], 'auteur_id'=>$_SESSION['user_id']));
 }
 catch(Exception $e){
     die('Erreur : '.$e->getMessage());
