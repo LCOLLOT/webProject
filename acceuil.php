@@ -173,7 +173,7 @@ $req4->execute();
                             <div class="item <?php if ($first == true) echo "active"; ?>">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                        <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                     </tr>
                                     <tr>
                                         <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
@@ -234,9 +234,9 @@ $req4->execute();
                             $first = false;
                         } ?>
                         <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                    class="icon-prev"></span></a>
+                                    class="glyphicon glyphicon-menu-left black"></span></a>
                         <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                    class="icon-next"></span></a>
+                                    class="glyphicon glyphicon-menu-right black"></span></a>
                     </div>
                 </div>
                 <?php
@@ -266,7 +266,7 @@ $req4->execute();
                                 <div class="item <?php if ($first == true) echo "active"; ?>">
                                     <table class="table table-bordered">
                                         <tr>
-                                            <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                            <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                         </tr>
                                         <tr>
                                             <td align="center"><img
@@ -329,10 +329,10 @@ $req4->execute();
                             }
                         } ?>
                         <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
-                            <span class="icon-prev" aria-hidden="true" href="#carousel" data-slide="prev"></span>
+                            <span class="glyphicon glyphicon-menu-left black" aria-hidden="true" href="#carousel" data-slide="prev"></span>
                         </a>
                         <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
-                            <span class="icon-next" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-menu-right black" aria-hidden="true"></span>
                         </a>
                     </div>
                 </div>
@@ -362,7 +362,7 @@ $req4->execute();
                             <div class="item <?php if ($first == true) echo "active"; ?>">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                        <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                     </tr>
                                     <tr>
                                         <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
@@ -425,9 +425,9 @@ $req4->execute();
                     }
                 ?>
                     <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="icon-prev"></span></a>
+                                class="glyphicon glyphicon-menu-left black"></span></a>
                     <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="icon-next"></span></a>
+                                class="glyphicon glyphicon-menu-right black"></span></a>
                 </div>
             </div>
 
@@ -451,7 +451,7 @@ $req4->execute();
                         <div class="item <?php if ($first == true) echo "active"; ?>">
                             <table class="table table-bordered">
                                 <tr>
-                                    <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                    <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                 </tr>
                                 <tr>
                                     <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
@@ -512,9 +512,9 @@ $req4->execute();
                         $first = false;
                     } ?>
                     <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="icon-prev"></span></a>
+                                class="glyphicon glyphicon-menu-left black"></span></a>
                     <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="icon-next"></span></a>
+                                class="glyphicon glyphicon-menu-right black"></span></a>
                 </div>
 
             </div>

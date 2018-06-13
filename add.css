@@ -115,3 +115,10 @@ div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fon
     filter:Alpha(opacity=80);-moz-opacity:0.80;opacity: 0.80;
     margin: auto;
 }
+.carousel-control {
+    width: 5%;
+    margin-top: 1%;
+}
+.black {
+    color: black;
+}
