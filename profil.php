@@ -1,7 +1,7 @@
 <?php
 session_start();
-    include ("affichage/header.php");
-    $profil = new Profil($_SESSION['user_id']);
+include ("affichage/header.php");
+$profil = new Profil($_SESSION['user_id']);
 ?>
 <h2 id="titreProfil">Votre profil</h2>
     <div class="row">
