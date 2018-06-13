@@ -229,7 +229,6 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     </tr>
                                 </table>
                             </div>
-
                             <?php
                             $first = false;
                         } ?>

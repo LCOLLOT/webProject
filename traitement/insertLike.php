@@ -21,7 +21,6 @@ catch(Exception $e){
     die('Erreur : '.$e->getMessage());
 }
 
-
 header("Location: ../acceuil.php");
 exit();
 ?>
