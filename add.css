@@ -15,11 +15,11 @@ footer{
 }
 
 .logo{
-    height: 50px;
+    height: 100px;
     margin: 0px;
 }
 
-navbar-default > .pull-left{
+.logo-div{
     display: inline-block;
 }
 .wrapper
@@ -124,14 +124,4 @@ div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fon
     border:1px solid #D89B31;
     filter:Alpha(opacity=90);-moz-opacity:0.90;opacity: 0.90;
     margin: auto;
-}
-
-.dropdown-toggle{
-     background-color: #D89B31;
-     border-color: #D89B31;
- }
-
-.dropdown-toggle:hover, .dropdown-toggle:focus{
-    background-color: #9A4C1E;
-    border-color: #9A4C1E;
 }
