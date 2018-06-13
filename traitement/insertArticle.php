@@ -15,6 +15,9 @@ include('../log/pdo.php');
         $req = $bdd->prepare('INSERT INTO articles(titre,description,auteur_id,dateA,lattitude,photo,longitude,categorie) VALUES (:titre,:description,:auteur_id,:dateN,:lattitude,:photo,:longitude, :choix)');
         $req->execute(array("titre" => $titre, "description" => $description, "auteur_id" => $auteur_id, "lattitude" => $lattitude,"dateN"=>"2018-05-05", "photo" => basename($_FILES['photo']['name']).$nb, "longitude" => $longitude, "choix"=>$choix));
 
+        $req1 =$bdd->prepare('UPDATE users set niveau=niveau+1 WHERE user_id=:user_id');
+        $req1->execute();
+
     }catch(Exception $e){
         die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
     }
