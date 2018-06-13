@@ -307,20 +307,14 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                         <tr>
                                             <td align="center">
                                                 <form method="post" action="traitement/insertLike.php">
-                                                    <input type="text" name="idArticle"
-                                                           value="<?php echo $monument['id']; ?>" hidden/>
-                                                    <button class="btn btn-default" type="submit"><span
-                                                                class="glyphicon glyphicon-thumbs-up"></span>
+                                                    <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
+                                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span>
                                                     </button> <?php echo " : " . $article->getLike() ?>
-                                                </form>
-                                            </td>
-                                            <td align="center">
-                                                <form method="post" action="traitement/insertLike.php">
-                                                    <input type="text" name="idArticle"
-                                                           value="<?php echo $monument['id']; ?>" hidden/>
-                                                    <button class="btn btn-default" type="submit"><span
-                                                                class="glyphicon glyphicon-thumbs-down"></span>
+                                                    <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
+                                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-down"></span>
                                                     </button> <?php echo " : " . $article->getDislike() ?>
+                                                    <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
+                                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-warning-sign"></span>
                                                 </form>
                                             </td>
                                         </tr>
@@ -407,20 +401,14 @@ if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
                                     <tr>
                                         <td align="center">
                                             <form method="post" action="traitement/insertLike.php">
-                                                <input type="text" name="idArticle"
-                                                       value="<?php echo $monument['id']; ?>" hidden/>
-                                                <button class="btn btn-default" type="submit"><span
-                                                            class="glyphicon glyphicon-thumbs-up"></span>
+                                                <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
+                                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span>
                                                 </button> <?php echo " : " . $article->getLike() ?>
-                                            </form>
-                                        </td>
-                                        <td align="center">
-                                            <form method="post" action="traitement/insertLike.php">
-                                                <input type="text" name="idArticle"
-                                                       value="<?php echo $monument['id']; ?>" hidden/>
-                                                <button class="btn btn-default" type="submit"><span
-                                                            class="glyphicon glyphicon-thumbs-down"></span>
+                                                <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
+                                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-down"></span>
                                                 </button> <?php echo " : " . $article->getDislike() ?>
+                                                <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
+                                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-warning-sign"></span>
                                             </form>
                                         </td>
                                     </tr>
