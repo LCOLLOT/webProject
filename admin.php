@@ -12,7 +12,7 @@ $users = $bdd->query('SELECT * FROM users ');
 
         <form method="post" action="updatemember.php">
             <input type="hidden" name="id" value="<?php echo $data['id'];?>">
-            <table>
+            <table class="table table-striped">
                 <colgroup>
                     <col style="width: 3%">
                     <col style="width: 10%">
@@ -33,10 +33,10 @@ $users = $bdd->query('SELECT * FROM users ');
                         </select>
                     </td>
                     <td>
-                        <input type="submit" name="Update" value="Sauvegarder">
+                        <input type="submit" class="btn btn-primary" name="Update" value="Sauvegarder">
                     </td>
                     <td>
-                        <input type="submit" name="Delete" value="Supprimer">
+                        <input type="submit" class="btn btn-danger" name="Delete" value="Supprimer">
                     </td>
                 </tr>
             </table>

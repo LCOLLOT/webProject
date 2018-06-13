@@ -63,43 +63,32 @@
             ?>
             <form method="post" action="updateArticle.php">
                 <input type="hidden" name="id" value="<?php echo $article->getId();?>">
-                <table>
-                    <tr>
-                        <td>
-                            <table>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Titre</td>
-                                    <td>Latitude</td>
-                                    <td>Longitude</td>
-
-
-                                </tr>
-                                <tr>
-                                    <td><?php echo $article->getId(); ?></td>
-                                    <td><input type="text" name="titre" value="<?php echo $article->getTitre(); ?>"/></td>
-                                    <td><input type="text" name="latitude" value="<?php echo $article->getLattitude(); ?>"/></td>
-                                    <td> <input type="text" name="longitude" value="<?php echo $article->getLongitude(); ?>"/></td>
-
-                                </tr>
-
-                            </table>
-                            <table>
-                                <tr>
-                                    <td>Description</td>
-                                </tr>
-                                <tr>
-                                    <td> <textarea name="description" rows="4" cols="70" class="form-control"><?php echo $article->getContenu(); ?></textarea></td>
-                                </tr>
-                                <td>
-                                    <input type="submit" name="Delete" value="Supprimer"></input>
-                                    <input type="submit" name="Update" value="Sauvegarder"></input>
-                                </td>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                <div>
+                    <table class="table table-striped table-hover">
+                        <tr>
+                            <th class="col-md-1">ID</th>
+                            <th class="col-md-5">Titre</th>
+                            <th class="col-md-2">Latitude</th>
+                            <th class="col-md-2">Longitude</th>
+                        </tr>
+                        <tr>
+                            <td><?php echo $article->getId(); ?></td>
+                            <td><input style="width: 100%" type="text" name="titre" value="<?php echo $article->getTitre(); ?>"/></td>
+                            <td><input style="width: 100%" type="text" name="latitude" value="<?php echo $article->getLattitude(); ?>"/></td>
+                            <td><input style="width: 100%" type="text" name="longitude" value="<?php echo $article->getLongitude(); ?>"/></td>
+                        </tr>
+                    </table>
+                    Description
+                    <textarea style="resize: vertical;" name="description" rows="4" cols="70" class="form-control"><?php echo $article->getContenu(); ?></textarea>
+                    <div style="float: right;">
+                         <button class="btn btn-primary" name="Update"><span class="glyphicon glyphicon-ok"></span></button>
+                         <button class="btn btn-danger" name="Delete"><span class="glyphicon glyphicon-remove" onclick="return confirm('Supprimer l\'article ?')"></span></button>
+                    </div>
+                    <br>
+                    <br>
+                </div>
             </form>
+            <br>
             <?php
         }
         $req->closeCursor();

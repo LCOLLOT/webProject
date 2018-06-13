@@ -60,6 +60,7 @@ $req3->execute();
                             <td align="center">
                                 <button class="btn btn-primary" type="submit"><span
                                             class="glyphicon glyphicon-search"></span>
+
                                 </button>
                             </td>
                         </tr>
@@ -121,10 +122,10 @@ $req3->execute();
                         <tr>
                             <td>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="longitude"
-                                                                               class="form-control" placeholder="Long"/> <!-- #camarchepas {class="form-control" placeholder="Long"###/>} -----  NET-enabling start-tag requires SHORTTAG YES -->
+                                                                               class="form-control" placeholder="Longitude"/> <!-- #camarchepas {class="form-control" placeholder="Long"###/>} -----  NET-enabling start-tag requires SHORTTAG YES -->
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="lattitude"
-                                                                               class="form-control" placeholder="Latt"/>
+                                                                               class="form-control" placeholder="Latitude"/>
                                 </div>
                             </td>
                         </tr>
