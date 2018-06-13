@@ -9,8 +9,8 @@ footer{
     font-size: small;
     color: #9A4C1E;
     background-color: #321506;
-    width: 100%;
     bottom: 0;
+    margin-bottom: 0%;
 }
 
 .logo{
@@ -96,10 +96,10 @@ h1 {
 }
 body{
     background-image:url("images/background.jpg");
-    background-attachment:scroll;
+    background-attachment: scroll;
     background-repeat : no-repeat;
-    background-position: top;
-    background-size:  cover;
+    background-position: center;
+    background-size: cover;
 }
 footer a{
     color: #E19A31;
