@@ -11,8 +11,7 @@ footer{
 }
 
 .logo{
-    height: 150px;
-    position: center;
+    height: 50px;
 }
 .wrapper
 {
@@ -101,4 +100,7 @@ body{
     background-repeat : no-repeat;
     background-position: top;
     background-size:  cover;
+}
+.pull-left{
+    position: center;
 }
