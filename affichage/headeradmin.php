@@ -41,6 +41,8 @@ require 'object/distCalculator.php';
             <li> <a href="acceuil.php">Accueil</a></li>
             <li> <a href="newArticle.php">Ajouter un article</a> </li>
             <li> <a href="messagerie.php">Messagerie</a> </li>
+            <li> <a href="contact.php">Nous contacter</a> </li>
+            <li> <a href="editarticle.php">Modération</a> </li>
             <li> <a href="admin.php">Pannel administrateur</a> </li>
         </ul>
         <div class="pull-right">
