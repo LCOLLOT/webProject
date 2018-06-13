@@ -1,18 +1,16 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Helvetica;
+    font-family: Source Sans Pro, Georgia, Helvetica;
 }
 
 footer{
     text-align: center;
     font-size: small;
-    color: #9A4C1E;
-    background-color: #321506;
+    color: #321506;
     bottom: 0;
-    width: 100%;
-    height: fit-content;
-    position: fixed;
+    background-color: #E9DBBB;
+    opacity: 0.5;
 }
 
 .logo{
@@ -62,7 +60,7 @@ body {
     line-height: 16px;
 }
 a {
-    color: 	#915700;
+    color: #9A4C1E;
 }
 a:hover {
     color:	#321506;
@@ -104,8 +102,17 @@ body{
     background-size: cover;
 }
 footer a{
-    color: #E19A31;
+    color: #9A4C1E;
 }
 footer a:hover{
-    color: #9A4C1E;
+    color: #321506;
+}
+
+.container{
+   /* background-color: #E9DBBB;
+    opacity: 0.3;*/
+}
+
+footer p, footer a, footer a:hover, .container div{
+    opacity: 100%;
 }

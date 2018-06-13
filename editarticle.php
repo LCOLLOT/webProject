@@ -1,8 +1,22 @@
 <?php
-include ('affichage/headeradmin.php');
-?>
+    include ('affichage/header.php');
+    try{
+        $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
+    }
+    catch(Exception $e){
+        die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
+    }
 
-<?php
+    $userId = $_SESSION["user_id"];
+    $profil = new Profil($userId);
+
+    if ($profil->getGroupe() != "admin" && $profil->getGroupe() != "moderateur" )
+    {
+        http_response_code(403);
+        echo "Page interdite w4nn4-83-h4x0r";
+        exit();
+    }
+
     if(isset($_POST['recherche']) && !empty($_POST['recherche']))
     {
 
@@ -60,7 +74,7 @@ include ('affichage/headeradmin.php');
                         <tbody>
                         <tr><td>Recherche</td></tr>
                         <tr><td><input type="text" name="recherche" class="form-control"/></td></tr>
-                        <tr><td align="center"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Rechercher</button></td></tr>
+                        <tr><td align="center"><button class="btn btn-primary acentrer" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Rechercher</button></td></tr>
                         </tbody>
                     </table>
                 </form>

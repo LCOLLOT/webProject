@@ -1,32 +1,36 @@
 <?php
-include ('affichage/headeradmin.php');
-?>
+include ('affichage/header.php');
+    try{
+        $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', '');
+    }
+    catch(Exception $e){
+        die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
+    }
 
-<?php
-if (!isset($_POST["id"]))
-{
-    http_response_code(400);
-    echo "Bad request";
-    exit();
-}
-$id = $_POST["id"];
+    if (!isset($_POST["id"]))
+    {
+        http_response_code(400);
+        echo "Bad request";
+        exit();
+    }
+    $id = $_POST["id"];
 
-if (isset($_POST["Delete"]))
-{
-    $req = $bdd->prepare("DELETE FROM articles WHERE articles.id = :id");
-    $req->execute(array('id'=> $id));
+    if (isset($_POST["Delete"]))
+    {
+        $req = $bdd->prepare("DELETE FROM articles WHERE articles.id = :id");
+        $req->execute(array('id'=> $id));
 
-    echo "L'article a bien été supprimé.";
-}
-else if (isset($_POST["Update"]))
-{
-    $req = $bdd->prepare("UPDATE articles SET titre=:titre, lattitude=:latitude, longitude=:longitude, description=:description WHERE articles.id = :id");
-    $req->execute(array("id" => $id, "titre" => $_POST["titre"], "latitude" => $_POST["latitude"], "longitude" => $_POST["longitude"], "description" => $_POST["description"]));
+        echo "L'article a bien été supprimé.";
+    }
+    else if (isset($_POST["Update"]))
+    {
+        $req = $bdd->prepare("UPDATE articles SET titre=:titre, lattitude=:latitude, longitude=:longitude, description=:description WHERE articles.id = :id");
+        $req->execute(array("id" => $id, "titre" => $_POST["titre"], "latitude" => $_POST["latitude"], "longitude" => $_POST["longitude"], "description" => $_POST["description"]));
 
-    echo "L'article a bien été modifié.";
-}
+        echo "L'article a bien été modifié.";
+    }
 
-?>
+    ?>
 
 <br>
 <br>

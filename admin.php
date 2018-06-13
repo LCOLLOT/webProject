@@ -4,9 +4,6 @@ include ('affichage/headeradmin.php');
 $users = $bdd->query('SELECT * FROM users ');
 ?>
 
-    <a href="editarticle.php">Modifier des articles</a>
-    <br>
-
 <table id="membres">
                 <tr>
                     <th>id</th>

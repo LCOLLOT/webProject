@@ -7,20 +7,22 @@ try {
 }
 
 $groupe = htmlspecialchars($_POST['NewGroup']);
-var_dump($_POST['NewGroup']);
 $id = $_POST['id'];
 
-echo $groupe;
-echo $id;
+if(isset($_POST['Update']))
+{
+    $req = $bdd->prepare('UPDATE users SET groupe = :groupe WHERE users.id = :id');
+    $req->execute(array('groupe' => $groupe, 'id'=>$id));
+}
+else if(isset($_POST['Delete']))
+{
+    $req = $bdd->prepare('DELETE FROM users WHERE users.id = :id');
+    $req->execute(array('id'=>$id));
+}
 
-$req = $bdd->prepare('UPDATE users SET groupe = :groupe WHERE users.id = :id');
-$req->execute(array('groupe' => $groupe, 'id'=>$id));
+header("Location: admin.php");
+exit();
 
-//header("Location: ../acceuil.php");
-//exit();
-
-//$idToDel = $_GET["idToDelete"];
-//$bdd->query("DELETE FROM users WHERE users.id = $idToDel");
 ?>
 
 <br>
