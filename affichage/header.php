@@ -2,16 +2,20 @@
     session_start();
     $connect=false;
 session_cache_limiter('private_no_expire, must-revalidate');
-if (!isset($_SESSION['user']))
+if (!isset($_SESSION) || !isset($_SESSION["user_id"]))
 {
     $connect=true;
     header("Location: index.php");
     exit();
 }
-    require 'object/article.php';
-    require 'object/Profil.php';
-    require 'object/distCalculator.php';
+require 'object/article.php';
+require 'object/Profil.php';
+require 'object/distCalculator.php';
+
+$userId = $_SESSION["user_id"];
+$profil = new Profil($userId);
 ?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -32,6 +36,13 @@ if (!isset($_SESSION['user']))
                     <li> <a href="newArticle.php">Ajouter un article</a> </li>
                     <li> <a href="messagerie.php">Messagerie</a> </li>
                     <li> <a href="contact.php">Nous contacter</a> </li>
+                <?php
+                if ($profil->getGroupe() == "admin")
+                {
+                    echo "<li> <a href=\"admin.php\">Pannel administrateur</a> </li>";
+                }
+                ?>
+
             </ul>
             <div class="pull-right" id="buttonH">
                 <?php if (isset($_SESSION['user'])) { ?>
