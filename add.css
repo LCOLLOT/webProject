@@ -10,7 +10,7 @@ footer{
     color: #9A4C1E;
     background-color: #321506;
     bottom: 0;
-    position: fixed;
+    position: static;
 }
 
 .logo{
