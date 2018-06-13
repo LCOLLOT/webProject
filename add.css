@@ -15,7 +15,7 @@ footer{
 }
 
 .logo{
-    height: 100px;
+    height: 50px;
     margin: 0px;
 }
 
@@ -117,7 +117,7 @@ footer a{
 footer a:hover{
     color: #9A4C1E;
 }
-div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fond */
+div.container{ /* Astuce de création d'un bloc à 60% opaque à l'image de fond */
     width:70%;
    /* height:100%;*/
     background-color:#FFFFFF;
@@ -126,7 +126,7 @@ div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fon
     margin: auto;
 }
 .black {
-    color: black;
+    color: #321506;
 }
 .carousel-control {
     width: 4%;
@@ -134,13 +134,37 @@ div.container { /* Astuce de création d'un bloc à 60% opaque à l'image de fon
 }
 .btn-danger {
     margin-left: 5px;
+    margin-left: 5px;
 }
 .btn-succes {
+    margin-left: 5px;
     margin-left: 5px;
 }
 .btn-warning {
     margin-left: 5px;
+    margin-left: 5px;
 }
-.btn-default {
-    margin-right: 5px;
+
+.dropdown-toggle{
+    background-color: #D89B31;
+    border-color: #D89B31;
+}
+
+.dropdown-toggle:hover{
+    background-color: #9A4C1E;
+    border-color: #9A4C1E;
+}
+
+div.indexcontainer{
+    width:70%;
+    background-color:#FFFFFF;
+    background-image:url("images/logofiligrane.png");
+    border:1px solid #D89B31;
+    filter:Alpha(opacity=90);-moz-opacity:0.90;opacity: 0.90;
+    margin: auto;
+    background-repeat : no-repeat;
+    background-position: bottom;
+    background-size: 70%;
+    font-size: large;
+    text-align: center;
 }

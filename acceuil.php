@@ -435,7 +435,7 @@ $req4->execute();
 
             <?php }else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
             <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
-                <strong><p align="center">Les 5 monuments les plus appréciés :</p></strong>
+                <p align="center">Les 5 monuments les plus appréciés :</p>
             </div>
             <div class="carousel slide" id="carousel" data-ride="carousel">
                 <div class="carousel-inner thumbnail">
@@ -523,8 +523,6 @@ $req4->execute();
             <?php } ?>
         </div>
     </div>
-
-
 
     <script>
         var map;
