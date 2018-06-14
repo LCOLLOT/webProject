@@ -16,8 +16,7 @@ header{
 }
 .logo{
     height: 50px;
-    margin: 0px;
-}
+    margin-top: 20px;}
 
 .logo-div{
     display: inline-block;
