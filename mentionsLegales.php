@@ -1,8 +1,6 @@
 <?php
 include ('affichage/header.php');
 ?>
-    <!doctype html>
-    <html lang="fr">
 
     <div class="entry-content">
         <h3>Adresse :</h3>

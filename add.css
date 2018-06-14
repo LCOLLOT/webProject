@@ -16,8 +16,7 @@ header{
 }
 .logo{
     height: 50px;
-    margin-left: 350px;
-    margin-top: 20px;
+    margin: 0px;
 }
 
 .logo-div{
@@ -193,6 +192,10 @@ margin: auto;
     float:none;
 }
 
+#titreNewArticle
+{
+    text-align: center;
+}
 .navbar-inverse > .pull-right {
     margin-right: 14%;
 }
