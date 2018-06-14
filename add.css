@@ -184,3 +184,7 @@ div.indexcontainer{
 .btn_Like{
 
 }
+img.img-responsive {
+    box-shadow: 15px 10px 20px black;
+    border-radius: 20px;
+}
