@@ -7,7 +7,7 @@ if(isset($_GET['article'])){
     $req5->execute(array('id'=> htmlspecialchars($_GET['article'])));
 }
 if(isset($_POST['recherche']) && !empty($_POST['recherche'])) {
-        $_SESSION['recherche'] = htmlspecialchars($_POST['recherche']);
+    $_SESSION['recherche'] = htmlspecialchars($_POST['recherche']);
     //Création des articles correspondant à la recherche
     $recherche = htmlspecialchars($_POST['recherche']);
     $req = $bdd->prepare('SELECT id FROM articles WHERE titre LIKE :recherche');
@@ -24,16 +24,13 @@ if(isset($_GET['latt']) && isset($_GET['long'])){
 if(isset($_POST['longitude']) && isset($_POST['lattitude'])){
     $lat = htmlspecialchars($_POST['lattitude']);
     $long = htmlspecialchars($_POST['longitude']);
+    $req3 = $bdd->prepare('SELECT * FROM articles');
+    $req3->execute();
 }
-$req3 = $bdd->prepare('SELECT * FROM articles');
-$req3->execute();
-
 //Recherche des 5 lieux les plus likés
+$req4 = $bdd->prepare('SELECT id FROM articles ORDER BY id LIMIT 0,5');
+$req4->execute();
 
-//if(!empty($_POST['recherche'] && !(isset($lat) && isset($long))) ) {
-    $req4 = $bdd->prepare('SELECT article_id AS id from likearticle GROUP BY article_id ORDER BY article_id LIMIT 0,5');
-    $req4->execute();
-//}
 
 ?>
 
@@ -60,7 +57,6 @@ $req3->execute();
                             <td align="center">
                                 <button class="btn btn-primary" type="submit"><span
                                             class="glyphicon glyphicon-search"></span>
-
                                 </button>
                             </td>
                         </tr>
@@ -72,18 +68,18 @@ $req3->execute();
                 <table class="table">
                     <tbody>
                     <form method="get" action="acceuil.php" name="rayonF">
-                    <tr class="tabLigne">
-                        <td>Autour de moi</td>
-                    </tr>
-                    <tr>
-                        <td><select name="rayon" class="form-control">
-                                <option value="10000">10Km</option>
-                                <option value="20000">20Km</option>
-                                <option value="50000">50Km</option>
-                                <option value="100000">100Km</option>
+                        <tr class="tabLigne">
+                            <td>Autour de moi</td>
+                        </tr>
+                        <tr>
+                            <td><select name="rayon" class="form-control">
+                                    <option value="10000">10Km</option>
+                                    <option value="20000">20Km</option>
+                                    <option value="50000">50Km</option>
+                                    <option value="100000">100Km</option>
 
-                            </select></td>
-                    </tr>
+                                </select></td>
+                        </tr>
                     </form>
                     <tr>
                         <td align="center">
@@ -92,9 +88,7 @@ $req3->execute();
                                 <script> function loc() {
 
                                         function maPosition(position) {
-                                            document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude+"&ray="+document.forms["rayonF"].elements["rayon"].value; /*#camarchepas {…ong=" + position.coords.longitude + "&l###att=" + position.coords.latitude+"&ray=…} ----> (cannot generate system identifier for general entity "latt" +++ general entity "latt" not defined and no default entity+++reference to entity "latt" for which no system identifier could be generated +++ les meme erreurs pour "&ray" dans {…"&latt=" + position.coords.latitude+"&###ray="+document.forms["rayonF"].elements[…*/
-                                        }
-
+                                            document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude+"&ray="+document.forms["rayonF"].elements["rayon"].value;
                                         }
 
                                         if (navigator.geolocation) {
