@@ -9,6 +9,7 @@ include('../log/pdo.php');
     $longitude = htmlspecialchars($_POST['longitude']);
     $auteur_id = htmlspecialchars($_POST['auteur_id']);
     $choix = htmlspecialchars($_POST['choix']);
+    $niveau = htmlspecialchars($_POST['niveau']);
     $nb = rand(100,100000);
 
     try {
@@ -16,7 +17,7 @@ include('../log/pdo.php');
         $req->execute(array("titre" => $titre, "description" => $description, "auteur_id" => $auteur_id, "lattitude" => $lattitude,"dateN"=>"2018-05-05", "photo" => basename($_FILES['photo']['name']).$nb, "longitude" => $longitude, "choix"=>$choix));
 
         $req1 =$bdd->prepare('UPDATE users set niveau=niveau+1 WHERE user_id=:user_id');
-        $req1->execute();
+        $req1->execute(array('niveau'=>$niveau));
 
     }catch(Exception $e){
         die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
