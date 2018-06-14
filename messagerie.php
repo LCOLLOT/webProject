@@ -3,7 +3,7 @@ include ('affichage/header.php');
 include('log/pdo.php');
 $reponse = $bdd->prepare('SELECT users.name, messages.contenu, messages.date, messages.id, messages.auteur_id, users.mail FROM users, messages WHERE messages.auteur_id = users.id AND destinataire_id = :idUser ORDER BY messages.id DESC');
 $reponse->execute( array("idUser"=>$_SESSION['user_id']));
-$reponse2 = $bdd->prepare('SELECT users.name, messages.contenu, messages.date, messages.id, messages.destinataire_id FROM users, messages WHERE messages.destinataire_id = users.id AND auteur_id = :idUser ORDER BY messages.id DESC');
+$reponse2 = $bdd->prepare('SELECT users.name, messages.contenu, messages.date, messages.id, messages.destinataire_id, users.mail FROM users, messages WHERE messages.destinataire_id = users.id AND auteur_id = :idUser ORDER BY messages.id DESC');
 $reponse2->execute( array("idUser"=>$_SESSION['user_id']));
 
 ?>
@@ -28,6 +28,9 @@ $reponse2->execute( array("idUser"=>$_SESSION['user_id']));
                 <td>
                     <button class="btn btn-default"><a href="newMessage.php?dest=<?php echo $donnees['mail'];?>"><span class="glyphicon glyphicon-arrow-left"></a></span></button>
                 </td>
+                <td>
+                    <button class="btn btn-default"><a href="newMessage.php?msg=<?php echo $donnees['contenu'];?>"><span class="glyphicon glyphicon-arrow-right"></a></span></button>
+                </td>
             </table>
         </div>
         <?php
@@ -39,8 +42,13 @@ echo '<h3>Messages Envoyés :</h3>';
 while($donnees = $reponse2->fetch()){
     ?>
     <div class="well well-sm">
-        <span class="glyphicon glyphicon-comment"></span><?php echo ' A : '.$donnees['name'].', '.$donnees['date'].' :';?>
-        <?php echo '<h4>'.$donnees['contenu'].'</h4>'; ?>
+        <table>
+            <span class="glyphicon glyphicon-comment"></span><?php echo ' A : '.$donnees['name'].', '.$donnees['date'].' :';?>
+            <?php echo '<h4>'.$donnees['contenu'].'</h4>'; ?>
+        </table>
+        <td>
+            <button class="btn btn-default"><a href="newMessage.php?msg=<?php echo $donnees['contenu'];?>"><span class="glyphicon glyphicon-arrow-right"></a></span></button>
+        </td>
     </div>
     <?php
 }
