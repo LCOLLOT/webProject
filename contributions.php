@@ -33,7 +33,7 @@ $req = $bdd->prepare('SELECT id FROM articles WHERE auteur_id = :id');
                 <tr>
                     <td>Description<textarea name="description" class="form-control"><?php echo $article->getContenu()?></textarea></td>
                 </tr>
-                    <input type="text" name="id_article" value="<?php echo $id['id'];?>" hidden>
+                    <input type="text" name="id_article" value="<?php echo $id['id'];?>">
                 <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span> Modifier</button></td></tr>
                 </form>
 

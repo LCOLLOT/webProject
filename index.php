@@ -109,7 +109,7 @@ if (isset($_GET['disconnect']))
 
 
 
-    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!($user == 'badLog')) echo "hidden";?>>
+    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!($user == 'badLog' )) echo "hidden";?>>
         <div id="ok">
             <div class="panel panel-danger">
                 <div class="panel-heading" align="center">
