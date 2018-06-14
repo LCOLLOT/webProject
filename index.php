@@ -47,7 +47,7 @@ if (isset($_GET['disconnect']))
     </div>
 </div>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
-<img src="images/back.jpg" alt="informatique" class="img-responsive">
+<img src="images/back.png" alt="monuments" class="img-responsive">
 <nav class="navbar navbar-inverse" id="barreNav">
     <div class="pull-left">
         <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
@@ -57,8 +57,8 @@ if (isset($_GET['disconnect']))
         <button class="btn btn-lg btn-info" data-toggle="modal" href="#infos" data-backdrop="false" >S'inscrire</button>
     </div>
 </nav>
-<div class="indexcontainer">
     <!--<a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="inscriptionlogo"></a>-->
+
         <ul class="nav navbar-nav">
             <li></li>
         </ul>
