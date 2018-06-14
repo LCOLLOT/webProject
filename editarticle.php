@@ -1,11 +1,6 @@
 <?php
     include ('affichage/headeradmin.php');
-    try{
-        $bdd = new PDO('mysql:host=localhost;dbname=web-trotter', 'root', 'root');
-    }
-    catch(Exception $e){
-        die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
-    }
+    include ('log/pdo.php');
 
     $userId = $_SESSION["user_id"];
     $profil = new Profil($userId);
