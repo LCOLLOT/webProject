@@ -471,7 +471,7 @@ $req4->execute();
                         $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
                         ?>
                         <div class="item <?php if ($first == true) echo "active"; ?>">
-                            <table class="table table-bordered" id="mostliked-titre-cent">
+                            <table class="table table-bordered">
                                 <tr>
                                     <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                 </tr>
