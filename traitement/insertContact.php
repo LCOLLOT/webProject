@@ -13,7 +13,7 @@ try {
     $req->execute(array("nom" => $nom, "prenom" => $prenom, "mail" => $mail, "sujet" => $sujet,"message" => $message));
 
 }catch(Exception $e){
-    die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
+    die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreurs
 }
 
 
