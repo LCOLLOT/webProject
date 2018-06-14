@@ -122,7 +122,9 @@ td img
     margin-left: auto;
     margin-right: auto;
 }
-
+.img-responsive{
+    border-radius: 20px;
+}
 .table-bordered
 {
     text-align: center;
