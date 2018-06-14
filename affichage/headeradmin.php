@@ -41,8 +41,8 @@ require 'object/distCalculator.php';
         <ul class="nav navbar-nav">
             <!--<li> </li>-->
             <li> <a href="acceuil.php">Accueil</a> </li>
-            <li> <a href="newArticle.php">Ajouter un article</a> </li>
-            <li> <a href="contact.php">Nous contacter</a> </li>
+            <li> <a href="newArticle.php">Ajouter un lieu</a> </li>
+            <li> <a href="contact.php">Contact</a> </li>
             <?php
             if ($profil->getGroupe() == "moderateur" || $profil->getGroupe() == "admin" )
             {
