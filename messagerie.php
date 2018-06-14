@@ -16,15 +16,19 @@ $reponse2->execute( array("idUser"=>$_SESSION['user_id']));
     while($donnees = $reponse->fetch()){
         ?>
         <div class="well well-sm">
-            <span class="glyphicon glyphicon-comment"></span><?php echo ' De : '.$donnees['name'].', '.$donnees['date'].' :';?>
-            <?php echo '<h4>'.$donnees['contenu'].'</h4>'; ?>
-            <td>
-                <form method="post" action="traitement/insertMessage.php" enctype="multipart/form-data">
-                    <input type="text" name="msgsuppr" value="<?php echo $donnees['id'] ?>"hidden/>
-                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
-                </form>
-                <button class="btn btn-default"><a href="newMessage.php?dest=<?php echo $donnees['mail'];?>"><span class="glyphicon glyphicon-arrow-left"></a></span></button>
-            <td>
+            <table>
+                <span class="glyphicon glyphicon-comment"></span><?php echo ' De : '.$donnees['name'].', '.$donnees['date'].' :';?>
+                <?php echo '<h4>'.$donnees['contenu'].'</h4>'; ?>
+                <td>
+                    <form method="post" action="traitement/insertMessage.php" enctype="multipart/form-data">
+                        <input type="text" name="msgsuppr" value="<?php echo $donnees['id'] ?>"hidden/>
+                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                    </form>
+                </td>
+                <td>
+                    <button class="btn btn-default"><a href="newMessage.php?dest=<?php echo $donnees['mail'];?>"><span class="glyphicon glyphicon-arrow-left"></a></span></button>
+                </td>
+            </table>
         </div>
         <?php
     }
