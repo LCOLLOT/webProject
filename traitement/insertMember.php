@@ -16,5 +16,17 @@ try {
 }catch(Exception $e){
     die('Erreur : '.$e->getMessage()); // on arrête tous les processus et on affiche le message d'erreur
 }
+if (isset($_FILES['photo']) and $_FILES['photo']['error'] == 0)
+{
+    $infos_fichier = pathinfo($_FILES['photo']['name']);
+    $extension_upload = $infos_fichier['extension'];
+    $extensions_autorisees= array('jpg','jpeg','png');
+
+    if (in_array($extension_upload, $extensions_autorisees))
+    {
+        move_uploaded_file($_FILES['photo']['tmp_name'], '../images/users/' .$pseudo.$nb);
+    }
+}
+
 header("Location: ../index.php");
 exit();

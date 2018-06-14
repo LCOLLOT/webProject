@@ -93,6 +93,7 @@ if (isset($_GET['disconnect']))
                                 Nom<input type="text" class="form-control" name="name" required>
                                 Email<input type="email" class="form-control" name="mail" required>
                                 Mot de passe<input type="password" class="form-control" name="password" required>
+                                Photo  <input type="file" name="photo" class="form-control" required>
                                 <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok"></span> Valider</button></td></tr>
 
                             </table>
