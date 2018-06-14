@@ -2,7 +2,7 @@
 session_start();
 include ('affichage/header.php');
 ?>
-    <h2>Messagerie de  monsieur <strong><?php echo $_SESSION['user']; ?></strong></h2>
+    <h2>Messagerie de <strong><?php echo $_SESSION['user']; ?></strong></h2>
     <h2>Envoyer un message</h2>
     <div class="row">
         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-lg-5 col-md-5 col-sm-5">
