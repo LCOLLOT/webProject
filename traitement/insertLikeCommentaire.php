@@ -2,7 +2,7 @@
 session_start();
 include('../log/pdo.php');
 
-$id_commentaire = htmlspecialchars($_POST['idCommentaire']);
+$id_commentaire = htmlspecialchars($_GET['idCom']);
 $auteur_id = htmlspecialchars($_SESSION['user_id']);
 
 try{

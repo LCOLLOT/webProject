@@ -174,13 +174,9 @@ $req4->execute();
                             <?php $commentaire = $article->getCommentaires();
                             foreach ($commentaire as $id => $com) {
                             ?>
-                        <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
-                                <form method="post" action="traitement/insertLikeCommentaire.php">
-                                    <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
-                                    <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo " ".$article->getNbLikeCommentaire($id);?></span></button>
-                                    </button>
-                                </form></p>
-                            </td></tr>
+                        <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
+                                <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
+                        </tr>
                         <?php
                         }
                         ?>
@@ -266,13 +262,9 @@ $req4->execute();
                                         <?php $commentaire = $article->getCommentaires();
                                         foreach ($commentaire as $id => $com) {
                                         ?>
-                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
-                                            <form method="post" action="traitement/insertLikeCommentaire.php">
-                                                <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
-                                                <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo " ".$article->getNbLikeCommentaire($id);?></span></button>
-                                                </button>
-                                            </form></p>
-                                        </td></tr>
+                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
+                                            <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
+                                    </tr>
                                     <?php
                                         }
                                         ?>
@@ -352,11 +344,8 @@ $req4->execute();
                                             <?php $commentaire = $article->getCommentaires();
                                             foreach ($commentaire as $id => $com) {
                                                 ?>
-                                        <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
-                                        <form method="post" action="traitement/insertLikeCommentaire.php">
-                                                    <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
-                                                    <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo " ".$article->getNbLikeCommentaire($id);?></span></button>
-                                                </form></p></td>
+                                        <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
+                                                    <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
                                         </tr>
                                                         <?php
                                             }
@@ -437,13 +426,9 @@ $req4->execute();
                                         <?php $commentaire = $article->getCommentaires();
                                         foreach ($commentaire as $id => $com) {
                                         ?>
-                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
-                                            <form method="post" action="traitement/insertLikeCommentaire.php">
-                                                <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
-                                                <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo " ".$article->getNbLikeCommentaire($id);?></span></button>
-                                                </button>
-                                            </form></p>
-                                        </td></tr>
+                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
+                                            <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
+                                    </tr>
                                     <?php
                                         }
                                         ?>
@@ -517,13 +502,9 @@ $req4->execute();
                                     <?php $commentaire = $article->getCommentaires();
                                     foreach ($commentaire as $id => $com) {
                                     ?>
-                                <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
-                                        <form method="post" action="traitement/insertLikeCommentaire.php">
-                                            <input type="text" name="idCommentaire" value="<?php echo $id; ?>" hidden/>
-                                            <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-thumbs-up"> <?php echo " ".$article->getNbLikeCommentaire($id);?></span></button>
-                                            </button>
-                                        </form></p>
-                                    </td></tr>
+                                <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
+                                        <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
+                                </tr>
                                 <?php
                                 }
                                 ?>
@@ -660,7 +641,7 @@ $req4->execute();
                 type : 'GET', // Le type de la requête HTTP.
                 data : 'idLike=' + id,
                 success : function(htmlcode, statut) {
-                    $('#L'+id).addClass('activeLike').attr("disabled", true).children('span').text('Jaime');
+                    $('#L'+id).addClass('activeLike').attr("disabled", true).children('span').text(" J'aime");
                 }
             });
             return false;
@@ -673,7 +654,7 @@ $req4->execute();
                 type : 'GET', // Le type de la requête HTTP.
                 data : 'idDislike=' + id,
                 success : function(htmlcode, statut) {
-                    $('#D'+id).addClass('activeDislike').attr("disabled", true).children('span').text("J'aime pas");
+                    $('#D'+id).addClass('activeDislike').attr("disabled", true).children('span').text(" J'aime pas");
                 }
             });
             return false;
@@ -687,6 +668,19 @@ $req4->execute();
                 data : 'idSignal=' + id,
                 success : function(htmlcode, statut) {
                     $('#S'+id).addClass('activeSign').attr("disabled", true);
+                }
+            });
+            return false;
+        });
+        $('.btn_LikeC').click(function(e) {
+            var id = $(e.currentTarget).attr('id');
+            id = id.substring(2);
+            $.ajax({
+                url : 'traitement/insertLikeCommentaire.php', // La ressource ciblée
+                type : 'GET', // Le type de la requête HTTP.
+                data : 'idCom=' + id,
+                success : function(htmlcode, statut) {
+                    $('#LC'+id).addClass('activeLike').attr("disabled", true).children('span').text(" J'aime");
                 }
             });
             return false;
