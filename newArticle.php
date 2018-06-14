@@ -3,7 +3,7 @@ session_start();
 include('affichage/header.php');
 ?>
 
-    <h2 id="titreNewArticle">Ajouter un article</h2>
+    <h2 id="titreNewArticle" align="center">Ajouter un article</h2>
     <div class="row">
         <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-mg-6 col-sm-offset-3 col-sm-6">
                     <table class="table">

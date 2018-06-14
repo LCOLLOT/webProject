@@ -2,9 +2,9 @@
 include ('affichage/header.php');
 session_cache_limiter('private_no_expire, must-revalidate');
 ?>
-    <h2 id="titreContact">Nous contacter</h2>
-    <div class="row">
-        <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-lg-6 col-mg-6 col-sm-6">
+    <h2 id="titreContact" align="center">Nous contacter</h2>
+    <div class="row" align="center">
+        <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-mg-6 col-sm-offset-3 col-sm-6">
             <table class="table">
                 <tr class="warning"><td>Veillez remplir les champs ci-dessous : </td></tr>
                 <form class="well" method="post" action="traitement/insertContact.php" enctype="multipart/form-data">
