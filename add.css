@@ -159,3 +159,19 @@ margin: auto;
     display: inline-block;
     background-color: #5bc0de;
 }
+
+.table{
+    align-items:center;
+}
+
+.modal-body{
+    align-items:center;
+}
+
+.panel-heading{
+    align-items:center;
+}
+
+.button-td{
+    align-items:center;
+}
