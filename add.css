@@ -178,27 +178,3 @@ margin: auto;
     background-color: rgb( 239, 254, 254);
     margin-left: 20px;
 }
-.navbar-nav {
-     float:none;
-     margin-right: 500px;
-     margin-top: 20px;
-     display: block;
-     text-align: center;
- }
-
-.navbar-nav > li {
-    display: inline-block;
-    float:none;
-}
-
-#titreNewArticle
-{
-    text-align: center;
-}
-.navbar-inverse > .pull-right {
-    margin-right: 14%;
-}
-
-.dropdown-menu {
-    margin-right: 14%;
-}
