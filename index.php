@@ -126,12 +126,13 @@ if (isset($_GET['disconnect']))
 
 
 
-    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(!($user == 'badLog' )) echo "hidden";?>>
+    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" <?php if(($user == 'badLog' ) && !isset($_POST['login'])) echo "hidden";?>>
         <div id="ok">
             <div class="panel panel-danger">
                 <div class="panel-heading">
                     <h3 class="panel-title"><strong>Combinaison identifiant / mot de passe incorrect !</strong></h3>
-                            <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"><script>addEventListener('click', function(e) { document.getElementById('ok').style.display = 'none';}, false); </script></span></button> </div>
+                            <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"><script>addEventListener('click', function(e) { document.getElementById('ok').style.display = 'none';}, false); </script></span></button>
+                </div>
             </div>
         </div>
 
