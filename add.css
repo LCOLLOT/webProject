@@ -29,7 +29,7 @@ margin: auto;
     height: 400px;
 }
 
-#titreProfil, #titreNewArticle #titreContact{
+#titreProfil, #titreNewArticle, #titreContact{
     text-align: center;
 }
 #lign1{
