@@ -188,3 +188,31 @@ img.img-responsive {
     box-shadow: 15px 10px 20px black;
     border-radius: 20px;
 }
+
+.btn-primary
+{
+    display: block;
+    margin : auto;
+
+}
+
+td img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-bordered
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+#mostliked
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
