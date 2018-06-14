@@ -53,6 +53,7 @@ if (isset($_GET['disconnect']))
         <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
     </div>
     <div class="pull-right">
+        <button class="btn btn-lg btn-default" data-toggle="modal" href="#infosSite" data-backdrop="false" ><span class="glyphicon glyphicon-info-sign"></span></button>
         <button class="btn btn-lg btn-info" data-toggle="modal" href="#infos" data-backdrop="false" >S'inscrire</button>
     </div>
 </nav>
@@ -64,19 +65,6 @@ if (isset($_GET['disconnect']))
 
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <div>
-        <div class="row" id="textIntro">
-            <section class=" col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-lg-10 col-md-10 col-sm-10">
-                <p>Vous êtes intéressés par le patrimoine? Web-Trotter est fait pour vous. Nous vous permettons de vous renseigner sur les différents lieux touristiques à
-                    voir autour de vous, dans un rayon de distance que vous aurez choisi. Vous pourrez également publier vos articles concernant les sites que vous avez déjà visités!</p>
-                <p>N'hésitez pas à aller lire les articles des autres utilisateurs et leurs laisser vos impressions, cela ne peut que les encourager à continuer, et qui sait, peut-être vous découvrirez-vous des intérêts communs.</p>
-                <p>N'oubliez pas de profiter des moments sur les lieux, et amusez-vous bien en utilisant Web-Trotter.</p>
-            </section>
-            <section class="col-sm-6">
-                <!-- <img src="images/web-trotter.png" alt="Monument"> -->
-            </section>
-        </div>
-    </div>
 <div class="row" id="lignForm">
     <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-lg-4 col-md-4 col-sm-4" id="formLog">
         <form action="index.php" method="post">
@@ -111,6 +99,23 @@ if (isset($_GET['disconnect']))
                             </table>
                         </form>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="infosSite">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        <h4 class="modal-title">Web-Trotter ??</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Vous êtes intéressés par le patrimoine? Web-Trotter est fait pour vous. Nous vous permettons de vous renseigner sur les différents lieux touristiques à
+                            voir autour de vous, dans un rayon de distance que vous aurez choisi. Vous pourrez également publier vos articles concernant les sites que vous avez déjà visités!</p>
+                        <p>N'hésitez pas à aller lire les articles des autres utilisateurs et leurs laisser vos impressions, cela ne peut que les encourager à continuer, et qui sait, peut-être vous découvrirez-vous des intérêts communs.</p>
+                        <p>N'oubliez pas de profiter des moments sur les lieux, et amusez-vous bien en utilisant Web-Trotter.</p>
                     </div>
                 </div>
             </div>
