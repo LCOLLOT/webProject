@@ -17,7 +17,7 @@ include('affichage/header.php');
                            <input type="text" name="auteur_id" value="<?php echo $_SESSION['user_id'];?>" class="form-control hidden"/>
                             <tr><td>Photo  <input type="file" name="photo" class="form-control"/></td></tr>
                             <tr><td>Catégorie<br />
-                                    <select name="choix">
+                                    <select name="choix" class="form-control">
                                         <option value="Musée">Musée</option>
                                         <option value="Châteaux">Châteaux</option>
                                         <option value="Grotte">Grotte</option>
