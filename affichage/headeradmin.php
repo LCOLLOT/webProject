@@ -38,7 +38,7 @@ require 'object/distCalculator.php';
     </div>
 </div>
 <!-- Ceci est mon corps -->
-<img src="images/back.jpg" alt="informatique" class="img-responsive">
+<img src="images/back.png" alt="monuments" class="img-responsive">
 <nav class="navbar navbar-inverse" id="barreNav">
     <div class="pull-left">
         <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
