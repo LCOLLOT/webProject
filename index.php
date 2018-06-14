@@ -103,7 +103,7 @@ if (isset($_GET['disconnect']))
             </div>
         </div>
     </div>
-</div>
+
 
 
 
@@ -125,6 +125,7 @@ if (isset($_GET['disconnect']))
                     <h3 class="panel-title"><strong>Vous avez bien été déconnecté !</strong></h3>
             </div>
         </div>
+    </div>
 </div>
 
 
