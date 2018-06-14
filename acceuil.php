@@ -52,7 +52,7 @@ $req4->execute();
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4">
-                <form method="get" action="acceuil.php" name="rayonF">
+                <form name="rayonF">
                             <h3>Autour de moi</h3>
                             <select name="rayon" class="form-control">
                                     <option value="10000">10Km</option>
@@ -61,7 +61,6 @@ $req4->execute();
                                     <option value="100000">100Km</option>
 
                                 </select>
-                                <button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-search"></span>
                                     <script> function loc() {
 
                                             function maPosition(position) {
@@ -74,8 +73,8 @@ $req4->execute();
 
                                         }
                                     </script>
-                                </button>
                 </form>
+                <button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-search"></span></button>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -614,7 +613,6 @@ else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) &
             return false;
         });
     </script>
-
 <?php
 include('affichage/footer.php');
 ?>
