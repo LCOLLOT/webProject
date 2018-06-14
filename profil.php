@@ -10,16 +10,16 @@ $profil = new Profil($_SESSION['user_id']);
                     <table class="table table-bordered">
                             <tr><td>Nom  :<input type="text" name="nom" value="<?php echo $profil->getName();?>" class="form-control"/></td></tr>
                             <tr><td><?php
-                                    if($profil->getBadge()==0){
+                                    if($profil->getNiveau()==0){
                                         echo "Visiteur";
                                     }
-                                    if(($profil->getBadge()>0) && ($profil->getBadge()<5)){
+                                    if(($profil->getNiveau()>0) && ($profil->getNiveau()<5)){
                                         echo "Contributeur novice";
                                     }
-                                    if(($profil->getBadge()>=5) && ($profil->getBadge()<10)){
+                                    if(($profil->getNiveau()>=5) && ($profil->getNiveau()<10)){
                                         echo "Contributeur experimenté";
                                     }
-                                    if($profil->getBadge()>=10){
+                                    if($profil->getNiveau()>=10){
                                         echo "Contributeur exemplaire";
                                     }
                                     ?>

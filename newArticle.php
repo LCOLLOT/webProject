@@ -30,3 +30,6 @@ include('affichage/header.php');
                     </table>
         </div>
     </div>
+<?php
+include('affichage/footer.php');
+?>

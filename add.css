@@ -167,7 +167,16 @@ div.indexcontainer{
     font-size: large;
     text-align: center;
 }
+.activeLike{
+    color: green;
+}
+.activeDislike{
+    color: red;
+}
+.activeSign{
+    color : orange;
+}
 
-div searches{
-    align: "center";
+.btn_Like{
+
 }

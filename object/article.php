@@ -51,6 +51,9 @@ class article
     public function getLongitude(){
         return $this->longitude;
     }
+    public function getId(){
+        return $this->id;
+    }
     public function  getPhoto(){
         return $this->photo;
     }
@@ -80,9 +83,6 @@ class article
         $req->execute(array('article_id'=>$this->id));
         $nb = $req->fetch();
         return $nb['total'];
-    }
-    public function getId(){
-        return $this->id;
     }
     public function getUniqueCommentaire(){
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id ORDER BY id DESC');
