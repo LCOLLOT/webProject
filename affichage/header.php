@@ -42,7 +42,6 @@ $profil = new Profil($userId);
                     <li> <a href="acceuil.php">Accueil</a> </li>
                     <li> <a href="newArticle.php">Ajouter un lieu</a> </li>
                     <li> <a href="contact.php">Contact</a> </li>
-
             </ul>
             <div class="pull-right">
                 <?php if (isset($_SESSION['user'])) { ?>
