@@ -4,7 +4,7 @@ include ('affichage/headeradmin.php');
 $users = $bdd->query('SELECT * FROM users ');
 ?>
 
-    <div class="tg-wrap"><table class="membres">
+    <div class="tg-wrap">
     <?php
         while ($data = $users->fetch())
     {
@@ -43,7 +43,7 @@ $users = $bdd->query('SELECT * FROM users ');
     }
     $users->closeCursor();
     ?>
-    </table></div>
+    </div>
 
 <?php
 include ('affichage/footer.php');
