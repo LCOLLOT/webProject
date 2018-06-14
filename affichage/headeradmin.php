@@ -32,13 +32,18 @@ require 'object/distCalculator.php';
 </head>
 
 <body>
+<div class="row">
+    <div id="titreHead">
+        <h1>Web-Trotter</h1>
+    </div>
+</div>
 <!-- Ceci est mon corps -->
-<div class="container">
-    <nav class="navbar navbar-default">
-        <div class="pull-left">
-            <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
-        </div>
-        <ul class="nav navbar-nav">
+<img src="images/back.jpg" alt="informatique" class="img-responsive">
+<nav class="navbar navbar-inverse" id="barreNav">
+    <div class="pull-left">
+        <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
+    </div>
+    <ul class="nav navbar-nav">
             <!--<li> </li>-->
             <li> <a href="acceuil.php">Accueil</a> </li>
             <li> <a href="newArticle.php">Ajouter un lieu</a> </li>
@@ -72,5 +77,6 @@ require 'object/distCalculator.php';
             </ul>
         </div>
     </nav>
+<div class="container">
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>

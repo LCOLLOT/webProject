@@ -1,19 +1,19 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Source Sans Pro;
+    font-family: Helvetica;
 }
 
 footer{
     text-align: center;
     font-size: small;
-    color: #9A4C1E;
-    bottom: 0;
-    background-color: #321506;
-    border-radius: 3%;
-    weight: 100%;
-}
+    color: grey;
 
+}
+header{
+    position: absolute;
+    width: 100%;
+}
 .logo{
     height: 50px;
     margin: 0px;
@@ -21,20 +21,6 @@ footer{
 
 .logo-div{
     display: inline-block;
-}
-.wrapper
-{
-    width : 70%;
-    display : grid;
-    grid-template-columns :repeat(auto-fit, minmax(220px, 1fr));
-    grid-column-gap : 2%;
-    grid-row-gap : 15px;
-    position : relative;
-    top : 10%;
-}
-#searchBarre{
-    background-color: #D89B31;
-    border-color: #321506;
 }
 
 #map{
@@ -59,75 +45,29 @@ margin: auto;
     color: #321506;
 }
 
-body {
-    color: 	#321506;
-    font-size: 12px;
-    line-height: 16px;
-    font-family: Source Sans Pro;
-}
-a {
-    color: #9A4C1E;
-}
-a:hover {
-    color:	#321506;
-}
-nav {
-    border-radius: 8px;
-    padding: 0 !important;
-    border: 1px solid #321506;
-}
-section {
-    padding-right: 0 !important;
-}
 .panel {
     border-radius: 8px;
     padding-bottom: 5px;
 }
-h1 {
-    color: #321506;
+h2 {
+    color: #2b669a;
 }
-.nav > li > a{
-    font-size: large;
-    text-align: center;
-    margin-bottom: 0;
+h3{
+    color: #2b669a;
 }
-.nav > li > a:hover, .nav > li > a:focus {
-    background-color: #321506;
-}
-.panel-default > .panel-heading, .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    color: #321506;
-    background-color: #D89B31;
-    border-radius: 8px;
-}
+
 .comment{
+    display: inline-block;
     border-radius: 3px 3px 3px 3px;
     background-color: #D7B581;
     font-size: large;
     color: white;
+    text-align: left;
+    height: 50px;
 }
-body{
-    background-image:url("images/background.jpg");
-    background-attachment: fixed;
-    background-repeat : no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-footer a{
-    color: #D89B31;
-}
-footer a:hover{
-    color: #9A4C1E;
-}
-div.container{ /* Astuce de création d'un bloc à 60% opaque à l'image de fond */
-    width:70%;
-   /* height:100%;*/
-    background-color:#FFFFFF;
-    border:1px solid #D89B31;
-    filter:Alpha(opacity=90);-moz-opacity:0.90;opacity: 0.90;
-    margin: auto;
-}
+
 .black {
-    color: #321506;
+    color: #2b669a;
 }
 .carousel-control {
     width: 4%;
@@ -147,30 +87,6 @@ div.container{ /* Astuce de création d'un bloc à 60% opaque à l'image de fond
     margin-right: 5px;
 }
 
-.dropdown-toggle{
-    background-color: #D89B31;
-    border-color: #D89B31;
-    margin-right: 5px;
-}
-
-.dropdown-toggle:hover{
-    background-color: #9A4C1E;
-    border-color: #9A4C1E;
-}
-
-div.indexcontainer{
-    width: 70%;
-    background-color: #FFFFFF;
-    background-image: url("images/logofiligrane.png");
-    border: 1px solid #D89B31;
-    filter:Alpha(opacity=90);-moz-opacity:0.90;opacity: 0.90;
-    margin: auto;
-    background-repeat : no-repeat;
-    background-position : bottom;
-    background-size: 70%;
-    font-size: large;
-    text-align: center;
-}
 .activeLike{
     color: green;
 }
@@ -181,19 +97,23 @@ div.indexcontainer{
     color : orange;
 }
 
-.btn_Like{
-
-}
-img.img-responsive {
-
-    border-radius: 20px;
-}
-
 .btn-primary
 {
     display: block;
     margin : auto;
 
+}
+#titreHead{
+    position: absolute;
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    margin-top: 6%;
+    letter-spacing: 10px;
+    color: rgb( 200, 200, 200 );
+    background-color: rgba( 60, 60, 60 , 0.4);
+    height: 12%;
+    width: 80%;
+    left: 10%;
 }
 
 td img
@@ -215,4 +135,27 @@ td img
     text-align: center;
     vertical-align: middle;
 }
-
+#barreNav{
+    background-color: black;
+    font-size: medium;
+    border-radius: unset;
+}
+.art h4{
+    text-align: center;
+}
+.art img{
+margin: auto;
+}
+.unitComment{
+    border-radius: 3px 3px 3px 3px;
+    background-color: #D7B581;
+    font-size: large;
+    color: white;
+    text-align: left;
+    margin: 10px 10px 10px 10px;
+    vertical-align: center;
+}
+.boxCord{
+    display: inline-block;
+    background-color: #5bc0de;
+}

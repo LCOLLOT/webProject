@@ -45,95 +45,47 @@ $req4->execute();
 
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <form method="post" action="acceuil.php">
-                    <table class="table">
-                        <tr class="tabLigne">
-                            <td>Lieu</td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="recherche" class="form-control"
-                                       placeholder="Tapez une indication du lieu ici"/></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button class="btn btn-primary" type="submit"><span
-                                            class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
+                            <h3>Lieu</h3>
+        <input type="text" name="recherche" class="form-control" placeholder="Tapez une indication du lieu ici"/>
+                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <form method="get" action="acceuil.php" name="rayonF">
-                <table class="table">
-                    <tbody>
-
-                        <tr class="tabLigne">
-                            <td>Autour de moi</td>
-                        </tr>
-                        <tr>
-                            <td><select name="rayon" class="form-control">
+                            <h3>Autour de moi</h3>
+                            <select name="rayon" class="form-control">
                                     <option value="10000">10Km</option>
                                     <option value="20000">20Km</option>
                                     <option value="50000">50Km</option>
                                     <option value="100000">100Km</option>
 
-                                </select></td>
-                        </tr>
+                                </select>
+                                <button class="btn btn-primary" onclick="loc()"><span class="glyphicon glyphicon-search"></span>
+                                    <script> function loc() {
 
-                    <tr>
-                        <td>
-                            <button class="btn btn-primary" onclick="loc()"><span
-                                        class="glyphicon glyphicon-search"></span>
-                                <script> function loc() {
+                                            function maPosition(position) {
+                                                document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude+"&ray="+document.forms["rayonF"].elements["rayon"].value;
+                                            }
 
-                                        function maPosition(position) {
-                                            document.location = "acceuil.php?long=" + position.coords.longitude + "&latt=" + position.coords.latitude+"&ray="+document.forms["rayonF"].elements["rayon"].value;
+                                            if (navigator.geolocation) {
+                                                navigator.geolocation.getCurrentPosition(maPosition);
+                                            }
+
                                         }
-
-                                        if (navigator.geolocation) {
-                                            navigator.geolocation.getCurrentPosition(maPosition);
-                                        }
-
-                                    }
-
-
-                                </script>
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                                    </script>
+                                </button>
                 </form>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <form method="post" action="acceuil.php">
-                    <table class="table">
-                        <tbody>
-                        <tr class="tabLigne">
-                            <td>Coordonnées GPS</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="longitude"
-                                                                               class="form-control" placeholder="Longitude"/>
+                            <h3>Coordonnées GPS</h3>
+                                <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="longitude" class="form-control" placeholder="Longitude"/>
                                 </div>
-                                <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="lattitude"
-                                                                               class="form-control" placeholder="Latitude"/>
+                                <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="lattitude" class="form-control" placeholder="Latitude"/>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button class="btn btn-primary" type="submit"><span
-                                            class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
             </div>
         </div>
@@ -163,7 +115,7 @@ $req4->execute();
                         </tr>
                         <tr>
                             <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                                    alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
+                                     alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
                         </tr>
                         <tr>
                             <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
@@ -211,328 +163,321 @@ $req4->execute();
         </div>
     </div>
 
-<?php
-            }
-            else if (isset($_POST['recherche']) && !empty($_POST['recherche'])) {
-                ?>
-                <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
-                    <p>Monuments correspondants à :
-                        <strong><?php echo htmlspecialchars($_POST['recherche']); ?></strong></p>
-                </div>
-                <?php
-                if ($req->rowCount() == 0) {
-                    ?>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <h2>Aucun résultat</h2>
-                    </div>
+    <?php
+}
+else if (isset($_POST['recherche']) && !empty($_POST['recherche'])) {
+    ?>
 
-                    <?php
-                } ?>
-
-                <div class="carousel slide" id="carousel" data-ride="carousel">
-                    <div class="carousel-inner thumbnail">
-                        <?php
-                        $tabNom = array();
-                        $tabM = array();
-                        $tabDescriptif = array();
-                        $first = true;
-                        while ($monument = $req->fetch()) {
-                            $article = new article($monument['id']);
-                            $tabM[$article->getLongitude()] = $article->getLattitude();
-                            $tabNom[] = '"' . $article->getTitre() . '"';
-                            $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
-                            ?>
-                            <div class="item <?php if ($first == true) echo "active"; ?>">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                                 alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $article->getContenu() ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Commentaires :</td>
-                                        <?php $commentaire = $article->getCommentaires();
-                                        foreach ($commentaire as $id => $com) {
-                                        ?>
-                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
-                                            <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
-                                    </tr>
-                                    <?php
-                                        }
-                                        ?>
-                                    <tr>
-                                        <td>
-                                            <form method="post" action="traitement/insertCommentaire.php">
-                                                <input type="text" name="idArticle"
-                                                       value="<?php echo $monument['id']; ?>" hidden/>
-                                                <input type="text" name="text" class="form-control"/>
-                                                <button class="btn btn-primary" type="submit"><span
-                                                            class="glyphicon glyphicon-send"></span> Commenter
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </table>
-                                        <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
-                                        <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                                        <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
-                            </div>
-                            <?php
-                            $first = false;
-                        } ?>
-                        <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                    class="glyphicon glyphicon-menu-left black"></span></a>
-                        <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                    class="glyphicon glyphicon-menu-right black"></span></a>
-                    </div>
-                </div>
-                <?php
-            } //Affichage des articles situés à proximité de l'utilisateur
-            else if (isset($_GET['latt']) && isset($_GET['long'])){
-                ?>
-                <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
-                    <p>Monuments dans un rayon de <?php echo $_GET['ray']/1000;?>km autour de votre position (LATT:<?php echo $_GET['latt']; ?>
-                        LONG: <?php echo $_GET['long']; ?>)</p>
-                </div>
-                <div class="carousel slide" id="carousel" data-ride="carousel">
-                    <div class="carousel-inner thumbnail">
-                        <?php
-                        $tabNom = array();
-                        $tabM = array();
-                        $tabDescriptif = array();
-                        $first = true;
-                        while ($monument = $req2->fetch()) {
-                            $distCalc = new distCalculator($_GET['latt'], $monument['lattitude'], $_GET['long'], $monument['longitude']);
-                            $dist = $distCalc->getDist();
-                            if ($dist < $_GET['ray']) {
-                                $article = new article($monument['id']);
-                                $tabM[$monument['longitude']] = $monument['lattitude'];
-                                $tabNom[] = '"' . $monument['titre'] . '"';
-                                $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
-                                ?>
-                                <div class="item <?php if ($first == true) echo "active"; ?>">
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img
-                                                        src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                                        alt="<?php echo $article->getTitre(); ?>" class="img-responsive"
-                                                        style="max-height: 300px"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><?php echo $article->getContenu() ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Commentaires :</td>
-                                            <?php $commentaire = $article->getCommentaires();
-                                            foreach ($commentaire as $id => $com) {
-                                                ?>
-                                        <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
-                                                    <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
-                                        </tr>
-                                                        <?php
-                                            }
-                                            ?>
-                                        <tr>
-                                            <td>
-                                                <form method="post" action="traitement/insertCommentaire.php">
-                                                    <input type="text" name="idArticle"
-                                                           value="<?php echo $monument['id']; ?>" hidden/>
-                                                    <input type="text" name="text" class="form-control"/>
-                                                    <button class="btn btn-primary" type="submit"><span
-                                                                class="glyphicon glyphicon-send"></span> Commenter
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
-                                    <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                                    <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
-                                </div>
-                                <?php
-                                $first = false;
-                            }
-                        } ?>
-                        <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
-                            <span class="glyphicon glyphicon-menu-left black" aria-hidden="true" href="#carousel" data-slide="prev"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
-                            <span class="glyphicon glyphicon-menu-right black" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                </div>
-                <?php
-            } //Affichage des articles situés à proximité des coordonnées rentrées par l'utilisateur
-            else if (isset($lat) && isset($long)){
-            ?>
-            <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
-                <p>Monuments dans un rayon de 10km autour de LATT:<?php echo $lat; ?> LONG: <?php echo $long; ?></p>
-            </div>
-            <div class="carousel slide" id="carousel" data-ride="carousel">
-                <div class="carousel-inner thumbnail">
-                    <?php
-                    $tabNom = array();
-                    $tabM = array();
-                    $tabDescriptif = array();
-                    $first = true;
-                    while ($monument = $req3->fetch()) {
-                        $distCalc = new distCalculator($lat, $monument['lattitude'], $long, $monument['longitude']);
-                        $dist = $distCalc->getDist();
-                        if ($dist < 10000) {
-                            $article = new article($monument['id']);
-                            $tabM[$monument['longitude']] = $monument['lattitude'];
-                            $tabNom[] = '"' . $monument['titre'] . '"';
-                            $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
-                            ?>
-                            <div class="item <?php if ($first == true) echo "active"; ?>">
-                                <table class="table table-bordered" id ="titre-cent">
-                                    <tr>
-                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                                 alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $article->getContenu() ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Commentaires :</td>
-                                        <?php $commentaire = $article->getCommentaires();
-                                        foreach ($commentaire as $id => $com) {
-                                        ?>
-                                    <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
-                                            <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
-                                    </tr>
-                                    <?php
-                                        }
-                                        ?>
-                                    <tr>
-                                        <td>
-                                            <form method="post" action="traitement/insertCommentaire.php">
-                                                <input type="text" name="idArticle"
-                                                       value="<?php echo $monument['id']; ?>" hidden/>
-                                                <input type="text" name="text" class="form-control"/>
-                                                <button class="btn btn-primary" type="submit"><span
-                                                            class="glyphicon glyphicon-send"></span> Commenter
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </table>
-                                        <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
-                                        <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                                        <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
-                            </div>
-                            <?php
-                            $first = false;
-                        }
-                    }
-                ?>
-                    <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="glyphicon glyphicon-menu-left black"></span></a>
-                    <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="glyphicon glyphicon-menu-right black"></span></a>
-                </div>
-            </div>
-            <?php } //Affichage des 5 articles les plus convoités
-            else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
-            <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
-                <p id ="mostliked">Les 5 monuments les plus appréciés :</p>
-            </div>
-            <div class="carousel slide" id="carousel" data-ride="carousel">
-                <div class="carousel-inner thumbnail">
-                    <?php
-                    $tabNom = array();
-                    $tabM = array();
-                    $tabDescriptif = array();
-                    $first = true;
-                    while ($monument = $req4->fetch()) {
-                        $article = new article($monument['id']);
-                        $tabM[$article->getLongitude()] = $article->getLattitude();
-                        $tabNom[] = '"' . $article->getTitre() . '"';
-                        $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
-                        ?>
-                        <div class="item <?php if ($first == true) echo "active"; ?>">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                                            alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
-                                </tr>
-                                <tr>
-                                    <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo $article->getContenu() ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Commentaires :</td>
-                                    <?php $commentaire = $article->getCommentaires();
-                                    foreach ($commentaire as $id => $com) {
-                                    ?>
-                                <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
-                                        <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
-                                </tr>
-                                <?php
-                                }
-                                ?>
-                                <tr>
-                                    <td>
-                                        <form method="post" action="traitement/insertCommentaire.php">
-                                            <input type="text" name="idArticle"
-                                                   value="<?php echo $monument['id']; ?>" hidden/>
-                                            <input type="text" name="text" class="form-control"/>
-                                            <button class="btn btn-primary" type="submit"><span
-                                                        class="glyphicon glyphicon-send"></span> Commenter
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </table>
-                                    <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
-                                    <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                                    <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
-                        </div>
-                        <?php
-                        $first = false;
-                    } ?>
-                    <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="glyphicon glyphicon-menu-left black"></span></a>
-                    <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
-                                class="glyphicon glyphicon-menu-right black"></span></a>
-                </div>
-
-            </div>
-            <?php } ?>
+        <h3>Monuments correspondants à :<strong><?php echo htmlspecialchars($_POST['recherche']); ?></strong></h3>
+    <?php
+    if ($req->rowCount() == 0) {
+        ?>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h2>Aucun résultat</h2>
         </div>
+
+        <?php
+    } ?>
+
+    <div class="carousel slide" id="carousel" data-ride="carousel">
+        <div class="carousel-inner thumbnail">
+            <?php
+            $tabNom = array();
+            $tabM = array();
+            $tabDescriptif = array();
+            $first = true;
+            while ($monument = $req->fetch()) {
+                $article = new article($monument['id']);
+                $tabM[$article->getLongitude()] = $article->getLattitude();
+                $tabNom[] = '"' . $article->getTitre() . '"';
+                $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
+                ?>
+                <div class="item <?php if ($first == true) echo "active"; ?>">
+                    <div class="art">
+                            <h4><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></h4>
+                            <p><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                     alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></p>
+                            <p> Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></p>
+                        <div class="boxCord">
+                            <p>LATT : <?php echo $article->getLattitude() ?></p>
+                            <p>LONG : <?php echo $article->getLongitude() ?></p>
+                        </div>
+                        <img src="images/boxCord.png" alt="GPS" class="img-responsive"/>
+
+                            <p><?php echo $article->getContenu() ?></p>
+
+                            <tp>Commentaires :</tp>
+                            <?php $commentaire = $article->getCommentaires();
+                            foreach ($commentaire as $id => $com) {
+                            ?>
+                                <div class="unitComment">
+                            <span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?>
+                                <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button>
+                                </div>
+                        <?php
+                        }
+                        ?>
+
+                                <form method="post" action="traitement/insertCommentaire.php">
+                                    <input type="text" name="idArticle"
+                                           value="<?php echo $monument['id']; ?>" hidden/>
+                                    <input type="text" name="text" class="form-control"/>
+                                    <button class="btn btn-primary" type="submit"><span
+                                                class="glyphicon glyphicon-send"></span> Commenter
+                                    </button>
+                                </form>
+
+                    <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                    <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                    <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
+                </div>
+                </div>
+                <?php
+                $first = false;
+            } ?>
+            <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                        class="glyphicon glyphicon-menu-left black"></span></a>
+            <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                        class="glyphicon glyphicon-menu-right black"></span></a>
+        </div>
+    </div>
+    <?php
+} //Affichage des articles situés à proximité de l'utilisateur
+else if (isset($_GET['latt']) && isset($_GET['long'])){
+    ?>
+    <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
+        <p>Monuments dans un rayon de <?php echo $_GET['ray']/1000;?>km autour de votre position (LATT:<?php echo $_GET['latt']; ?>
+            LONG: <?php echo $_GET['long']; ?>)</p>
+    </div>
+    <div class="carousel slide" id="carousel" data-ride="carousel">
+        <div class="carousel-inner thumbnail">
+            <?php
+            $tabNom = array();
+            $tabM = array();
+            $tabDescriptif = array();
+            $first = true;
+            while ($monument = $req2->fetch()) {
+                $distCalc = new distCalculator($_GET['latt'], $monument['lattitude'], $_GET['long'], $monument['longitude']);
+                $dist = $distCalc->getDist();
+                if ($dist < $_GET['ray']) {
+                    $article = new article($monument['id']);
+                    $tabM[$monument['longitude']] = $monument['lattitude'];
+                    $tabNom[] = '"' . $monument['titre'] . '"';
+                    $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
+                    ?>
+                    <div class="item <?php if ($first == true) echo "active"; ?>">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td><img
+                                            src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                            alt="<?php echo $article->getTitre(); ?>" class="img-responsive"
+                                            style="max-height: 300px"></td>
+                            </tr>
+                            <tr>
+                                <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
+                            </tr>
+                            <tr>
+                                <td><?php echo $article->getContenu() ?></td>
+                            </tr>
+                            <tr>
+                                <td>Commentaires :</td>
+                                <?php $commentaire = $article->getCommentaires();
+                                foreach ($commentaire as $id => $com) {
+                                ?>
+                            <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
+                                    <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                            <tr>
+                                <td>
+                                    <form method="post" action="traitement/insertCommentaire.php">
+                                        <input type="text" name="idArticle"
+                                               value="<?php echo $monument['id']; ?>" hidden/>
+                                        <input type="text" name="text" class="form-control"/>
+                                        <button class="btn btn-primary" type="submit"><span
+                                                    class="glyphicon glyphicon-send"></span> Commenter
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                        <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                        <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                        <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
+                    </div>
+                    <?php
+                    $first = false;
+                }
+            } ?>
+            <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
+                <span class="glyphicon glyphicon-menu-left black" aria-hidden="true" href="#carousel" data-slide="prev"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;">
+                <span class="glyphicon glyphicon-menu-right black" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <?php
+} //Affichage des articles situés à proximité des coordonnées rentrées par l'utilisateur
+else if (isset($lat) && isset($long)){
+    ?>
+    <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
+        <p>Monuments dans un rayon de 10km autour de LATT:<?php echo $lat; ?> LONG: <?php echo $long; ?></p>
+    </div>
+    <div class="carousel slide" id="carousel" data-ride="carousel">
+        <div class="carousel-inner thumbnail">
+            <?php
+            $tabNom = array();
+            $tabM = array();
+            $tabDescriptif = array();
+            $first = true;
+            while ($monument = $req3->fetch()) {
+                $distCalc = new distCalculator($lat, $monument['lattitude'], $long, $monument['longitude']);
+                $dist = $distCalc->getDist();
+                if ($dist < 10000) {
+                    $article = new article($monument['id']);
+                    $tabM[$monument['longitude']] = $monument['lattitude'];
+                    $tabNom[] = '"' . $monument['titre'] . '"';
+                    $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
+                    ?>
+                    <div class="item <?php if ($first == true) echo "active"; ?>">
+                        <table class="table table-bordered" id ="titre-cent">
+                            <tr>
+                                <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                         alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></td>
+                            </tr>
+                            <tr>
+                                <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
+                            </tr>
+                            <tr>
+                                <td><?php echo $article->getContenu() ?></td>
+                            </tr>
+                            <tr>
+                                <td>Commentaires :</td>
+                                <?php $commentaire = $article->getCommentaires();
+                                foreach ($commentaire as $id => $com) {
+                                ?>
+                            <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
+                                    <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                            <tr>
+                                <td>
+                                    <form method="post" action="traitement/insertCommentaire.php">
+                                        <input type="text" name="idArticle"
+                                               value="<?php echo $monument['id']; ?>" hidden/>
+                                        <input type="text" name="text" class="form-control"/>
+                                        <button class="btn btn-primary" type="submit"><span
+                                                    class="glyphicon glyphicon-send"></span> Commenter
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                        <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                        <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                        <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
+                    </div>
+                    <?php
+                    $first = false;
+                }
+            }
+            ?>
+            <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                        class="glyphicon glyphicon-menu-left black"></span></a>
+            <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                        class="glyphicon glyphicon-menu-right black"></span></a>
+        </div>
+    </div>
+<?php } //Affichage des 5 articles les plus convoités
+else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
+    <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
+        <p id ="mostliked">Les 5 monuments les plus appréciés :</p>
+    </div>
+    <div class="carousel slide" id="carousel" data-ride="carousel">
+        <div class="carousel-inner thumbnail">
+            <?php
+            $tabNom = array();
+            $tabM = array();
+            $tabDescriptif = array();
+            $first = true;
+            while ($monument = $req4->fetch()) {
+                $article = new article($monument['id']);
+                $tabM[$article->getLongitude()] = $article->getLattitude();
+                $tabNom[] = '"' . $article->getTitre() . '"';
+                $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
+                ?>
+                <div class="item <?php if ($first == true) echo "active"; ?>">
+                    <table class="table table-bordered" id="mostliked-titre-cent">
+                        <tr>
+                            <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                     alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
+                        </tr>
+                        <tr>
+                            <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo $article->getContenu() ?></td>
+                        </tr>
+                        <tr>
+                            <td>Commentaires :</td>
+                            <?php $commentaire = $article->getCommentaires();
+                            foreach ($commentaire as $id => $com) {
+                            ?>
+                        <tr><td><p class="comment"><span class="glyphicon glyphicon-chevron-right"></span><?php echo $com?></p>
+                                <button class="btn btn-sm btn-default btn_LikeC <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="LC<?php  echo $id;?>" <?php if($article->isLikedC($id ,$_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getNbLikeCommentaire($id);?></span></button></td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                        <tr>
+                            <td>
+                                <form method="post" action="traitement/insertCommentaire.php">
+                                    <input type="text" name="idArticle"
+                                           value="<?php echo $monument['id']; ?>" hidden/>
+                                    <input type="text" name="text" class="form-control"/>
+                                    <button class="btn btn-primary" type="submit"><span
+                                                class="glyphicon glyphicon-send"></span> Commenter
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                    <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                    <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
+                </div>
+                <?php
+                $first = false;
+            } ?>
+            <a class="left carousel-control" href="#carousel" data-slide="prev" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                        class="glyphicon glyphicon-menu-left black"></span></a>
+            <a class="right carousel-control" href="#carousel" data-slide="next" style="background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); height: 30px;"><span
+                        class="glyphicon glyphicon-menu-right black"></span></a>
+        </div>
+
+    </div>
+<?php } ?>
+    </div>
     </div>
 
     <script>
         var map;
 
         function initMap() {
-
-
             var lat = 47.7290842;
             var long = 7.3108961;
             var texte ='Votre position';
@@ -608,8 +553,7 @@ $req4->execute();
         }
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN2PTU4JQ2s_Ph8u4bo_pQpvVmlZt2s_Y&callback=initMap"
-            async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN2PTU4JQ2s_Ph8u4bo_pQpvVmlZt2s_Y&callback=initMap" async defer></script>
     <script>
         $(function () {
             $('.carousel').carousel();

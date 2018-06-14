@@ -27,21 +27,24 @@ $profil = new Profil($userId);
 </head>
 
 <body>
+<div class="row">
+    <div id="titreHead">
+        <h1>Web-Trotter</h1>
+    </div>
+</div>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
-
-<div class="container">
-        <nav class="navbar navbar-default">
+<img src="images/back.jpg" alt="informatique" class="img-responsive">
+        <nav class="navbar navbar-inverse" id="barreNav">
             <div class="pull-left">
                 <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
             </div>
             <ul class="nav navbar-nav">
-                <!--<li> </li>-->
                     <li> <a href="acceuil.php">Accueil</a> </li>
                     <li> <a href="newArticle.php">Ajouter un lieu</a> </li>
                     <li> <a href="contact.php">Contact</a> </li>
 
             </ul>
-            <div class="pull-right" id="buttonH">
+            <div class="pull-right">
                 <?php if (isset($_SESSION['user'])) { ?>
                     <div class="btn btn-default disabled" style="cursor:default;"><span class="glyphicon glyphicon-check"></span> <?php echo $_SESSION['user']; ?>, <?php echo $profil->getGroupe(); ?> </div>
                 <?php } ?>
@@ -67,5 +70,6 @@ $profil = new Profil($userId);
                 </ul>
             </div>
         </nav>
+<div class="container">
     <script src="bootstrap/js/jquery.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
