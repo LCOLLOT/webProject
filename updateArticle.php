@@ -25,7 +25,7 @@ if (!isset($_POST["id"]))
         echo "L'article a bien été modifié.";
     }
 
-    else if (isset($_POST["UpdateSignal"]))
+    if (isset($_POST["UpdateSignal"]))
     {
         $req = $bdd->prepare("UPDATE articles SET titre=:titre, lattitude=:latitude, longitude=:longitude, description=:description WHERE articles.id = :id");
         $req->execute(array("id" => $id, "titre" => $_POST["titre"], "latitude" => $_POST["latitude"], "longitude" => $_POST["longitude"], "description" => $_POST["description"]));
@@ -37,7 +37,17 @@ if (!isset($_POST["id"]))
         echo "L'article a bien été modifié et n'est plus considéré comme signalé.";
     }
 
-    ?>
+    else if (isset($_POST["DeleteSignal"]))
+    {
+        $req2 = $bdd->prepare("DELETE FROM signalement WHERE signalement.article_id = :id");
+        $req2->execute(array('id' => $id));
+
+        $req = $bdd->prepare("DELETE FROM articles WHERE articles.id = :id");
+        $req->execute(array('id'=> $id));
+
+        echo "L'article a bien été supprimé.";
+    }
+?>
 
 <br>
 <br>
