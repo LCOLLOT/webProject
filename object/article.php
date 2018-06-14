@@ -2,7 +2,7 @@
 
 class article
 {
-    private $titre, $lattitude,$longitude,$photo,$commentaires,$contenu, $date, $id, $categorie;
+    private $titre, $lattitude,$longitude,$photo,$commentaires,$contenu, $date, $id, $categorie, $auteur;
     private $bdd;
 
     public function __construct($id)
@@ -26,6 +26,11 @@ class article
         $this->longitude = $article['longitude'];
         $this->id = $id;
         $this->categorie = $article['categorie'];
+
+        $req = $this->bdd->prepare('SELECT mail FROM users WHERE id = :id');
+        $req->execute(array('id' => $this->id));
+        $data = $req->fetch();
+        $this->auteur = $data['mail'];
 
 
         $req = $this->bdd->prepare('SELECT * FROM commentaires WHERE article_id = :id');
@@ -60,6 +65,9 @@ class article
     }
     public function getCategorie(){
        return $this->categorie;
+    }
+    public function getAuteur(){
+        return $this->auteur;
     }
     public function getLike() {
         $req = $this->bdd->prepare('SELECT COUNT(*) as total FROM likearticle WHERE article_id = :article_id');
