@@ -39,18 +39,6 @@ $profil = new Profil($userId);
                     <li> <a href="acceuil.php">Accueil</a> </li>
                     <li> <a href="newArticle.php">Ajouter un lieu</a> </li>
                     <li> <a href="contact.php">Contact</a> </li>
-                <?php
-                if ($profil->getGroupe() == "moderateur" || $profil->getGroupe() == "admin" )
-                {
-                    echo "<li> <a href=\"editarticle.php\">Modération</a> </li>";
-                }
-                ?>
-                <?php
-                if ($profil->getGroupe() == "admin")
-                {
-                    echo "<li> <a href=\"admin.php\">Pannel administrateur</a> </li>";
-                }
-                ?>
 
             </ul>
             <div class="pull-right" id="buttonH">
@@ -63,6 +51,17 @@ $profil = new Profil($userId);
                     <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span> Mon profil</a></li>
                     <li><a href="contributions.php"><span class="glyphicon glyphicon-picture"></span> Mes Contributions</a></li>
                     <li><a href="messagerie.php"><span class="glyphicon glyphicon-envelope"></span> Messagerie</a></li>
+                    <?php
+                    if ($profil->getGroupe() == "moderateur" || $profil->getGroupe() == "admin" )
+                    {
+                        echo "<li class=\"divider\"></li>";
+                        echo "<li> <a href=\"editarticle.php\"><span class=\"glyphicon glyphicon-wrench\"></span> Modération</a> </li>";
+                    } ?>
+                    <?php
+                    if ($profil->getGroupe() == "admin")
+                    {
+                        echo "<li> <a href=\"admin.php\"><span class=\"glyphicon glyphicon-console\"></span> Panel Admin</a> </li>";
+                    } ?>
                     <li class="divider"></li>
                     <li><a href="index.php?disconnect=true"><span class="glyphicon glyphicon-log-in"></span> Se Déconnecter</a></li>
                 </ul>
