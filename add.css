@@ -148,30 +148,32 @@ margin: auto;
 }
 .unitComment{
     border-radius: 3px 3px 3px 3px;
-    background-color: #D7B581;
+    background-color: rgb(239, 254, 255);
     font-size: large;
-    color: white;
+    color: darkblue;
     text-align: left;
     margin: 10px 10px 10px 10px;
     vertical-align: center;
 }
+.unitComment button{
+    text-align: right;
+}
 .boxCord{
     display: inline-block;
-    background-color: #5bc0de;
+    margin-left: 20px;
 }
-
-.table{
-    align-items:center;
+.boxCord p{
+    margin-bottom: 10px;
 }
-
-.modal-body{
-    align-items:center;
+.imgCord img{
+    height: 50px;
+    width: 50px;
 }
-
-.panel-heading{
-    align-items:center;
+.imgCord{
+    display: inline-block;
 }
-
-.button-td{
-    align-items:center;
+.contenuBox{
+    border-radius: 3px 3px 3px 3px;
+    background-color: rgb( 239, 254, 254);
+    margin-left: 20px;
 }

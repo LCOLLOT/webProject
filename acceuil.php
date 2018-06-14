@@ -207,9 +207,9 @@ else if (isset($_POST['recherche']) && !empty($_POST['recherche'])) {
                             <p class="form-control">LATT : <?php echo $article->getLattitude() ?></p>
                             <p class="form-control">LONG : <?php echo $article->getLongitude() ?></p>
                         </div>
-                        <div class="imgCord">
-                            <img src="images/boxCord.png" alt="GPS" class="img-responsive"/>
-                        </div>
+                            <div class="imgCord">
+                                <a href="acceuil.php?latt=<?php echo $article->getLattitude()?>&long=<?php echo $article->getLongitude()?>&article=<?php echo $article->getId()?>"><img src="images/boxCord.png" alt="GPS" class="img-responsive"/></a>
+                            </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 contenuBox">
                             <p><?php echo $article->getContenu() ?></p>
                         </div>
@@ -258,6 +258,7 @@ else if (isset($_GET['latt']) && isset($_GET['long'])){
         <p>Monuments dans un rayon de <?php echo $_GET['ray']/1000;?>km autour de votre position (LATT:<?php echo $_GET['latt']; ?>
             LONG: <?php echo $_GET['long']; ?>)</p>
     </div>
+
     <div class="carousel slide" id="carousel" data-ride="carousel">
         <div class="carousel-inner thumbnail">
             <?php
@@ -278,7 +279,7 @@ else if (isset($_GET['latt']) && isset($_GET['long'])){
                         <div class="art">
                             <h4><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></h4>
                             <p><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                    alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></p>
+                                    alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></p>
                             <p> Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></p>
                             <div class="row">
                                 <div class="boxCord">
@@ -286,7 +287,7 @@ else if (isset($_GET['latt']) && isset($_GET['long'])){
                                     <p class="form-control">LONG : <?php echo $article->getLongitude() ?></p>
                                 </div>
                                 <div class="imgCord">
-                                    <img src="images/boxCord.png" alt="GPS" class="img-responsive"/>
+                                    <a href="acceuil.php?latt=<?php echo $article->getLattitude()?>&long=<?php echo $article->getLongitude()?>&article=<?php echo $article->getId()?>"><img src="images/boxCord.png" alt="GPS" class="img-responsive"/></a>
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8 contenuBox">
                                     <p><?php echo $article->getContenu() ?></p>
@@ -361,7 +362,7 @@ else if (isset($lat) && isset($long)){
                         <div class="art">
                             <h4><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></h4>
                             <p><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                    alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></p>
+                                    alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></p>
                             <p> Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></p>
                             <div class="row">
                                 <div class="boxCord">
@@ -369,7 +370,7 @@ else if (isset($lat) && isset($long)){
                                     <p class="form-control">LONG : <?php echo $article->getLongitude() ?></p>
                                 </div>
                                 <div class="imgCord">
-                                    <img src="images/boxCord.png" alt="GPS" class="img-responsive"/>
+                                    <a href="acceuil.php?latt=<?php echo $article->getLattitude()?>&long=<?php echo $article->getLongitude()?>&article=<?php echo $article->getId()?>"><img src="images/boxCord.png" alt="GPS" class="img-responsive"/></a>
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8 contenuBox">
                                     <p><?php echo $article->getContenu() ?></p>
@@ -438,7 +439,7 @@ else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) &
                     <div class="art">
                         <h4><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></h4>
                         <p><img src="images/articles/<?php echo $article->getPhoto(); ?>"
-                                alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></p>
+                                alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></p>
                         <p> Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></p>
                         <div class="row">
                             <div class="boxCord">
@@ -446,7 +447,7 @@ else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) &
                                 <p class="form-control">LONG : <?php echo $article->getLongitude() ?></p>
                             </div>
                             <div class="imgCord">
-                                <img src="images/boxCord.png" alt="GPS" class="img-responsive"/>
+                                <a href="acceuil.php?latt=<?php echo $article->getLattitude()?>&long=<?php echo $article->getLongitude()?>&article=<?php echo $article->getId()?>"><img src="images/boxCord.png" alt="GPS" class="img-responsive"/></a>
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8 contenuBox">
                                 <p><?php echo $article->getContenu() ?></p>
@@ -503,9 +504,14 @@ else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) &
             var lat = 47.7290842;
             var long = 7.3108961;
             var texte ='Votre position';
-            <?php if(isset($_GET['latt'])){?>
-            lat = <?php echo $_GET['latt']?>;
-            long = <?php echo $_GET['long']?>;
+            <?php if(isset($_GET['latt'])){
+                if(isset($_GET['article'])){?>
+                tewte ='';
+                <?php
+                }else{?>
+                    lat = <?php echo $_GET['latt']?>;
+                    long = <?php echo $_GET['long']?>;
+                    <?php }?>
             <?php } else if(isset($_POST['lattitude']) && isset($_POST['longitude'])){?>
             lat = <?php echo htmlspecialchars($_POST['lattitude']);?>;
             long = <?php echo htmlspecialchars($_POST['longitude'])?>;
