@@ -199,18 +199,9 @@ $req4->execute();
                     </table>
                     <table>
                         <tr>
-                            <td><form method="post" action="traitement/insertLike.php">
-                                    <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
-                                    <button class="btn <?php if($article->isLiked($_SESSION['user_id'])){echo 'btn-success';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
-                                    </button></form></td>
-                            <td><form method="post" action="traitement/insertLike.php">
-                                    <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
-                                    <button class="btn <?php if($article->isDisliked($_SESSION['user_id'])){echo 'btn-danger';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDisLike()?></span>
-                                    </button></form></td>
-                            <td><form method="post" action="traitement/insertLike.php">
-                                    <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
-                                    <button class="btn <?php if($article->isSignaled($_SESSION['user_id'])){echo 'btn-warning';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span>
-                                    </button></form></td>
+                            <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>k,k,</button>
+                            <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                            <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                         </tr>
                     </table>
                 </div>
@@ -300,18 +291,9 @@ $req4->execute();
                                 </table>
                                 <table>
                                     <tr>
-                                        <td><form method="post" action="traitement/insertLike.php">
-                                                <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
-                                                <button class="btn <?php if($article->isLiked($_SESSION['user_id'])){echo 'btn-success';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
-                                                </button></form></td>
-                                        <td><form method="post" action="traitement/insertLike.php">
-                                                <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
-                                                <button class="btn <?php if($article->isDisliked($_SESSION['user_id'])){echo 'btn-danger';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDisLike()?></span>
-                                                </button></form></td>
-                                        <td align=right"><form method="post" action="traitement/insertLike.php">
-                                                <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
-                                                <button class="btn <?php if($article->isSignaled($_SESSION['user_id'])){echo 'btn-warning';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span>
-                                                </button></form></td>
+                                        <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>k,k,</button>
+                                        <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                                        <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                                     </tr>
                                 </table>
                             </div>
@@ -394,18 +376,9 @@ $req4->execute();
                                     </table>
                                     <table>
                                         <tr>
-                                            <td><form method="post" action="traitement/insertLike.php">
-                                                    <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
-                                                    <button class="btn <?php if($article->isLiked($_SESSION['user_id'])){echo 'btn-success';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
-                                                    </button></form></td>
-                                            <td><form method="post" action="traitement/insertLike.php">
-                                                    <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
-                                                    <button class="btn <?php if($article->isDisliked($_SESSION['user_id'])){echo 'btn-danger';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDisLike()?></span>
-                                                    </button></form></td>
-                                            <td><form method="post" action="traitement/insertLike.php">
-                                                    <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
-                                                    <button class="btn <?php if($article->isSignaled($_SESSION['user_id'])){echo 'btn-warning';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span>
-                                                    </button></form></td>
+                                            <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>k,k,</button>
+                                            <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                                            <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                                         </tr>
                                     </table>
                                 </div>
@@ -489,18 +462,9 @@ $req4->execute();
                                 </table>
                                 <table>
                                     <tr>
-                                        <td><form method="post" action="traitement/insertLike.php" >
-                                                <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
-                                                <button class="btn <?php if($article->isLiked($_SESSION['user_id'])){echo 'btn-success';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
-                                                </button></form></td>
-                                        <td><form method="post" action="traitement/insertLike.php">
-                                                <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
-                                                <button class="btn <?php if($article->isDisliked($_SESSION['user_id'])){echo 'btn-danger';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDisLike()?></span>
-                                                </button></form></td>
-                                        <td><form method="post" action="traitement/insertLike.php">
-                                                <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
-                                                <button class="btn <?php if($article->isSignaled($_SESSION['user_id'])){echo 'btn-warning';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span>
-                                                </button></form></td>
+                                        <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>k,k,</button>
+                                        <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                                        <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                                     </tr>
                                 </table>
                             </div>
@@ -578,18 +542,9 @@ $req4->execute();
                             </table>
                             <table>
                                 <tr>
-                                    <td><form method="post" action="traitement/insertLike.php" >
-                                            <input type="text" name="idLike" value="<?php echo $monument['id']; ?>" hidden/>
-                                            <button class="btn <?php if($article->isLiked($_SESSION['user_id'])){echo 'btn-success';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>
-                                            </button></form></td>
-                                    <td><form method="post" action="traitement/insertLike.php">
-                                            <input type="text" name="idDislike" value="<?php echo $monument['id'];?>" hidden/>
-                                            <button class="btn <?php if($article->isDisliked($_SESSION['user_id'])){echo 'btn-danger';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDisLike()?></span>
-                                            </button></form></td>
-                                    <td><form method="post" action="traitement/insertLike.php">
-                                            <input type="text" name="idSignal" value="<?php echo $monument['id']; ?>" hidden/>
-                                            <button class="btn <?php if($article->isSignaled($_SESSION['user_id'])){echo 'btn-warning';}else{ echo 'btn-default';};?>" type="submit" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span>
-                                            </button></form></td>
+                                    <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>k,k,</button>
+                                    <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                                    <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                                 </tr>
                             </table>
                         </div>
@@ -693,6 +648,48 @@ $req4->execute();
     <script>
         $(function () {
             $('.carousel').carousel();
+        });
+    </script>
+
+    <script>
+        $('.btn_Like').click(function(e) {
+            var id = $(e.currentTarget).attr('id');
+            id = id.substring(1);
+            $.ajax({
+                url : 'traitement/insertLike.php', // La ressource ciblée
+                type : 'GET', // Le type de la requête HTTP.
+                data : 'idLike=' + id,
+                success : function(htmlcode, statut) {
+                    $('#L'+id).addClass('activeLike').off('click');
+                }
+            });
+            return false;
+        });
+        $('.btn_Dislike').click(function(e) {
+            var id = $(e.currentTarget).attr('id');
+            id = id.substring(1);
+            $.ajax({
+                url : 'traitement/insertLike.php', // La ressource ciblée
+                type : 'GET', // Le type de la requête HTTP.
+                data : 'idDislike=' + id,
+                success : function(htmlcode, statut) {
+                    $('#D'+id).addClass('activeDislike');
+                }
+            });
+            return false;
+        });
+        $('.btn_Sign').click(function(e) {
+            var id = $(e.currentTarget).attr('id');
+            id = id.substring(1);
+            $.ajax({
+                url : 'traitement/insertLike.php', // La ressource ciblée
+                type : 'GET', // Le type de la requête HTTP.
+                data : 'idSignal=' + id,
+                success : function(htmlcode, statut) {
+                    $('#S'+id).addClass('activeSign');
+                }
+            });
+            return false;
         });
     </script>
 
