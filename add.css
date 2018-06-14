@@ -29,7 +29,7 @@ margin: auto;
     height: 400px;
 }
 
-#titreProfil, #titreNewArticle #titreContact{
+#titreProfil, #titreNewArticle, #titreContact{
     text-align: center;
 }
 #lign1{
@@ -39,7 +39,7 @@ margin: auto;
     height: 50px;
 }
 #lignForm{
-    margin-top: 18%;
+    margin-top: 3%;
 }
 #textIntro{
     color: #321506;
@@ -122,7 +122,9 @@ td img
     margin-left: auto;
     margin-right: auto;
 }
-
+.img-responsive{
+    border-radius: 20px;
+}
 .table-bordered
 {
     text-align: center;

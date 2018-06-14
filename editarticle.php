@@ -1,5 +1,5 @@
 <?php
-    include ('affichage/headeradmin.php');
+    include ('affichage/header.php');
     include ('log/pdo.php');
 
     $userId = $_SESSION["user_id"];
@@ -32,7 +32,7 @@
                                placeholder="Tapez une indication du lieu ici"/></td>
                 </tr>
                 <tr>
-                    <td align="center">
+                    <td class="button-td">
                         <button class="btn btn-primary" type="submit"><span
                                     class="glyphicon glyphicon-search"></span>
                         </button>
