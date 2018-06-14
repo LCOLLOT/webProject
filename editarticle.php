@@ -32,7 +32,7 @@
                                placeholder="Tapez une indication du lieu ici"/></td>
                 </tr>
                 <tr>
-                    <td align="center">
+                    <td class="button-td">
                         <button class="btn btn-primary" type="submit"><span
                                     class="glyphicon glyphicon-search"></span>
                         </button>
