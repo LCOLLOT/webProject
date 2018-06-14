@@ -137,8 +137,6 @@ $req4->execute();
                             <?php
                         }
                         ?>
-                        <tr>
-                            <td>
                                 <form method="post" action="traitement/insertCommentaire.php">
                                     <input type="text" name="idArticle"
                                            value="<?php echo $monument['id']; ?>" hidden/>
@@ -147,9 +145,6 @@ $req4->execute();
                                                 class="glyphicon glyphicon-send"></span> Commenter
                                     </button>
                                 </form>
-                            </td>
-                        </tr>
-                    </table>
 
                     <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
                     <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
@@ -305,8 +300,6 @@ else if (isset($_GET['latt']) && isset($_GET['long'])){
                                 <?php
                             }
                             ?>
-                            <tr>
-                                <td>
                                     <form method="post" action="traitement/insertCommentaire.php">
                                         <input type="text" name="idArticle"
                                                value="<?php echo $monument['id']; ?>" hidden/>
@@ -315,9 +308,6 @@ else if (isset($_GET['latt']) && isset($_GET['long'])){
                                                     class="glyphicon glyphicon-send"></span> Commenter
                                         </button>
                                     </form>
-                                </td>
-                            </tr>
-                        </table>
                         <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
                         <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
                         <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
@@ -388,8 +378,6 @@ else if (isset($lat) && isset($long)){
                                 <?php
                             }
                             ?>
-                            <tr>
-                                <td>
                                     <form method="post" action="traitement/insertCommentaire.php">
                                         <input type="text" name="idArticle"
                                                value="<?php echo $monument['id']; ?>" hidden/>
@@ -398,9 +386,6 @@ else if (isset($lat) && isset($long)){
                                                     class="glyphicon glyphicon-send"></span> Commenter
                                         </button>
                                     </form>
-                                </td>
-                            </tr>
-                        </table>
                         <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
                         <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
                         <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
@@ -465,8 +450,6 @@ else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) &
                             <?php
                         }
                         ?>
-                        <tr>
-                            <td>
                                 <form method="post" action="traitement/insertCommentaire.php">
                                     <input type="text" name="idArticle"
                                            value="<?php echo $monument['id']; ?>" hidden/>
@@ -475,9 +458,6 @@ else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) &
                                                 class="glyphicon glyphicon-send"></span> Commenter
                                     </button>
                                 </form>
-                            </td>
-                        </tr>
-                    </table>
                     <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
                     <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
                     <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
