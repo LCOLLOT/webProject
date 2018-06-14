@@ -200,3 +200,20 @@ margin: auto;
 .dropdown-menu {
     margin-right: 14%;
 }
+
+#buttonH > .dropdown-menu {
+    margin-right: 14%;
+}
+
+#barreNav > .navbar-nav {
+    float:none;
+    margin-right: 500px;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+
+#barreNav > .navbar-nav > li {
+    display: inline-block;
+    float:none;
+}
