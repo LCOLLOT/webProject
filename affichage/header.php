@@ -38,7 +38,6 @@ $profil = new Profil($userId);
                 <!--<li> </li>-->
                     <li> <a href="acceuil.php">Accueil</a> </li>
                     <li> <a href="newArticle.php">Ajouter un article</a> </li>
-                    <li> <a href="messagerie.php">Messagerie</a> </li>
                     <li> <a href="contact.php">Nous contacter</a> </li>
                 <?php
                 if ($profil->getGroupe() == "moderateur" || $profil->getGroupe() == "admin" )
@@ -63,6 +62,7 @@ $profil = new Profil($userId);
                 <ul class="dropdown-menu">
                     <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span> Mon profil</a></li>
                     <li><a href="contributions.php"><span class="glyphicon glyphicon-picture"></span> Mes Contributions</a></li>
+                    <li><a href="messagerie.php"><span class="glyphicon glyphicon-envelope"></span> Messagerie</a></li>
                     <li class="divider"></li>
                     <li><a href="index.php?disconnect=true"><span class="glyphicon glyphicon-log-in"></span> Se Déconnecter</a></li>
                 </ul>
