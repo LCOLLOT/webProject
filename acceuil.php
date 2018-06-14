@@ -41,7 +41,7 @@ $req4->execute();
     </div>
 
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 well-sm well" align="center">
+        <div class="col-lg-12 col-md-12 col-sm-12 well-sm well">
 
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <form method="post" action="acceuil.php">
@@ -54,7 +54,7 @@ $req4->execute();
                                        placeholder="Tapez une indication du lieu ici"/></td>
                         </tr>
                         <tr>
-                            <td align="center">
+                            <td>
                                 <button class="btn btn-primary" type="submit"><span
                                             class="glyphicon glyphicon-search"></span>
                                 </button>
@@ -65,9 +65,10 @@ $req4->execute();
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4">
+                <form method="get" action="acceuil.php" name="rayonF">
                 <table class="table">
                     <tbody>
-                    <form method="get" action="acceuil.php" name="rayonF">
+
                         <tr class="tabLigne">
                             <td>Autour de moi</td>
                         </tr>
@@ -80,9 +81,9 @@ $req4->execute();
 
                                 </select></td>
                         </tr>
-                    </form>
+
                     <tr>
-                        <td align="center">
+                        <td>
                             <button class="btn btn-primary" onclick="loc()"><span
                                         class="glyphicon glyphicon-search"></span>
                                 <script> function loc() {
@@ -104,6 +105,7 @@ $req4->execute();
                     </tr>
                     </tbody>
                 </table>
+                </form>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -116,7 +118,7 @@ $req4->execute();
                         <tr>
                             <td>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="longitude"
-                                                                               class="form-control" placeholder="Longitude"/> <!-- #camarchepas {class="form-control" placeholder="Long"###/>} -----  NET-enabling start-tag requires SHORTTAG YES -->
+                                                                               class="form-control" placeholder="Longitude"/>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-sm-6"><input type="text" name="lattitude"
                                                                                class="form-control" placeholder="Latitude"/>
@@ -124,7 +126,7 @@ $req4->execute();
                             </td>
                         </tr>
                         <tr>
-                            <td align="center">
+                            <td>
                                 <button class="btn btn-primary" type="submit"><span
                                             class="glyphicon glyphicon-search"></span>
                                 </button>
@@ -157,10 +159,10 @@ $req4->execute();
                 <div class="item <?php if ($first == true) echo "active"; ?>">
                     <table class="table table-bordered">
                         <tr>
-                            <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                            <td><strong><?php echo $article->getTitre()." :aeaz ".$article->getCategorie(); ?></strong></td>
                         </tr>
                         <tr>
-                            <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                            <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
                                                     alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
                         </tr>
                         <tr>
@@ -181,7 +183,7 @@ $req4->execute();
                         }
                         ?>
                         <tr>
-                            <td align="center">
+                            <td>
                                 <form method="post" action="traitement/insertCommentaire.php">
                                     <input type="text" name="idArticle"
                                            value="<?php echo $monument['id']; ?>" hidden/>
@@ -193,13 +195,11 @@ $req4->execute();
                             </td>
                         </tr>
                     </table>
-                    <table>
-                        <tr>
-                            <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
-                            <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                            <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
-                        </tr>
-                    </table>
+
+                    <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                    <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                    <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
+
                 </div>
                 <?php
                 $first = false;
@@ -245,10 +245,10 @@ $req4->execute();
                             <div class="item <?php if ($first == true) echo "active"; ?>">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                     </tr>
                                     <tr>
-                                        <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                        <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
                                                  alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
                                     </tr>
                                     <tr>
@@ -269,7 +269,7 @@ $req4->execute();
                                         }
                                         ?>
                                     <tr>
-                                        <td align="left">
+                                        <td>
                                             <form method="post" action="traitement/insertCommentaire.php">
                                                 <input type="text" name="idArticle"
                                                        value="<?php echo $monument['id']; ?>" hidden/>
@@ -281,13 +281,9 @@ $req4->execute();
                                         </td>
                                     </tr>
                                 </table>
-                                <table>
-                                    <tr>
                                         <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
                                         <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
                                         <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
-                                    </tr>
-                                </table>
                             </div>
                             <?php
                             $first = false;
@@ -325,10 +321,10 @@ $req4->execute();
                                 <div class="item <?php if ($first == true) echo "active"; ?>">
                                     <table class="table table-bordered">
                                         <tr>
-                                            <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                            <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                         </tr>
                                         <tr>
-                                            <td align="center"><img
+                                            <td><img
                                                         src="images/articles/<?php echo $article->getPhoto(); ?>"
                                                         alt="<?php echo $article->getTitre(); ?>" class="img-responsive"
                                                         style="max-height: 300px"></td>
@@ -351,7 +347,7 @@ $req4->execute();
                                             }
                                             ?>
                                         <tr>
-                                            <td align="left">
+                                            <td>
                                                 <form method="post" action="traitement/insertCommentaire.php">
                                                     <input type="text" name="idArticle"
                                                            value="<?php echo $monument['id']; ?>" hidden/>
@@ -363,13 +359,9 @@ $req4->execute();
                                             </td>
                                         </tr>
                                     </table>
-                                    <table>
-                                        <tr>
-                                            <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
-                                            <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                                            <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
-                                        </tr>
-                                    </table>
+                                    <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                                    <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                                    <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                                 </div>
                                 <?php
                                 $first = false;
@@ -407,12 +399,12 @@ $req4->execute();
                             $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
                             ?>
                             <div class="item <?php if ($first == true) echo "active"; ?>">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" id ="titre-cent">
                                     <tr>
-                                        <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                        <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                     </tr>
                                     <tr>
-                                        <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                        <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
                                                  alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></td>
                                     </tr>
                                     <tr>
@@ -433,7 +425,7 @@ $req4->execute();
                                         }
                                         ?>
                                     <tr>
-                                        <td align="left">
+                                        <td>
                                             <form method="post" action="traitement/insertCommentaire.php">
                                                 <input type="text" name="idArticle"
                                                        value="<?php echo $monument['id']; ?>" hidden/>
@@ -445,13 +437,9 @@ $req4->execute();
                                         </td>
                                     </tr>
                                 </table>
-                                <table>
-                                    <tr>
                                         <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
                                         <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
                                         <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
-                                    </tr>
-                                </table>
                             </div>
                             <?php
                             $first = false;
@@ -464,10 +452,10 @@ $req4->execute();
                                 class="glyphicon glyphicon-menu-right black"></span></a>
                 </div>
             </div>
-            <?php } //Affichega des 5 articles les plus convoités
+            <?php } //Affichage des 5 articles les plus convoités
             else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) && isset($long)) && !(isset($_POST['recherche']) && !empty($_POST['recherche'])) ) {?>
             <div class="alert alert-info col-lg-12 col-md-12 col-sm-12">
-                <p align="center">Les 5 monuments les plus appréciés :</p>
+                <p id ="mostliked">Les 5 monuments les plus appréciés :</p>
             </div>
             <div class="carousel slide" id="carousel" data-ride="carousel">
                 <div class="carousel-inner thumbnail">
@@ -483,12 +471,12 @@ $req4->execute();
                         $tabDescriptif[] = '"' .$article->getUniqueCommentaire() . '"';
                         ?>
                         <div class="item <?php if ($first == true) echo "active"; ?>">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" id="mostliked-titre-cent">
                                 <tr>
-                                    <td align="center"><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
+                                    <td><strong><?php echo $article->getTitre()." : ".$article->getCategorie(); ?></strong></td>
                                 </tr>
                                 <tr>
-                                    <td align="center"><img src="images/articles/<?php echo $article->getPhoto(); ?>"
+                                    <td><img src="images/articles/<?php echo $article->getPhoto(); ?>"
                                                             alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
                                 </tr>
                                 <tr>
@@ -509,7 +497,7 @@ $req4->execute();
                                 }
                                 ?>
                                 <tr>
-                                    <td align="left">
+                                    <td>
                                         <form method="post" action="traitement/insertCommentaire.php">
                                             <input type="text" name="idArticle"
                                                    value="<?php echo $monument['id']; ?>" hidden/>
@@ -521,13 +509,9 @@ $req4->execute();
                                     </td>
                                 </tr>
                             </table>
-                            <table>
-                                <tr>
                                     <button class="btn btn-sm btn-default btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
                                     <button class="btn btn-sm btn-default btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
                                     <button class="btn btn-sm btn-default btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
-                                </tr>
-                            </table>
                         </div>
                         <?php
                         $first = false;
