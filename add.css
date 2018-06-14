@@ -16,8 +16,8 @@ header{
 }
 .logo{
     height: 50px;
-    margin-left: 350px;
-    margin-top: 20px;
+    margin-left: 0px;
+
 }
 
 .logo-div{
@@ -179,41 +179,4 @@ margin: auto;
     border-radius: 3px 3px 3px 3px;
     background-color: rgb( 239, 254, 254);
     margin-left: 20px;
-}
-.navbar-nav {
-     float:none;
-     margin-right: 500px;
-     margin-top: 20px;
-     display: block;
-     text-align: center;
- }
-
-.navbar-nav > li {
-    display: inline-block;
-    float:none;
-}
-
-.navbar-inverse > .pull-right {
-    margin-right: 14%;
-}
-
-.dropdown-menu {
-    margin-right: 14%;
-}
-
-#buttonH > .dropdown-menu {
-    margin-right: 14%;
-}
-
-#barreNav > .navbar-nav {
-    float:none;
-    margin-right: 500px;
-    margin-top: 20px;
-    display: block;
-    text-align: center;
-}
-
-#barreNav > .navbar-nav > li {
-    display: inline-block;
-    float:none;
 }
