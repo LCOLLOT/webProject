@@ -164,7 +164,7 @@ $req4->execute();
                                                     alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
                         </tr>
                         <tr>
-                            <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>
+                            <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
                         </tr>
                         <tr>
                             <td><?php echo $article->getContenu() ?></td>
@@ -265,7 +265,7 @@ $req4->execute();
                                                  alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
                                     </tr>
                                     <tr>
-                                        <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>
+                                        <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
                                     </tr>
                                     <tr>
                                         <td><?php echo $article->getContenu() ?></td>
@@ -360,7 +360,7 @@ $req4->execute();
                                                         style="max-height: 300px"></td>
                                         </tr>
                                         <tr>
-                                            <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>
+                                            <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
                                         </tr>
                                         <tr>
                                             <td><?php echo $article->getContenu() ?></td>
@@ -454,7 +454,7 @@ $req4->execute();
                                                  alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 300px"></td>
                                     </tr>
                                     <tr>
-                                        <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>
+                                        <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
                                     </tr>
                                     <tr>
                                         <td><?php echo $article->getContenu() ?></td>
@@ -543,7 +543,7 @@ $req4->execute();
                                                             alt="<?php echo $article->getTitre(); ?>" class="img-responsive" style="max-height: 200px"></td>
                                 </tr>
                                 <tr>
-                                    <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?></td>
+                                    <td>Lattitude : <?php echo $article->getLattitude() ?> Longitude : <?php echo $article->getLongitude() ?> | Rédigé par <a href="newMessage.php?dest=<?php echo $article->getAuteur();?>&artId=<?php echo $monument['id'];?>"><?php echo $article->getAuteur();?></a></td>
                                 </tr>
                                 <tr>
                                     <td><?php echo $article->getContenu() ?></td>
