@@ -506,7 +506,9 @@ else if(!($_POST['recherche'] && !empty($_POST['recherche'])) && !(isset($lat) &
             var texte ='Votre position';
             <?php if(isset($_GET['latt'])){
                 if(isset($_GET['article'])){?>
-                tewte ='';
+            lat = <?php echo $_GET['latt']?>;
+            long = <?php echo $_GET['long']?>;
+                texte ='';
                 <?php
                 }else{?>
                     lat = <?php echo $_GET['latt']?>;
