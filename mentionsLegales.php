@@ -1,29 +1,11 @@
 <?php
-session_start();
-session_cache_limiter('private_no_expire, must-revalidate');
+include ('affichage/header.php');
 ?>
     <!doctype html>
     <html lang="fr">
 
-    <head>
-        <meta charset="utf-8" />
-        <title>Web-Trotter</title>
-        <link rel="stylesheet" href="add.css" />
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    </head>
-
-    <body>
-    <!-- COMMENTAIRE : ici, je place le corps de mon site -->
-    <div class="container">
-        <nav class="navbar navbar-default">
-            <ul class="nav navbar-nav">
-                <li><a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a></li>
-            </ul>
-        </nav>
-        <script src="bootstrap/js/jquery.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-
     <div class="entry-content">
+        <h3>Adresse :</h3>
         <p>Le site www.web-trotter.fr est une publication de la société WEB-TROTTER.</p>
         <p>WEB-TROTTER est une S.A.R.L au capital de 0 euros.</p>
         <p>Siège social : 12 Rue des Frères Lumière,  68093 Mulhouse – contact[at]webtrotter.fr</p>
