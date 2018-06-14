@@ -10,7 +10,7 @@ include ('affichage/header.php');
                 <form class="well" method="post" action="traitement/insertMessage.php" enctype="multipart/form-data">
                     <tr><td>Destinataire <input type="text" name="destinataire" class="form-control" value="<?php echo $_GET['dest'];?>"/></td></tr>
                     <tr><td>Message  <textarea name="message" rows="15" cols="80"class="form-control" placeholder="Message concernant votre article <?php $article = new article($_GET['artId']); echo $article->getTitre();?>"><?php echo $_GET['msg']?></textarea></td></tr>
-                    <tr><td><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span> Envoyer</button></td></tr>
+                    <tr><td><button class="btn btn-primary btn-envoyer" type="submit"><span class="glyphicon glyphicon-send"></span> Envoyer</button></td></tr>
 
                 </form>
             </table>

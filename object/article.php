@@ -27,8 +27,13 @@ class article
         $this->id = $id;
         $this->categorie = $article['categorie'];
 
-        $req = $this->bdd->prepare('SELECT mail FROM users WHERE id = :id');
+        $req = $this->bdd->prepare('SELECT auteur_id as id FROM articles WHERE id = :id');
         $req->execute(array('id' => $this->id));
+        $data = $req->fetch();
+        $id_auteur = $data['id'];
+
+        $req = $this->bdd->prepare('SELECT mail FROM users WHERE id = :id');
+        $req->execute(array('id' => $id_auteur));
         $data = $req->fetch();
         $this->auteur = $data['mail'];
 
