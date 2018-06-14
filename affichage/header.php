@@ -33,7 +33,7 @@ $profil = new Profil($userId);
     </div>
 </div>
 <!-- COMMENTAIRE : ici, je place le corps de mon site -->
-<img src="images/back.jpg" alt="informatique" class="img-responsive">
+<img src="images/back.jpg" alt="informatique" class="img-responsive-back">
         <nav class="navbar navbar-inverse" id="barreNav">
             <div class="pull-left">
                 <a href="acceuil.php"><img src="images/logo.png" alt="web-trotter" class="logo"></a>
