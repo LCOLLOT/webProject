@@ -15,6 +15,9 @@ if (!isset($_POST["id"]))
         $req = $bdd->prepare("DELETE FROM articles WHERE articles.id = :id");
         $req->execute(array('id'=> $id));
 
+        $req2 = $bdd->prepare("DELETE FROM signalement WHERE signalement.article_id = :id");
+        $req2->execute(array('id' => $id));
+
         echo "L'article a bien été supprimé.";
     }
     if (isset($_POST["Update"]))
@@ -35,17 +38,6 @@ if (!isset($_POST["id"]))
         $req2->execute(array('id' => $id));
 
         echo "L'article a bien été modifié et n'est plus considéré comme signalé.";
-    }
-
-    else if (isset($_POST["DeleteSignal"]))
-    {
-        $req2 = $bdd->prepare("DELETE FROM signalement WHERE signalement.article_id = :id");
-        $req2->execute(array('id' => $id));
-
-        $req = $bdd->prepare("DELETE FROM articles WHERE articles.id = :id");
-        $req->execute(array('id'=> $id));
-
-        echo "L'article a bien été supprimé.";
     }
 ?>
 
