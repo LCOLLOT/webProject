@@ -72,6 +72,13 @@ class article
     public function getAuteur(){
         return $this->auteur;
     }
+    public function isLikedC($id_com,$user_id){
+        $req = $this->bdd->prepare('SELECT COUNT(*) as total FROM likecom WHERE commentaire_id = :commentaire_id AND auteur_id = :auteur_id');
+        $req->execute(array('commentaire_id'=>$id_com, 'auteur_id'=>$user_id));
+        $nb = $req->fetch();
+        return ($nb['total'] == 1);
+
+    }
     public function getLike() {
         $req = $this->bdd->prepare('SELECT COUNT(*) as total FROM likearticle WHERE article_id = :article_id');
         $req->execute(array('article_id'=>$this->id));
