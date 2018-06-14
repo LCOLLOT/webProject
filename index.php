@@ -61,9 +61,6 @@ if (isset($_GET['disconnect']))
         <ul class="nav navbar-nav">
             <li></li>
         </ul>
-        <div class="pull-right">
-            <button class="btn btn-lg btn-info" data-toggle="modal" href="#infos" data-backdrop="false" >S'inscrire</button>
-        </div>
 
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
