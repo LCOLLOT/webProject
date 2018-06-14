@@ -135,6 +135,10 @@ div.container{ /* Astuce de création d'un bloc à 60% opaque à l'image de fond
 }
 .btn-danger {
     margin-right: 5px;
+
+}
+.btn-envoyer{
+    margin-left: 35%;
 }
 .btn-succes {
     margin-right: 5px;
