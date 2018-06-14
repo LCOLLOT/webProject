@@ -8,7 +8,7 @@ include ('affichage/header.php');
         <h3>Adresse :</h3>
         <p>Le site www.web-trotter.fr est une publication de la société WEB-TROTTER.</p>
         <p>WEB-TROTTER est une S.A.R.L au capital de 0 euros.</p>
-        <p>Siège social : 12 Rue des Frères Lumière,  68093 Mulhouse – contact[at]webtrotter.fr</p>
+        <p>Siège social : 12 Rue des Frères Lumière,  68093 Mulhouse – <a href="contact.php">contact[at]web-trotter.fr</a></p>
         <p>Directeur de la publication : Monsieur Collot-Penichot Lucas</p>
         <p>La société WEB-TROTTER est soumise au droit français.</p>
         <p>Hébergeur : Ce site web est hébergé par OVH, SAS au capital de 10 069 020 €
