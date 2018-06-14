@@ -3,7 +3,7 @@ session_start();
 include('affichage/header.php');
 ?>
 
-    <h2 id="titreNewArticle">Ajouter un article</h2>
+    <h2 id="titreNewArticle" align="center">Ajouter un article</h2>
     <div class="row">
         <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-mg-6 col-sm-offset-3 col-sm-6">
                     <table class="table">
@@ -17,7 +17,7 @@ include('affichage/header.php');
                            <input type="text" name="auteur_id" value="<?php echo $_SESSION['user_id'];?>" class="form-control hidden"/>
                             <tr><td>Photo  <input type="file" name="photo" class="form-control"/></td></tr>
                             <tr><td>Catégorie<br />
-                                    <select name="choix">
+                                    <select name="choix" class="form-control">
                                         <option value="Musée">Musée</option>
                                         <option value="Châteaux">Châteaux</option>
                                         <option value="Grotte">Grotte</option>
