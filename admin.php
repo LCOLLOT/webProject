@@ -4,13 +4,14 @@ include ('affichage/headeradmin.php');
 $users = $bdd->query('SELECT * FROM users ');
 ?>
 
-    <div class="tg-wrap">
+    <div class="tg-wrap"><table class="membres">
     <?php
         while ($data = $users->fetch())
     {
         ?>
+
         <form method="post" action="updatemember.php">
-        <input type="hidden" name="id" value="<?php echo $data['id'];?>">
+            <input type="hidden" name="id" value="<?php echo $data['id'];?>">
             <table class="table table-striped">
                 <colgroup>
                     <col style="width: 3%">
@@ -18,7 +19,7 @@ $users = $bdd->query('SELECT * FROM users ');
                     <col style="width: 20%">
                     <col style="width: 1%">
                     <col style="width: 5%">
-                    <!--<col style="width: 20%">-->
+                    <col style="width: 20%">
                 </colgroup>
                 <tr>
                     <td><?php echo $data['id'];?></td>
@@ -42,8 +43,7 @@ $users = $bdd->query('SELECT * FROM users ');
     }
     $users->closeCursor();
     ?>
-    </div>
-</div>
+    </table></div>
 
 <?php
 include ('affichage/footer.php');

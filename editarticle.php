@@ -1,5 +1,5 @@
 <?php
-    include ('affichage/header.php');
+    include ('affichage/headeradmin.php');
     include ('log/pdo.php');
 
     $userId = $_SESSION["user_id"];
@@ -22,24 +22,82 @@
     }
   ?>
 
-        <form method="post" action="editarticle.php">
-            <table class="table">
-                <tr class="tabLigne">
-                    <td>Lieu</td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="recherche" class="form-control"
-                               placeholder="Tapez une indication du lieu ici"/></td>
-                </tr>
-                <tr>
-                    <td class="button-td">
-                        <button class="btn btn-primary" type="submit"><span
-                                    class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </td>
-                </tr>
-            </table>
-        </form>
+
+    <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Signalements</a>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Edition d'article</button>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Afficher les deux</button>
+    </p>
+    <div class="row">
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                <div class="card card-body">
+                    <?php
+
+                    $reqsignal = $bdd->query('SELECT * FROM articles, signalement WHERE signalement.article_id = articles.id ');
+
+                    while ($signalements = $reqsignal->fetch())
+                    {
+                        $article = new article($signalements['article_id']);
+
+                        ?>
+                        <form method="post" action="updateArticle.php">
+                            <input type="hidden" name="id" value="<?php echo $article->getId();?>">
+                            <div>
+                                <table class="table table-striped table-hover">
+                                    <tr>
+                                        <th class="col-md-1">ID</th>
+                                        <th class="col-md-2">Auteur</th>
+                                        <th class="col-md-5">Titre</th>
+                                        <th class="col-md-2">Latitude</th>
+                                        <th class="col-md-2">Longitude</th>
+                                    </tr>
+                                    <tr>
+                                        <td><?php echo $article->getId(); ?></td>
+                                        <td><?php echo $article->getAuteur(); ?></td>
+                                        <td><input style="width: 100%" type="text" name="titre" value="<?php echo $article->getTitre(); ?>"/></td>
+                                        <td><input style="width: 100%" type="text" name="latitude" value="<?php echo $article->getLattitude(); ?>"/></td>
+                                        <td><input style="width: 100%" type="text" name="longitude" value="<?php echo $article->getLongitude(); ?>"/></td>
+                                    </tr>
+                                </table>
+                                Description
+                                <textarea style="resize: vertical;" name="description" rows="4" cols="70" class="form-control"><?php echo $article->getContenu(); ?></textarea>
+                                <div style="float: right;">
+                                    <button class="btn btn-primary" name="UpdateSignal"><span class="glyphicon glyphicon-ok"></span></button>
+                                    <button class="btn btn-danger" name="Delete" onclick="return confirm('Supprimer l\'article <?php echo $article->getTitre(); ?> ?')"><span class="glyphicon glyphicon-remove"></span></button>
+                                </div>
+                                <br>
+                                <br>
+                            </div>
+                        </form>
+                        <br>
+                        <?php
+                    }
+                    $reqsignal->closeCursor();
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div class="card card-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 well-sm well">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <form method="post" action="editarticle.php">
+                                    <h3>Lieu</h3>
+                                    <input type="text" name="recherche" class="form-control" placeholder="Tapez une indication du lieu ici"/>
+                                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
 
 
 <?php
@@ -62,12 +120,14 @@
                     <table class="table table-striped table-hover">
                         <tr>
                             <th class="col-md-1">ID</th>
+                            <th class="col-md-2">Auteur</th>
                             <th class="col-md-5">Titre</th>
                             <th class="col-md-2">Latitude</th>
                             <th class="col-md-2">Longitude</th>
                         </tr>
                         <tr>
                             <td><?php echo $article->getId(); ?></td>
+                            <td><?php echo $article->getAuteur(); ?></td>
                             <td><input style="width: 100%" type="text" name="titre" value="<?php echo $article->getTitre(); ?>"/></td>
                             <td><input style="width: 100%" type="text" name="latitude" value="<?php echo $article->getLattitude(); ?>"/></td>
                             <td><input style="width: 100%" type="text" name="longitude" value="<?php echo $article->getLongitude(); ?>"/></td>
