@@ -641,7 +641,7 @@ $req4->execute();
                 type : 'GET', // Le type de la requête HTTP.
                 data : 'idLike=' + id,
                 success : function(htmlcode, statut) {
-                    $('#L'+id).addClass('activeLike').attr("disabled", true).children('span').text('Jaime');
+                    $('#L'+id).addClass('activeLike').attr("disabled", true).children('span').text(" J'aime");
                 }
             });
             return false;
@@ -654,7 +654,7 @@ $req4->execute();
                 type : 'GET', // Le type de la requête HTTP.
                 data : 'idDislike=' + id,
                 success : function(htmlcode, statut) {
-                    $('#D'+id).addClass('activeDislike').attr("disabled", true).children('span').text("J'aime pas");
+                    $('#D'+id).addClass('activeDislike').attr("disabled", true).children('span').text(" J'aime pas");
                 }
             });
             return false;
@@ -680,7 +680,7 @@ $req4->execute();
                 type : 'GET', // Le type de la requête HTTP.
                 data : 'idCom=' + id,
                 success : function(htmlcode, statut) {
-                    $('#LC'+id).addClass('activeLike').attr("disabled", true).children('span').text('Jaime');
+                    $('#LC'+id).addClass('activeLike').attr("disabled", true).children('span').text(" J'aime");
                 }
             });
             return false;
