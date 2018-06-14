@@ -184,3 +184,31 @@ div.indexcontainer{
 .btn_Like{
 
 }
+
+.btn-primary
+{
+    display: block;
+    margin : auto;
+
+}
+
+td img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-bordered
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+#mostliked
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
