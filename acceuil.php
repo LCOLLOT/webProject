@@ -199,9 +199,9 @@ $req4->execute();
                     </table>
                     <table>
                         <tr>
-                            <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span>k,k,</button>
-                            <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                            <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
+                            <button class="btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                            <button class="btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                            <button class="btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                         </tr>
                     </table>
                 </div>
@@ -291,9 +291,9 @@ $req4->execute();
                                 </table>
                                 <table>
                                     <tr>
-                                        <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
-                                        <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                                        <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
+                                        <button class="btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                                        <button class="btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                                        <button class="btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                                     </tr>
                                 </table>
                             </div>
@@ -376,9 +376,9 @@ $req4->execute();
                                     </table>
                                     <table>
                                         <tr>
-                                            <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
-                                            <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                                            <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
+                                            <button class="btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                                            <button class="btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                                            <button class="btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                                         </tr>
                                     </table>
                                 </div>
@@ -542,9 +542,9 @@ $req4->execute();
                             </table>
                             <table>
                                 <tr>
-                                    <button class="btn_Like" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
-                                    <button class="btn_Dislike" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
-                                    <button class="btn_Sign" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
+                                    <button class="btn_Like <?php if($article->isLiked($_SESSION['user_id'])) echo 'activeLike';?>" id="L<?php echo $article->getId();?>" <?php if($article->isLiked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-up"> <?php echo $article->getLike()?></span></button>
+                                    <button class="btn_Dislike <?php if($article->isDisliked($_SESSION['user_id'])) echo 'activeDislike';?>" id="D<?php echo $article->getId();?>" <?php if($article->isDisliked($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-thumbs-down"> <?php echo $article->getDislike()?></span></button>
+                                    <button class="btn_Sign <?php if($article->isSignaled($_SESSION['user_id'])) echo 'activeSign';?>" id="S<?php echo $article->getId();?>" <?php if($article->isSignaled($_SESSION['user_id'])) echo 'disabled="disabled"';?>><span class="glyphicon glyphicon-warning-sign"></span></button>
                                 </tr>
                             </table>
                         </div>
@@ -660,7 +660,7 @@ $req4->execute();
                 type : 'GET', // Le type de la requête HTTP.
                 data : 'idLike=' + id,
                 success : function(htmlcode, statut) {
-                    $('#L'+id).addClass('activeLike').off('click');
+                    $('#L'+id).addClass('activeLike').attr("disabled", true);
                 }
             });
             return false;
@@ -673,7 +673,7 @@ $req4->execute();
                 type : 'GET', // Le type de la requête HTTP.
                 data : 'idDislike=' + id,
                 success : function(htmlcode, statut) {
-                    $('#D'+id).addClass('activeDislike');
+                    $('#D'+id).addClass('activeDislike').attr("disabled", true);
                 }
             });
             return false;
@@ -686,7 +686,7 @@ $req4->execute();
                 type : 'GET', // Le type de la requête HTTP.
                 data : 'idSignal=' + id,
                 success : function(htmlcode, statut) {
-                    $('#S'+id).addClass('activeSign');
+                    $('#S'+id).addClass('activeSign').attr("disabled", true);
                 }
             });
             return false;
