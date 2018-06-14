@@ -1,5 +1,5 @@
 <?php
-    include ('affichage/headeradmin.php');
+    include ('affichage/header.php');
     include ('log/pdo.php');
 
     $userId = $_SESSION["user_id"];
